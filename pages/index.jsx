@@ -14,7 +14,7 @@ const index = () => {
             </Head>
             <div>
                 <Link href="cart">
-
+                        Cart
                 </Link>
             </div>
         </div>
