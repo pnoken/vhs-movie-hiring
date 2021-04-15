@@ -1,5 +1,5 @@
 import React from 'react'
-import VhsVirtualCard from '../components/VhsVirtualCard';
+import VhsVirtualCard from '../Component/PaymentMethods/VhsVirtualCard';
 
 const virtualcard = () => {
     return (

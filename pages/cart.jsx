@@ -1,5 +1,5 @@
 import React from 'react'
-import App from '../components/ShoppingCart'
+import App from '../Component/PaymentMethods/ShoppingCart'
 
 const UserCart = () => {
     return (
