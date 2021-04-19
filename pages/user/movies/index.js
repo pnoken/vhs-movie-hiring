@@ -39,7 +39,7 @@ export default function UserProfile() {
             <tr id="d1">
               <td>{movie.id}</td>
               <td id="f1">{movie.name}</td>
-              <td id="l1">{movie.price}</td>
+              <td id="l1">GHS {movie.price}</td>
               <td id="m1">{movie.active ? "Available" : "Not Available"}</td>
             </tr>
           </tbody>
