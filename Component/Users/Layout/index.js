@@ -9,7 +9,7 @@ export default function UserLayout({ title, children}){
                 {title}
             </Head>
             <body>
-                <h1>This is the user layout</h1>
+                <h1>VHS Movie Hiring</h1>
                 {children}
             </body>
         </div>
