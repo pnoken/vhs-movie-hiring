@@ -4,11 +4,7 @@ A movie hiring plaform
 # Getting Started
 
 ## First Clone the main branch
-<<<<<<< HEAD
- ### git clone https://github.com/pnoken/vhs-movie-hiring.git
-=======
  ```git clone https://github.com/pnoken/vhs-movie-hiring.git```
->>>>>>> 45fd270d2441adf199a7098b44ddefa6ca92e296
 
  ## Checkout
 Checkout to a new branch depending on your task on https://dev.azure.com/jamesasafuah/Project%20VHS%20Movie%20Hiring/_workitems. 

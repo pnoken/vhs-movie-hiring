@@ -51,8 +51,26 @@
                 {
                     "movie_name": "Batman",
                     "hired": false
-                }
+                },
+                {
+                  "movie_name": "Spiderman",
+                  "hired": true
+              }
             ]
-        }
+        },
+        {
+          "name": "Peter",
+          "username": "peten",
+          "movies": [
+              {
+                  "movie_name": "Batman",
+                  "hired": false
+              },
+              {
+                  "movie_name": "Batman",
+                  "hired": false
+              }
+          ]
+      }
     ]
   }

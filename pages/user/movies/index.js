@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 
 export default function UserProfile() {
   const [movies, setMovies] = useState([]);
+  const [ hired, setHired ] = useState(false);
 
   function getMovies() {
     var requestOptions = {
@@ -32,6 +33,7 @@ export default function UserProfile() {
             <th>Movie Name</th>
             <th>Price</th>
             <th>Availability</th>
+            <th>Action</th>
           </tr>
         </thead>
         {movies.map((movie) => (
@@ -41,6 +43,15 @@ export default function UserProfile() {
               <td id="f1">{movie.name}</td>
               <td id="l1">GHS {movie.price}</td>
               <td id="m1">{movie.active ? "Available" : "Not Available"}</td>
+              <td>
+                {movie.active && !hired ? (
+                  <button  onClick={() => setHired(true)} className="btn btn-primary">hire</button>
+                ) : movie.active && hired ? (
+                  <button className="btn btn-success" disabled>hired</button>
+                ) : (
+                  <button className="btn btn-secondary" disabled>hire</button>
+                )}
+              </td>
             </tr>
           </tbody>
         ))}
