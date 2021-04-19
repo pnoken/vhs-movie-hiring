@@ -27,3 +27,23 @@ or
 ```yarn global add json-server```
 
 more instructions can be found here: https://www.npmjs.com/package/json-server
+
+## Start json-server (Default PORT 3002)
+
+```npm run json```
+
+or
+
+```yarn json```
+
+or 
+
+```json-server --watch db.json -p 3002```
+
+## Run Package (Default PORT 3000)
+
+```npm run dev```
+
+or
+
+```yarn dev```
