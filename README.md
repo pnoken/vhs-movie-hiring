@@ -1,4 +1,4 @@
-# vhs-movie-hiring
+# VHS Movie Hiring
 A movie hiring plaform
 
 # Getting Started
