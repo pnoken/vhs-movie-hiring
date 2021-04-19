@@ -1,10 +1,14 @@
-# vhs-movie-hiring
+# VHS Movie Hiring
 A movie hiring plaform
 
 # Getting Started
 
 ## First Clone the main branch
+<<<<<<< HEAD
  ### git clone https://github.com/pnoken/vhs-movie-hiring.git
+=======
+ ```git clone https://github.com/pnoken/vhs-movie-hiring.git```
+>>>>>>> 45fd270d2441adf199a7098b44ddefa6ca92e296
 
  ## Checkout
 Checkout to a new branch depending on your task on https://dev.azure.com/jamesasafuah/Project%20VHS%20Movie%20Hiring/_workitems. 
@@ -28,6 +32,28 @@ or
 
 more instructions can be found here: https://www.npmjs.com/package/json-server
 
+<<<<<<< HEAD
 
 
 
+=======
+## Start json-server (Default PORT 3002)
+
+```npm run json```
+
+or
+
+```yarn json```
+
+or 
+
+```json-server --watch db.json -p 3002```
+
+## Run Package (Default PORT 3000)
+
+```npm run dev```
+
+or
+
+```yarn dev```
+>>>>>>> 45fd270d2441adf199a7098b44ddefa6ca92e296
