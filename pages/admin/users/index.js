@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Add from "../../../Component/Admin/Users/Add"
-import Admin from "../../../Component/Layout/Admin";
+import AdminLayout from "../../../Component/Layout/Admin";
 
 export default function users() {
   const [users, setUsers] = useState([]);
@@ -99,7 +99,7 @@ export default function users() {
 
   return (
     <>
-      <Admin title="users">
+      <AdminLayout title="users">
         <span>
           <h1>User List</h1>
           <button
@@ -256,7 +256,7 @@ export default function users() {
             </div>
           </div>
         </div>
-      </Admin>
+      </AdminLayout>
     </>
   );
 }
