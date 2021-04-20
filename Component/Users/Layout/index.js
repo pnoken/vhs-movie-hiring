@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 
 export default function UserLayout({ title, children }) {
   return (
@@ -13,8 +14,9 @@ export default function UserLayout({ title, children }) {
         ></link>
       </Head>
       <body>
-        <nav classNameName="navbar navbar-dark bg-dark"></nav>
-        <h1>VHS Movie Hiring</h1>
+        <nav className="navbar navbar-dark bg-dark">
+        <Link href="/"><a className="text-light">VHS Movie Hiring</a></Link>
+        </nav>
         {children}
       </body>
     </div>

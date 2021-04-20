@@ -28,11 +28,6 @@ or
 
 more instructions can be found here: https://www.npmjs.com/package/json-server
 
-<<<<<<< HEAD
-
-
-
-=======
 ## Start json-server (Default PORT 3002)
 
 ```npm run json```
@@ -52,4 +47,3 @@ or
 or
 
 ```yarn dev```
->>>>>>> 45fd270d2441adf199a7098b44ddefa6ca92e296

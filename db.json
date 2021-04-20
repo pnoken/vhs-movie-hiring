@@ -1,76 +1,76 @@
 {
-    "users": [
-      {
-        "first_name": "Pete",
-        "last_name": "Nortey",
-        "username": "admin",
-        "id": 1
-      },
-      {
-        "first_name": "Samuel",
-        "last_name": "Twoooo",
-        "username": "samuel.mensah@mail.com",
-        "id": 2
-      }
-    ],
-    "movies": [
-      {
-        "id": 1,
-        "name": "Batman",
-        "price": 10,
-        "active": false
-      },
-      {
-        "id": 2,
-        "name": "Superman",
-        "price": 14,
-        "active": true
-      },
-      {
-        "id": 3,
-        "name": "Black Panther",
-        "price": 19,
-        "active": false
-      },
-      {
-        "id": 4,
-        "name": "Spiderman",
-        "price": 20,
-        "active": true
-      }
-    ], 
-    "user": [
+  "users": [
+    {
+      "first_name": "Pete",
+      "last_name": "Nortey",
+      "username": "admin",
+      "id": 1
+    },
+    {
+      "first_name": "Samuel",
+      "last_name": "Two",
+      "username": "samuel.mensah@mail.com",
+      "id": 2
+    }
+  ],
+  "movies": [
+    {
+      "id": 1,
+      "name": "Batman",
+      "price": 10,
+      "active": false
+    },
+    {
+      "id": 2,
+      "name": "Superman",
+      "price": 14,
+      "active": true
+    },
+    {
+      "id": 3,
+      "name": "Black Panther",
+      "price": 19,
+      "active": false
+    },
+    {
+      "id": 4,
+      "name": "Spiderman",
+      "price": 20,
+      "active": true
+    }
+  ],
+  "user": [
+    {
+      "name": "Dolly",
+      "username": "dpk",
+      "movies": [
         {
-            "name": "Dolly",
-            "username": "dpk",
-            "movies": [
-                {
-                    "movie_name": "Batman",
-                    "hired": false
-                },
-                {
-                    "movie_name": "Batman",
-                    "hired": false
-                },
-                {
-                  "movie_name": "Spiderman",
-                  "hired": true
-              }
-            ]
+          "movie_name": "Batman",
+          "hired": false
         },
         {
-          "name": "Peter",
-          "username": "peten",
-          "movies": [
-              {
-                  "movie_name": "Batman",
-                  "hired": false
-              },
-              {
-                  "movie_name": "Batman",
-                  "hired": false
-              }
-          ]
-      }
-    ]
-  }
+          "movie_name": "Batman",
+          "hired": false
+        },
+        {
+          "movie_name": "Spiderman",
+          "hired": true
+        }
+      ]
+    },
+    {
+      "name": "Peter",
+      "username": "peten",
+      "movies": [
+        {
+          "movie_name": "Batman",
+          "hired": false
+        },
+        {
+          "movie_name": "Batman",
+          "hired": false
+        }
+      ]
+    }
+  ]
+}
