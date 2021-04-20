@@ -16,7 +16,7 @@ For example if you are handling task 8,
 
 ```npm install```
 or
-```yarn add```
+```yarn install```
 
 ## Install json-server globally
 
