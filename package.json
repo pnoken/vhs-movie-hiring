@@ -9,6 +9,7 @@
     "json": "json-server --watch db.json -p 3002"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
     "bootstrap": "^4.0.0-alpha.6",
     "next": "10.1.3",
     "react": "17.0.2",

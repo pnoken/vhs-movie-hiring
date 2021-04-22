@@ -1,5 +1,5 @@
 .navbar {
-  background-color:blue;
+  background-color: blue;
   height: 80px;
   display: flex;
   justify-content: start;
@@ -38,11 +38,10 @@
   height: 60px;
 }
 
-
 .nav-text a {
   text-decoration: none;
   color: wheat;
-  font-size:18px;
+  font-size: 18px;
   width: 95%;
   height: 100%;
   display: flex;
@@ -72,22 +71,19 @@ span {
   margin-left: 16px;
 }
 
-
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 * {
-box-sizing: border-box;
-margin: 0;
-padding: 0;
-font-family: 'Lato', sans-serif;
-} 
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+}
 
 nav > ul {
-  font-family: "Montserrat", Roboto, "Helvetica Neue", sans-serif ;
+  font-family: "Montserrat", Roboto, "Helvetica Neue", sans-serif;
   font-size: 18px;
   list-style-type: none;
-
-  
 }
 
 nav > ul > a > li {
@@ -97,7 +93,7 @@ nav > ul > a > li {
   background-color: #063b85;
   padding: 1px;
   color: #f7fff7;
-} 
+}
 
 nav {
   padding: 1vh 24px 0 24px;
@@ -106,12 +102,56 @@ nav {
   z-index: 9;
 }
 
-
 .students,
 .meals {
-display: flex;
-height: 90vh;
-align-items: center;
-justify-content: center;
-font-size: 3rem;
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+img {
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+img {
+  pointer-events: none;
+}
+.movie_card {
+  padding: 0 !important;
+  width: 15rem;
+  margin: 14px;
+  border-radius: 10px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.19);
+}
+.movie_card img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.movie_info {
+  color: #5e5c5c;
+}
+
+.movie_info i {
+  font-size: 20px;
+}
+.card-title {
+  width: 80%;
+  height: 4rem;
+}
+.play_button {
+  background-color: #ff3d49;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  right: 20px;
+  bottom: 111px;
+  font-size: 27px;
+  padding-left: 21px;
+  padding-top: 16px;
+  color: #ffffff;
+  cursor: pointer;
 }
