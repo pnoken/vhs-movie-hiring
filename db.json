@@ -33,38 +33,40 @@
       "active": true
     }
   ],
-  "user": [
+  "hired_movies": [
     {
-      "name": "Dolly",
-      "username": "dpk",
+      "movie_id": 1,
+      "user_id": 1,
+      "status": "cancelled",
+      "date_hired": "20/04/2021",
+      "date_returned": "22/04/2021"
+    }
+  ],
+  "payments": [
+    {
+      "id": 1,
+      "user_id": 1,
       "movies": [
         {
-          "movie_name": "Batman",
-          "hired": false
+          "movie_id": 1,
+          "price": 20
         },
         {
-          "movie_name": "Batman",
-          "hired": false
-        },
-        {
-          "movie_name": "Spiderman",
-          "hired": true
+          "movie_id": 2,
+          "price": 40
         }
-      ]
-    },
+      ],
+      "date_paid": "20/04/2021",
+      "amount": 200,
+      "payment_method": "cash"
+    }
+  ],
+  "wallet": [
     {
-      "name": "Peter",
-      "username": "peten",
-      "movies": [
-        {
-          "movie_name": "Batman",
-          "hired": false
-        },
-        {
-          "movie_name": "Batman",
-          "hired": false
-        }
-      ]
+      "id": 1,
+      "user_id": 1,
+      "amount": 2000
     }
   ]
+
 }
