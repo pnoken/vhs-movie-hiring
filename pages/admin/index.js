@@ -8,13 +8,6 @@ export default function Home() {
       <main className={styles.main}>
         <h1 className={styles.title}>VHS Admin Panel</h1>
 
-        {/* <div className={styles.grid}>
-          <a href="/admin/movies" className={styles.card}>
-            <h3>Movies Available</h3>
-            <p>View a list of all movies available.</p>
-          </a>
-        </div> */}
-
         <div className={styles.grid}>
           <Link href="/admin/users"><a className={styles.card}>
             <h3>Users</h3>
