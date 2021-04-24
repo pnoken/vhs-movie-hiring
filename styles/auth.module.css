@@ -1,0 +1,193 @@
+  .container {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: 0;
+    background-position-y: 0;
+    background-image: url(/img/movie.jpg/);
+    min-height: 100vh;
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  .main {
+    padding: 5rem 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .title{
+    padding: 5px 5px 5px 5px;
+    background-color: black;
+    border-radius: 10px;
+    opacity: .7;
+    color: white;
+  }
+
+  .card{
+    margin-top: 30px; 
+    padding: 5px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70vh;
+    height:64vh;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 70px 100px rgba(88, 93, 88, 0.904);
+
+  }
+
+  .signupcard{
+    margin-top: 30px; 
+    padding: 5px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70vh;
+    height:85vh;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 70px 100px rgba(78, 83, 78, 0.9);
+  }
+  
+  .InputField{
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 2px 2px 2px;
+    width: 60vh;
+    height: 5vh;
+    background-color: white;
+    color: black;
+    border: 2px solid #1a1919;
+    border-radius: 10px;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .errors{
+    display: flex;
+    font-size: 12px;
+    flex-direction: column;
+    color: darkred;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+
+  }
+
+  .loginbtn{
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    padding: 2px 2px 2px 2px;
+    width: 200px;
+    height: 50px;
+    background-color: rgb(204, 203, 203);
+    color: black;
+    border: 2px solid #1a1919;
+    border-radius: 10px;
+    cursor: pointer;
+    color: black;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .loginbtn:hover{
+    background-color: rgb(41, 85, 41);
+    transition-duration: 0.5s;
+    opacity: 1;
+    color: white;
+  }
+
+  
+  .signuplnk{
+    display: flex;
+    flex-direction: column;
+    padding: 2px 2px 2px 2px;
+    color: white;
+    padding: 14px 14px;
+    text-decoration: none;
+    font-weight: 400;
+    width: 300px;
+    background-color: white;
+    color: rgb(56, 9, 9);
+    border: 2px solid rgb(56, 9, 9);
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    margin-top: 5px;
+  }
+  .signuplnk:hover{
+    background-color: rgb(59, 1, 1);
+    /* border-radius: 10px; */
+    color: white;
+    transition-duration: 0.5s;
+  }
+
+  .adminlnk{
+    color: rgb(248, 1, 50);
+    padding: 14px 14px;
+    text-decoration: none;
+    font-weight: 400;
+
+  }
+  .adminlnk:hover{
+    background-color: crimson;
+    border-radius: 10px;
+    color: white;
+    transition-duration: 0.5s;
+  }
+
+  .homelnk{
+    color: chocolate;
+    padding: 14px 14px;
+    text-decoration: none;
+    font-weight: 400;
+  }
+  .homelnk:hover{
+    background-color: brown;
+    border-radius: 10px;
+    color: white;
+    transition-duration: 0.5s;
+  }
+
+
+  .footer {
+    color: white;
+    width: 1365px;
+    height: 50px;
+    border-top: 1px solid #eaeaea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    background-color: black ;
+    opacity: 0.5;
+  }
+
+  @media (max-width: 600px) {
+    .grid {
+      width: 100%;
+      flex-direction: column;
+    }
+  }
