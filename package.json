@@ -3,25 +3,34 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently \"next dev\" \"yarn json\"",
     "build": "next build",
     "start": "next start",
-    "json": "json-server --watch db.json -p 3002"
+    "json": "json-server --watch db.json -p 3002 -m ./node_modules/json-server-auth"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
     "axios": "^0.21.1",
-    "bootstrap": "^4.0.0-alpha.6",
+    "bootstrap": "^4.6.0",
+    "chartjs": "^0.3.24",
     "classnames": "^2.3.1",
+    "concurrently": "^6.0.2",
+    "jquery": "^3.6.0",
+    "moment": "^2.29.1",
     "next": "10.1.3",
+    "popper": "^1.0.1",
     "react": "17.0.2",
+    "react-bootstrap": "^1.5.2",
+    "react-chartjs-2": "^3.0.2",
+    "react-confirm-alert": "^2.7.0",
     "react-dom": "17.0.2",
-    "react-hook-form": "^7.3.0",
+    "react-hook-form": "6",
     "react-hooks": "^1.0.1",
     "react-hooks-form": "^2.0.1",
     "react-icons": "^4.2.0",
     "react-shopping-cart": "^1.9.5",
     "react-slideshow-image": "^3.4.6",
+    "underscore": "^1.13.1",
     "validator": "^13.6.0"
   },
   "devDependencies": {
