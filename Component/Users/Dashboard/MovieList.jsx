@@ -1,7 +1,5 @@
-import UserLayout from "../../../Component/Users/Layout";
 import React, { useState, useEffect } from "react";
-
-export default function UserProfile() {
+export default function MovieList() {
   const [movies, setMovies] = useState([]);
   const [hired, setHired] = useState(false);
 
@@ -10,7 +8,7 @@ export default function UserProfile() {
       method: "GET",
     };
 
-    fetch("http://localhost:3002/movies", requestOptions)
+    fetch("http://localhost:7000/movies", requestOptions)
       .then((response) => response.json())
       .then((result) => {
         setMovies(result), console.log(result);
@@ -23,38 +21,8 @@ export default function UserProfile() {
   }, []);
 
   return (
-    <UserLayout title="User Profile">
-      <h2>Movie List</h2>
-
-      {/* <table className="table table-hover table-responsive">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Movie Name</th>
-            <th>Price</th>
-            <th>Availability</th>
-            <th>Action</th>
-          </tr>
-        </thead> */}
-      <div className="row">
+      <div className="row" style={{gridRow: "span 2"}}>
         {movies.map((movie) => (
-          // <tbody key={movie.id}>
-          //   <tr id="d1">
-          //     <td>{movie.id}</td>
-          //     <td id="f1">{movie.name}</td>
-          //     <td id="l1">GHS {movie.price}</td>
-          //     <td id="m1">{movie.active ? "Available" : "Not Available"}</td>
-          //     <td>
-          //       {movie.active && !hired ? (
-          //         <button  onClick={() => setHired(true)} className="btn btn-primary">hire</button>
-          //       ) : movie.active && hired ? (
-          //         <button className="btn btn-success" disabled>hired</button>
-          //       ) : (
-          //         <button className="btn btn-secondary" disabled>hire</button>
-          //       )}
-          //     </td>
-          //   </tr>
-          // </tbody>
 
           <div className="col">
             <div className="card movie_card">
@@ -99,7 +67,6 @@ export default function UserProfile() {
           </div>
         ))}
       </div>
-      {/* </table> */}
-    </UserLayout>
+    
   );
 }

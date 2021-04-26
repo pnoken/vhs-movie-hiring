@@ -26,6 +26,13 @@
       "username": "peter@mail.com",
       "password": "Peter@2020",
       "id": 4
+    },
+    {
+      "first_name": "Peter",
+      "last_name": "newuser",
+      "username": "newuser@mail.com",
+      "password": "Peter@2020",
+      "id": 5
     }
   ],
   "movies": [
