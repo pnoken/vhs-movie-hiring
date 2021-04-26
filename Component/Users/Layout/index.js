@@ -20,11 +20,11 @@ export default function UserLayout({ title, children }) {
         ></link>
       </Head>
       <body>
-        <nav className="navbar navbar-dark bg-dark">
+        {/* <nav className="navbar navbar-dark bg-dark">
           <Link href="/">
             <a className="text-light">VHS Movie Hiring</a>
           </Link>
-        </nav>
+        </nav> */}
         {children}
       </body>
     </div>
