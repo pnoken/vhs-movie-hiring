@@ -6,7 +6,7 @@ import FooterElement from './footer'
 import MovieSlideshow from './slideshow'
 // import classNames from "classnames/bind";
 import axios from 'axios'
-import styles from "../../../styles/users/userdashboard.module.css";
+import styles from "../../styles/users/userdashboard.module.css";
 
 const UsersDashboard = () => {
   const {
