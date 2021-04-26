@@ -1,6 +1,6 @@
 import React from "react";
 // import classNames from "classnames/bind";
-import styles from "../../../styles/users/header.module.css";
+import styles from "../../styles/users/header.module.css";
 
 const HeaderElement = ({ quantity, addToCart }) => {
   //defines styles for header
