@@ -1,5 +1,5 @@
 import React from 'react'
-import MainCanvas from '../../Component/Users/Dashboard/main'
+import MainCanvas from '../../Component/Users/main'
 
 const UserDashboard = () => {
     return (
