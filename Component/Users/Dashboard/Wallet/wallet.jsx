@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 // import Body from 'next/body'
-import HeaderElement from "../header";
-import FooterElement from "../footer";
+import HeaderElement from "../../header";
+import FooterElement from "../../footer";
 import axios from "axios";
 import styles from "../../../../styles/users/wallet.module.css";
 
