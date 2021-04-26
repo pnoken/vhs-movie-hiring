@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "json": "json-server --watch db.json -p 3002"
+    "json": "json-server --watch db.json -p 7000"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
