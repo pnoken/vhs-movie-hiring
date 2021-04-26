@@ -14,12 +14,18 @@
       "id": 2
     },
     {
-      "name": "Prison Break",
-      "price": "30",
-      "release_year": "2014",
-      "rating": "10/10",
-      "active": true,
+      "first_name": "Jeff",
+      "last_name": "Asmah",
+      "username": "jeff.asmah",
+      "password": "oJo4uqui",
       "id": 3
+    },
+    {
+      "first_name": "Peter",
+      "last_name": "pnokn",
+      "username": "peter@mail.com",
+      "password": "Peter@2020",
+      "id": 4
     }
   ],
   "movies": [
