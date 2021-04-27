@@ -38,16 +38,18 @@
   "movies": [
     {
       "id": 1,
-      "name": "Batman",
-      "price": 10,
-      "release_year": 2019,
-      "rating": "9/10",
-      "active": false
+      "name": "The Priest",
+      "Category": "Mystery/Horror",
+      "price": 70,
+      "release_year": 2021,
+      "rating": "6.31/10",
+      "active": true
     },
     {
       "id": 2,
-      "name": "Superman",
-      "price": 14,
+      "name": " Batman v Superman: Dawn of Justice",
+      "Category": "Action/Adventure",
+      "price": 69,
       "release_year": 2019,
       "rating": "9/10",
       "active": true
@@ -55,25 +57,59 @@
     {
       "id": 3,
       "name": "Black Panther",
+      "Category": "Action/Adventure",
       "price": 19,
-      "release_year": 2019,
-      "rating": "9/10",
-      "active": false
-    },
-    {
-      "id": 4,
-      "name": "Spiderman",
-      "price": 20,
-      "release_year": 2019,
+      "release_year": 2018,
       "rating": "9/10",
       "active": true
     },
     {
-      "name": "Prison Break",
-      "price": "40",
+      "id": 4,
+      "name": "Spiderman: No way home",
+      "Category": "Action/Adventure",
+      "price": 20,
+      "release_year": 2021,
+      "rating": "9/10",
+      "active": true
+    },
+    { 
+      "id": 5,
+      "name": "Avengers: Endgame",
+      "Category": "Action/Sci-Fi",
+      "price": "67",
+      "release_year": "2019",
+      "rating": "10/10",
+      "active": true
+      
+    },
+    {
+      "id": 6,
+      "name": "Army Of One",
+      "price": "35",
+      "release_year": "2020",
+      "rating": "10/10",
+      "active": true
+      
+    },
+    {
+      "id": 7,
+      "name": "Fantasy Island",
+      "Category": "Action/Sci-Fi",
+      "price": "45",
+      "release_year": "2020",
+      "rating": "10/10",
+      "active": true
+      
+    },
+    {
+      "id": 8,
+      "name": "Outside The Wire",
+      "Category": "Action/Blockbuster",
+      "price": "50",
       "release_year": "2014",
       "rating": "10/10",
-      "id": 5
+      "active": true
+      
     }
   ],
   "hired_movies": [
