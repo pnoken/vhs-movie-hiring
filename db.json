@@ -2,14 +2,22 @@
   "users": [
     {
       "email": "wixep22104@laraskey.com",
+<<<<<<< HEAD
       "password": "$2a$10$Lw9Sll5r5vgNhtcrvuSiqe6yHpD1nqVY9KsuhH6XiJ6zmU3E9IpXG",
       "firstName": "Adin",
       "lastName": "New",
       "contact": "123512345",
+=======
+      "password": "$2a$10$uLeGULbhjrW3RkR8kPElguBVhHUFEy3hAHar0cEtk0u/9klQx/Lni",
+      "firstName": "clem",
+      "lastName": "sedem",
+      "contact": "0324334456",
+>>>>>>> dev
       "isAdmin": "true",
       "role": "Admin",
       "status": true,
       "id": 1
+<<<<<<< HEAD
     },
     {
       "email": "wixep22104@lraskey.com",
@@ -21,6 +29,8 @@
       "role": "Customer",
       "status": true,
       "id": 2
+=======
+>>>>>>> dev
     }
   ],
   "movies": [
