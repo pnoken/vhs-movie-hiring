@@ -1,68 +1,6 @@
 {
   "users": [
-    {
-      "email": "wixep22104@laraskey.com",
-      "password": "$2a$10$Lw9Sll5r5vgNhtcrvuSiqe6yHpD1nqVY9KsuhH6XiJ6zmU3E9IpXG",
-      "firstName": "Adin",
-      "lastName": "New",
-      "contact": "123512345",
-      "isAdmin": "true",
-      "role": "Admin",
-      "status": true,
-      "id": 1
-    },
-    {
-      "email": "wixep22104@lraskey.com",
-      "password": "$2a$10$m1e1vA1czQnWfTm1f7LoQeCSIWc7Ir5KRNEkZejiJDJ2Z5zXN6CGa",
-      "firstName": "Cust 1",
-      "lastName": "Cust 11",
-      "contact": "2341234567",
-      "isAdmin": false,
-      "role": "Customer",
-      "status": true,
-      "id": 2
-    },
-    {
-      "email": "wixep22104@leraskey.com",
-      "password": "$2a$10$JQfN8.9UZf1mU3KYd/bkAub9di/6IHN8jlNOlbTcg0mP8zFSTegrC",
-      "firstName": "Enoch",
-      "lastName": "Boss",
-      "contact": "0123334433",
-      "isAdmin": "true",
-      "role": "Admin",
-      "status": false,
-      "id": 3
-    },
-    {
-      "email": "clemsedem@gmawixep22104@lraskey.comil.com",
-      "password": "$2a$10$GuboIsAyh1y3Za2kS4vKw.Ca.qk1WcHlsVr3t6.S9uP2n9QOVq0Y.",
-      "firstName": "sdfd",
-      "lastName": "dfsds",
-      "contact": "1112233343",
-      "isAdmin": false,
-      "role": "Customer",
-      "status": false,
-      "id": 4
-      "first_name": "Jeff",
-      "last_name": "Asmah",
-      "username": "jeff.asmah",
-      "password": "oJo4uqui",
-      "id": 3
-    },
-    {
-      "first_name": "Peter",
-      "last_name": "pnokn",
-      "username": "peter@mail.com",
-      "password": "Peter@2020",
-      "id": 4
-    },
-    {
-      "first_name": "Peter",
-      "last_name": "newuser",
-      "username": "newuser@mail.com",
-      "password": "Peter@2020",
-      "id": 5
-    }
+   
   ],
   "movies": [
     {
