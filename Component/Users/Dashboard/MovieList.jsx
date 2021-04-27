@@ -21,14 +21,15 @@ export default function MovieList() {
   }, []);
 
   return (
-      <div className="row" style={{gridRow: "span 2"}}>
+    <div>
+      <div  style={{display: "table", width: "100%", marginTop: "5%", backgroundColor: "darkgray"}}>
+  
         {movies.map((movie) => (
-
-          <div className="col">
+          <div style={{display: "table-cell"}}>
             <div className="card movie_card">
               <img
                 src="https://www.joblo.com/assets/images/joblo/posters/2019/02/captin-marvel-poster-international.jpg"
-                className="card-img-top"
+                style={{width: "240px", height: "360px"}}
                 alt="..."
               />
               <div className="card-body">
@@ -67,6 +68,6 @@ export default function MovieList() {
           </div>
         ))}
       </div>
-    
+    </div>
   );
 }

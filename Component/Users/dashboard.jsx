@@ -189,10 +189,13 @@ const UsersDashboard = () => {
           </div>
         </div>
         {/* <MovieSlideshow/> */}
-
       </div>
+
 <hr style={{marginBottom:"10px"}}/>
-        {/* <div className={box}> */}
+
+        {/* Movie Packages - 3 Packages */}
+
+        <div>
             <div className={leftbox} id = "leftbox">
                     <h3>BlockBuster Package</h3>
 
@@ -230,7 +233,6 @@ const UsersDashboard = () => {
                         </div>
                         );
                     })}
-                
             </div> 
               
             <div className={middlebox} id = "middlebox">
@@ -294,8 +296,12 @@ const UsersDashboard = () => {
                 </button>
                 </div>
             </div>
+
+        </div>
+
+        <div>
             <MovieList />
-        {/* </div> */}
+        </div>
     </div>
   );
 };
