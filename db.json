@@ -21,6 +21,28 @@
       "role": "Customer",
       "status": true,
       "id": 2
+    },
+    {
+      "email": "wixep22104@leraskey.com",
+      "password": "$2a$10$JQfN8.9UZf1mU3KYd/bkAub9di/6IHN8jlNOlbTcg0mP8zFSTegrC",
+      "firstName": "Enoch",
+      "lastName": "Boss",
+      "contact": "0123334433",
+      "isAdmin": "true",
+      "role": "Admin",
+      "status": false,
+      "id": 3
+    },
+    {
+      "email": "clemsedem@gmawixep22104@lraskey.comil.com",
+      "password": "$2a$10$GuboIsAyh1y3Za2kS4vKw.Ca.qk1WcHlsVr3t6.S9uP2n9QOVq0Y.",
+      "firstName": "sdfd",
+      "lastName": "dfsds",
+      "contact": "1112233343",
+      "isAdmin": false,
+      "role": "Customer",
+      "status": false,
+      "id": 4
     }
   ],
   "movies": [
