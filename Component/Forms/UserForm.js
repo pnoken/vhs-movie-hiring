@@ -64,13 +64,6 @@ const UserForm = ({ id, onClose, current }) => {
 				`${baseUrl}/users?email=${formData.email}&status=${true}`,
 			);
 			// const data = await res.data;
-<<<<<<< HEAD
-			console.log(JSON.stringify(data));
-			if ((await res.data.length) > 0) {
-				setExists('email already exists');
-				return false;
-			}
-=======
 			// console.log(JSON.stringify(data));
 			if ((await res.data.length) > 0) {
 				if (_.isEmpty(current)) {
@@ -81,24 +74,17 @@ const UserForm = ({ id, onClose, current }) => {
 				// console.log('exists ', exists);
 			}
 
->>>>>>> dev
 			res = await axios.get(
 				`${baseUrl}/users?contact=${formData.contact}&status=${true}`,
 			);
 
 			if ((await res.data[0].contact) === formData.contact) {
-<<<<<<< HEAD
-				setPhoneExist('contact already exists');
-				return false;
-			}
-=======
 				if (_.isEmpty(current)) {
 					setPhoneExist('contact already exists');
 					return false;
 				}
 			}
 			// return false;
->>>>>>> dev
 		} catch (error) {
 			console.log('Something went wrong', error);
 		}
