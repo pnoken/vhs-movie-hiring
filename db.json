@@ -1,38 +1,15 @@
 {
   "users": [
     {
-      "first_name": "Pete",
-      "last_name": "Nortey",
-      "username": "admin",
+      "email": "wixep22104@laraskey.com",
+      "password": "$2a$10$uLeGULbhjrW3RkR8kPElguBVhHUFEy3hAHar0cEtk0u/9klQx/Lni",
+      "firstName": "clem",
+      "lastName": "sedem",
+      "contact": "0324334456",
+      "isAdmin": "true",
+      "role": "Admin",
+      "status": true,
       "id": 1
-    },
-    {
-      "first_name": "Paul",
-      "last_name": "Solomon",
-      "username": "paul.solomon@mail.com",
-      "password": "Admin@2020",
-      "id": 2
-    },
-    {
-      "first_name": "Jeff",
-      "last_name": "Asmah",
-      "username": "jeff.asmah",
-      "password": "oJo4uqui",
-      "id": 3
-    },
-    {
-      "first_name": "Peter",
-      "last_name": "pnokn",
-      "username": "peter@mail.com",
-      "password": "Peter@2020",
-      "id": 4
-    },
-    {
-      "first_name": "Peter",
-      "last_name": "newuser",
-      "username": "newuser@mail.com",
-      "password": "Peter@2020",
-      "id": 5
     }
   ],
   "movies": [

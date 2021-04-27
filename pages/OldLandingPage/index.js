@@ -1,5 +1,5 @@
-import UserLayout from "../Component/Users/Layout";
-import styles from "../styles/Home.module.css";
+import UserLayout from "../../Component/Users/Layout";
+import styles from "../../styles/Home.module.css";
 
 export default function Home() {
   return (

@@ -1,262 +1,179 @@
-import React, { useState, useEffect } from "react";
-import Add from "../../../Component/Admin/Users/Add"
-import AdminLayout from "../../../Component/Layout/Admin";
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import axios from 'axios';
+import { Row, Col, Button, Table } from 'react-bootstrap';
+import { confirmAlert } from 'react-confirm-alert';
+import NewAdminLayout from '../../../Component/Layout/NewAdminLayout';
+import { baseUrl } from '../../../utils/constants';
+import UserForm from '../../../Component/Forms/UserForm';
 
-export default function users() {
-  const [users, setUsers] = useState([]);
-  const [editStu, setEditStu] = useState([]);
-  const [delId, setDelID] = useState(0);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [userName, setUserName] = useState("");
-  const [updateId, setUpdateId] = useState();
-  const [token, setToken] = useState("");
+export async function getServerSideProps() {
+	const res = await axios.get(
+		`${baseUrl}/users?status=${true}&_sort=id&_order=desc`,
+	);
+	const userData = await res.data;
 
-  // useEffect(() => {
-  //   let lStorage = window.localStorage.getItem("auth");
-  //   if (lStorage) {
-  //     lStorage = JSON.parse(lStorage);
-  //     console.log("local", lStorage.id);
-  //     setToken(lStorage.token);
-  //   }
-  // }, []);
+	if (!userData) {
+		return {
+			notFound: true,
+		};
+	}
 
-  const updateStu = async (id) => {
-    try {
-     
-      var myHeaders = new Headers();
-      myHeaders.append("Content-Type", "application/json");
+	return {
+		props: {
+			users: userData,
+		},
+	};
+}
 
-      var raw = JSON.stringify({
-        first_name: firstName,
-        last_name: lastName,
-        username: userName,
-      });
+export default function Users({ users }) {
+	const router = useRouter();
 
-      var requestOptions = {
-        method: "PUT",
-        headers: myHeaders,
-        body: raw,
-      };
+	const [createNewUser, setCreateNewUser] = useState(false);
+	const [seletectedUSer, setSelectedUser] = useState({});
 
-      fetch(`http://localhost:3002/users/${id}`, requestOptions)
-        .then((response) => response.json())
-        .then((result) => {console.log(result), getData()})
-        .catch((error) => console.log("error", error));
-    } catch (error) {
-      alert("Could not update");
-    }
-  };
+	const newUser = () => {
+		setCreateNewUser(true);
+		setSelectedUser({});
+	};
 
-  const deleteUser = async (id) => {
-    try {
-      var requestOptions = {
-        method: "DELETE",
-      };
+	const editUser = (user) => {
+		setCreateNewUser(true);
+		setSelectedUser(user);
+	};
 
-      await fetch(`http://localhost:3002/users/${id}`, requestOptions)
-        .then((response) => response.text())
-        .then((result) => {
-          if (result){
-          let removed = 
-            users.filter((user) => user.id !== id);
-           
-          setUsers([...removed])
-        }})
-        .catch((error) => console.log("error", error));
-    } catch (err) {
-      alert(err);
-    }
-  };
+	const refreshData = () => {
+		router.replace(router.asPath);
+	};
 
-  function getData(){
-    var requestOptions = {
-      method: "GET",
-    };
+	// delete the user
+	const handleDelete = async (userId, onClose) => {
+		try {
+			const res = await axios.patch(`${baseUrl}/users/${userId}`, {
+				status: false,
+			});
+			console.log(JSON.stringify(res));
+			if (res.status === 200 || res.status == 204) {
+				refreshData();
+			}
+		} catch (error) {
+			console.log(`error ${error}`);
+		}
+		onClose();
+		refreshData();
+	};
 
-    fetch("http://localhost:3002/users", requestOptions)
-      .then((response) => response.json())
-      .then((result) => {
-        setUsers(result), console.log(result);
-      })
-      .catch((error) => console.log("error", error));
-    }
+	// confirm dialog
+	const deleteUser = (userId) => {
+		confirmAlert({
+			customUI: ({ onClose }) => {
+				return (
+					<div
+						className="modal-dialog modal-confirm"
+						style={{ marginTop: '-12%' }}
+					>
+						<div className="modal-content" style={{ marginTop: '-150%' }}>
+							<div className="modal-header flex-colum">
+								<h4 className="modal-title w-100 text-center">Are you sure?</h4>
+							</div>
+							<div className="modal-body">
+								<p className="text-center">
+									Do you really want to delete this record? This process cannot
+									be undone
+								</p>
+								<div className="modal-footer justify-content-center">
+									<button
+										className="btn btn-secondary btn-sm"
+										onClick={onClose}
+									>
+										No
+									</button>
+									<button
+										className="btn btn-danger btn-sm"
+										onClick={() => handleDelete(userId, onClose)}
+									>
+										Yes
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				);
+			},
+		});
+	};
 
-  useEffect( () => {
-    getData()
-  }, []);
+	return (
+		<>
+			{createNewUser && (
+				<UserForm
+					id="newUser"
+					onClose={() => setCreateNewUser(false)}
+					current={seletectedUSer}
+				/>
+			)}
 
-  const findStu = (id) => {
-    const item = users.find((stu) => stu.id === id);
-
-    setEditStu(item);
-    console.log("editstu", editStu);
-    setFirstName(item.first_name);
-    setLastName(item.last_name);
-    setUserName(item.username);
-    setUpdateId(item.id);
-  };
-
-  return (
-    <>
-      <AdminLayout title="users">
-        <span>
-          <h1>User List</h1>
-          <button
-            className="btn btn-primary float-right"
-            type="button"
-            data-toggle="modal"
-            data-target="#addstudent"
-            data-uid="1"
-          >
-            Add User
-          </button>
-        </span>
-        <Add users={users} setUsers={setUsers} />
-        <div className="row">
-          <table className="table table-hover table-responsive">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            {users.map((user) => (
-              <tbody key={user.id}>
-                <tr id="d1">
-                  <td>{user.id}</td>
-                  <td id="f1">{user.first_name}</td>
-                  <td id="l1">{user.last_name}</td>
-                  <td id="m1">{user.username}</td>
-                  <td>
-                    <button
-                      type="button"
-                      data-toggle="modal"
-                      data-target="#edit"
-                      data-uid="1"
-                      className="update btn btn-warning btn-sm"
-                      onClick={() => findStu(user.id)}
-                    >
-                      <img src="/open-iconic/svg/edit.svg" alt="update" />
-                    </button>
-                  </td>
-                  <td>
-                    <button
-                      type="button"
-                      data-toggle="modal"
-                      data-target="#delete"
-                      data-uid="1"
-                      className="delete btn btn-danger btn-sm"
-                      onClick={() => setDelID(user.id)}
-                    >
-                      <img src="/open-iconic/svg/delete.svg" alt="delete" />
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            ))}
-          </table>
-        </div>
-
-        <div id="edit" className="modal fade" role="dialog">
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <button type="button" className="close" data-dismiss="modal">
-                  ×
-                </button>
-              </div>
-              <div className="modal-body">
-                <input
-                  id="username"
-                  type="text"
-                  className="form-control"
-                  name="id"
-                  value={userName}
-                  placeholder="Username"
-                  readOnly
-                />
-                <input
-                  id="firstName"
-                  type="text"
-                  className="form-control"
-                  name="fname"
-                  value={firstName}
-                  placeholder="First Name"
-                  onChange={(e) => {
-                    setFirstName(e.target.value);
-                  }}
-                />
-                <input
-                  id="lastName"
-                  type="text"
-                  className="form-control"
-                  name="lname"
-                  value={lastName}
-                  placeholder="Last Name"
-                  onChange={(e) => {
-                    setLastName(e.target.value);
-                  }}
-                />
-              </div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  id="up"
-                  className="btn btn-warning"
-                  data-dismiss="modal"
-                  onClick={() => updateStu(updateId)}
-                >
-                  Update
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-default"
-                  data-dismiss="modal"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="delete" className="modal fade" role="dialog">
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <button type="button" className="close" data-dismiss="modal">
-                  ×
-                </button>
-                <h4 className="modal-title">Delete Data</h4>
-              </div>
-              <div className="modal-body">
-                <strong>Are you sure you want to delete this data?</strong>
-              </div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  id="del"
-                  className="btn btn-danger"
-                  data-dismiss="modal"
-                  onClick={() => deleteUser(delId)}
-                >
-                  Delete
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-default"
-                  data-dismiss="modal"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </AdminLayout>
-    </>
-  );
+			<NewAdminLayout>
+				<Row>
+					<Col sm={12} md={{ span: 10, offset: 1 }}>
+						<br />
+						<Button size="sm" onClick={newUser}>
+							New
+						</Button>
+						<br />
+						<br />
+						<h4 className="text-center">Users</h4>
+						<Table striped bordered hover responsive size="sm">
+							<thead>
+								<tr className="bg-secondary">
+									<th>#</th>
+									<th>Email</th>
+									<th>First Name</th>
+									<th>Last Name</th>
+									<th>Contact</th>
+									<th>User Type</th>
+									<th colSpan={3}></th>
+								</tr>
+							</thead>
+							<tbody>
+								{users &&
+									users.map((user, index) => (
+										<tr key={index + 1}>
+											<td>{index + 1}</td>
+											<td>{user.email}</td>
+											<td>{user.firstName}</td>
+											<td>{user.lastName}</td>
+											<td>{user.contact}</td>
+											<td>{user.role}</td>
+											<td className="btnTD">
+												<Button
+													type="button"
+													variant="secondary"
+													size="sm"
+													className="myBtn"
+													onClick={() => editUser(user)}
+												>
+													Edit
+												</Button>
+											</td>
+											<td className="btnTD">
+												<Button
+													type="button"
+													variant="danger"
+													size="sm"
+													className="myBtn"
+													onClick={() => deleteUser(user.id)}
+												>
+													Delete
+												</Button>
+											</td>
+										</tr>
+									))}
+							</tbody>
+						</Table>
+					</Col>
+				</Row>
+			</NewAdminLayout>
+		</>
+	);
 }
