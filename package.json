@@ -6,7 +6,7 @@
     "dev": "concurrently \"next dev\" \"yarn json\"",
     "build": "next build",
     "start": "next start",
-    "json": "json-server --watch db.json -p 3002 -m ./node_modules/json-server-auth"
+    "json": "json-server --watch db.json -p 7000 -m ./node_modules/json-server-auth"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",

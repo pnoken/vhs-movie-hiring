@@ -6,7 +6,8 @@ import FooterElement from './footer'
 import MovieSlideshow from './slideshow'
 // import classNames from "classnames/bind";
 import axios from 'axios'
-import styles from "../../../styles/users/userdashboard.module.css";
+import styles from "../../styles/users/userdashboard.module.css";
+import MovieList from './Dashboard/MovieList';
 
 const UsersDashboard = () => {
   const {
@@ -293,6 +294,7 @@ const UsersDashboard = () => {
                 </button>
                 </div>
             </div>
+            <MovieList />
         {/* </div> */}
     </div>
   );

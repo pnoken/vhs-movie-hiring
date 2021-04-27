@@ -43,6 +43,25 @@
       "role": "Customer",
       "status": false,
       "id": 4
+      "first_name": "Jeff",
+      "last_name": "Asmah",
+      "username": "jeff.asmah",
+      "password": "oJo4uqui",
+      "id": 3
+    },
+    {
+      "first_name": "Peter",
+      "last_name": "pnokn",
+      "username": "peter@mail.com",
+      "password": "Peter@2020",
+      "id": 4
+    },
+    {
+      "first_name": "Peter",
+      "last_name": "newuser",
+      "username": "newuser@mail.com",
+      "password": "Peter@2020",
+      "id": 5
     }
   ],
   "movies": [
