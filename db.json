@@ -1,6 +1,16 @@
 {
   "users": [
-   
+    {
+      "email": "wixep22104@laraskey.com",
+      "password": "$2a$10$uLeGULbhjrW3RkR8kPElguBVhHUFEy3hAHar0cEtk0u/9klQx/Lni",
+      "firstName": "clem",
+      "lastName": "sedem",
+      "contact": "0324334456",
+      "isAdmin": "true",
+      "role": "Admin",
+      "status": true,
+      "id": 1
+    }
   ],
   "movies": [
     {
