@@ -1,6 +1,6 @@
 import React from 'react';
 import { Fade } from 'react-slideshow-image';
-import styles from '../../../styles/slideshow.module.css'
+import styles from '../../styles/slideshow.module.css'
 // import 'react-slideshow-image/dist/styles.css'
 
 
