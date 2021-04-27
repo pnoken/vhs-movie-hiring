@@ -1,38 +1,26 @@
 {
   "users": [
     {
-      "first_name": "Pete",
-      "last_name": "Nortey",
-      "username": "admin",
+      "email": "wixep22104@laraskey.com",
+      "password": "$2a$10$Lw9Sll5r5vgNhtcrvuSiqe6yHpD1nqVY9KsuhH6XiJ6zmU3E9IpXG",
+      "firstName": "Adin",
+      "lastName": "New",
+      "contact": "123512345",
+      "isAdmin": "true",
+      "role": "Admin",
+      "status": true,
       "id": 1
     },
     {
-      "first_name": "Paul",
-      "last_name": "Solomon",
-      "username": "paul.solomon@mail.com",
-      "password": "Admin@2020",
+      "email": "wixep22104@lraskey.com",
+      "password": "$2a$10$m1e1vA1czQnWfTm1f7LoQeCSIWc7Ir5KRNEkZejiJDJ2Z5zXN6CGa",
+      "firstName": "Cust 1",
+      "lastName": "Cust 11",
+      "contact": "2341234567",
+      "isAdmin": false,
+      "role": "Customer",
+      "status": true,
       "id": 2
-    },
-    {
-      "first_name": "Jeff",
-      "last_name": "Asmah",
-      "username": "jeff.asmah",
-      "password": "oJo4uqui",
-      "id": 3
-    },
-    {
-      "first_name": "Peter",
-      "last_name": "pnokn",
-      "username": "peter@mail.com",
-      "password": "Peter@2020",
-      "id": 4
-    },
-    {
-      "first_name": "Peter",
-      "last_name": "newuser",
-      "username": "newuser@mail.com",
-      "password": "Peter@2020",
-      "id": 5
     }
   ],
   "movies": [
@@ -67,13 +55,6 @@
       "release_year": 2019,
       "rating": "9/10",
       "active": true
-    },
-    {
-      "name": "Prison Break",
-      "price": "40",
-      "release_year": "2014",
-      "rating": "10/10",
-      "id": 5
     }
   ],
   "hired_movies": [

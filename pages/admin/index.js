@@ -1,25 +1,47 @@
-import Admin from "../../Component/Layout/Admin"
-import styles from "../../styles/Home.module.css";
-import Link from "next/link"
+// import '../../styles/admin.module.css';
+import { Card, Col, Row } from 'react-bootstrap';
+import NewAdminLayout from '../../Component/Layout/NewAdminLayout';
 
 export default function Home() {
-  return (
-    <Admin title="Admin Panel">
-      <main className={styles.main}>
-        <h1 className={styles.title}>VHS Admin Panel</h1>
-
-        <div className={styles.grid}>
-          <Link href="/admin/users"><a className={styles.card}>
-            <h3>Users</h3>
-            <p>See User List.</p>
-          </a>
-          </Link>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a>Powered by </a>
-      </footer>
-    </Admin>
-  );
+	return (
+		<NewAdminLayout>
+			<>
+				<br />
+				<Row>
+					<Col sm={12} md={3}>
+						<Card className="text-center text-white" bg="info">
+							<Card.Header as="h4">Today's Hiring</Card.Header>
+							<Card.Body className={'card-height'}>
+								<h4>25</h4>
+							</Card.Body>
+						</Card>
+					</Col>
+					<Col sm={12} md={3}>
+						<Card className="text-center text-white" bg="success">
+							<Card.Header as="h4">Today's Revenue</Card.Header>
+							<Card.Body className={'card-height'}>
+								<h4>$ 1650</h4>
+							</Card.Body>
+						</Card>
+					</Col>
+					<Col sm={12} md={3}>
+						<Card className="text-center text-white" bg="danger">
+							<Card.Header as="h4">Total Revenue</Card.Header>
+							<Card.Body className={'card-height'}>
+								<h4>$ 102465</h4>
+							</Card.Body>
+						</Card>
+					</Col>
+					<Col sm={12} md={3}>
+						<Card className="text-center text-white" bg="dark">
+							<Card.Header as="h4">Total Owings</Card.Header>
+							<Card.Body className={'card-height'}>
+								<h4>$ 60000</h4>
+							</Card.Body>
+						</Card>
+					</Col>
+				</Row>
+			</>
+		</NewAdminLayout>
+	);
 }
