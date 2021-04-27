@@ -22,17 +22,17 @@ export default function MovieList() {
 
   return (
     <div>
-      <div  style={{display: "table", width: "100%", marginTop: "5%", backgroundColor: "darkgray"}}>
+      <div  style={{display: "flex", width: "100%", marginTop: "5%", backgroundColor: "rgb(47, 44, 44)", flexWrap: "wrap"}}>
   
         {movies.map((movie) => (
-          <div style={{display: "table-cell"}}>
+          <div style={{flex: "1 0 15%", margin:"5px"}}>
             <div className="card movie_card">
               <img
                 src="https://www.joblo.com/assets/images/joblo/posters/2019/02/captin-marvel-poster-international.jpg"
                 style={{width: "240px", height: "360px"}}
                 alt="..."
               />
-              <div className="card-body">
+              <div className="card-body" style={{backgroundColor:"white"}}>
                 <i
                   className="fas fa-play play_button"
                   data-toggle="tooltip"
