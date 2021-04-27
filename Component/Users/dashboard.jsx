@@ -235,7 +235,7 @@ const UsersDashboard = () => {
                   <div>Total Price {totalPrice}$</div>
                 </div>
                 <div className={(setquan, setbg)}>
-                  <div className={sQuantity}>Duration (in days) {quantity}</div>
+                  <div className={sQuantity}>Duration (days) - {quantity}</div>
                   <div className={btns}>
                     <button className={btn} onClick={incrementQuentaty}>
                       +
@@ -275,7 +275,7 @@ const UsersDashboard = () => {
             <div className={desc}>Movie Description</div>
           </div>
           <div className={(setquan, setbg)}>
-            <div className={sQuantity}>Duration (in days) {quantity}</div>
+            <div className={sQuantity}>Duration (days) - {quantity}</div>
             <div className={btns}>
               <button className={btn} onClick={incrementQuentaty}>
                 +
@@ -315,7 +315,7 @@ const UsersDashboard = () => {
             <div className={desc}>Movie Description</div>
           </div>
           <div className={(setquan, setbg)}>
-            <div className={sQuantity}>Duration (in days) {quantity}</div>
+            <div className={sQuantity}>Duration (days) - {quantity}</div>
             <div className={btns}>
               <button className={btn} onClick={incrementQuentaty}>
                 +

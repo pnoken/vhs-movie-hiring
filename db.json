@@ -20,7 +20,7 @@
       "Category": "Mystery/Horror",
       "price": 70,
       "release_year": 2021,
-      "rating": "6.31/10",
+      "rating": "6.3/10",
       "active": true
     },
     {
@@ -120,7 +120,7 @@
       "payment_method": "cash"
     }
   ],
-  
+
   "wallet": [
     {
       "id": 1,
