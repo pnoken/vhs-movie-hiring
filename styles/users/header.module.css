@@ -5,6 +5,7 @@
   background-repeat: no-repeat;
   background-color: rgb(47, 44, 44)
 }
+
 .upperDashboardSection {
   text-align: left;
   width: 100%;
@@ -14,46 +15,52 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
 .menu {
   width: 100%;
   height: 50px;
   background: rgb(67, 138, 67);
   position: absolute;
-  top:0%;  }
-  
+  top: 0%;
+}
+
 .upperDashboardSection .menu .items {
   width: 80%;
   margin-left: 5%;
   display: flex;
   justify-content: space-between;
 }
+
 .upperDashboardSection .menu .items ul {
   margin: 10px;
 }
+
 .upperDashboardSection .menu .items ul li {
   list-style: none;
   display: inline-block;
-  margin:5px 5px;
+  margin: 5px 5px;
   margin-left: 15px;
 }
+
 .upperDashboardSection .menu .items ul li a {
   padding: 6px 6px 6px 6px;
-  background-color:rgb(91, 158, 91);
+  background-color: rgb(91, 158, 91);
   border: 1px solid rgb(141, 185, 141);
-  color: rgb(5, 39, 5);;
+  color: rgb(5, 39, 5);
+  ;
   text-decoration: none;
   transition: 0.4s;
   transition-delay: 0.2s;
   border-radius: 3px;
 }
 
-.upperDashboardSection .menu .items ul li a :link :hover{
-  background-color:rgb(245, 248, 245);
+.upperDashboardSection .menu .items ul li a :link :hover {
+  background-color: rgb(245, 248, 245);
   color: black;
   text-decoration: none;
 }
 
-.upperDashboardSection .menu .items ul li a :link :active{
+.upperDashboardSection .menu .items ul li a :link :active {
   background-color: transparent;
   color: black;
   text-decoration: underline;

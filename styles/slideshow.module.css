@@ -1,6 +1,6 @@
 @import "react-slideshow-image/dist/styles.css";
-  
-.slideContainer{
+
+.slideContainer {
     font-family: Calibri;
     margin-top: -48.5%;
     margin-left: 20%;
@@ -10,5 +10,3 @@
     align-items: center;
     border: none;
 }
-
-

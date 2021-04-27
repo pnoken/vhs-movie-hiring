@@ -12,6 +12,7 @@
       "id": 1
     }
   ],
+
   "movies": [
     {
       "id": 1,
@@ -89,6 +90,7 @@
       
     }
   ],
+
   "hired_movies": [
     {
       "movie_id": 1,
@@ -98,6 +100,7 @@
       "date_returned": "22/04/2021"
     }
   ],
+
   "payments": [
     {
       "id": 1,
@@ -117,6 +120,7 @@
       "payment_method": "cash"
     }
   ],
+  
   "wallet": [
     {
       "id": 1,

@@ -1,26 +1,24 @@
-.movielist{
+.movielist {
     display: flex;
     width: 100%;
-    margin-top: 5%; 
+    margin-top: 5%;
     background-color: rgb(47, 44, 44);
     flex-wrap: wrap;
 }
 
-.moviesGrid{
+.moviesGrid {
     flex: 1 0 20%;
-    margin:5px;
+    margin: 5px;
     height: 30%;
 }
 
-.movieCard{
+.movieCard {
     width: 92.5%;
     border-radius: 10px;
 }
 
-.moviePoster{
+.moviePoster {
     width: 300px;
     height: 360px;
     border-radius: 10px
 }
-
-

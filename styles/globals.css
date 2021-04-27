@@ -1,7 +1,6 @@
-
- #wrapper {
-    overflow-x: hidden;
- }
+#wrapper {
+  overflow-x: hidden;
+}
 
 #sidebar-wrapper {
   min-height: 100vh;
@@ -44,15 +43,15 @@
   }
 }
 
-.validationError{
+.validationError {
   color: red
 }
 
-.bg-dark{
-  background-color:  blueviolet !important;
+.bg-dark {
+  background-color: blueviolet !important;
 }
 
-.btnTD{
+.btnTD {
   width: 5%;
   text-align: center;
 }

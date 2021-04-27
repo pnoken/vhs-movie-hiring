@@ -1,172 +1,179 @@
 .body {
-    padding: 0;
-    margin: 0;
-    /* background-image: url(/img/movie-bg-1.png); */
-    /* background-size: cover; */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: rgb(47, 44, 44)
+  padding: 0;
+  margin: 0;
+  /* background-image: url(/img/movie-bg-1.png); */
+  /* background-size: cover; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgb(47, 44, 44)
 }
-  .upperDashboardSection {
-    text-align: left;
-    width: 100%;
-    height: 100vh;
-    margin-bottom: 1%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  .menu {
-    width: 100%;
-    height: 50px;
-    background: rgb(67, 138, 67);
-    position: absolute;
-    top:0%;  }
-    
-  .upperDashboardSection .menu .items {
-    width: 80%;
-    margin-left: 5%;
-    display: flex;
-    justify-content: space-between;
-  }
-  .upperDashboardSection .menu .items ul {
-    margin: 10px;
-  }
-  .upperDashboardSection .menu .items ul li {
-    list-style: none;
-    display: inline-block;
-    margin:5px 5px;
-    margin-left: 15px;
-  }
-  .upperDashboardSection .menu .items ul li a {
-    padding: 5px 5px 5px 5px;
-    border: 1px solid rgb(35, 71, 35);
-    color: white;
-    text-decoration: none;
-    transition: 0.4s;
-    transition-delay: 0.2s;
-    border-radius: 3px;
-  }
 
-  .upperDashboardSection .menu .items ul li a :hover{
-    background-color: 1px solid rgb(172, 228, 172);
-    color: black;
-  }
+.upperDashboardSection {
+  text-align: left;
+  width: 100%;
+  height: 100vh;
+  margin-bottom: 1%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
-  .upperDashboardSection .menu .items ul li a :active{
-    background-color: 1px solid rgb(172, 228, 172);
-    color: black;
-  }
+.menu {
+  width: 100%;
+  height: 50px;
+  background: rgb(67, 138, 67);
+  position: absolute;
+  top: 0%;
+}
 
-  .upperDashboardSection .menu .items ul .circle {
-    width: 10px;
-    height: 5px;
-    padding: 5px 10px;
-    border-radius: 45%;
-    color: rgb(37, 75, 37);
-    background: #a9f2ff;
-  }
- 
+.upperDashboardSection .menu .items {
+  width: 80%;
+  margin-left: 5%;
+  display: flex;
+  justify-content: space-between;
+}
 
-  /* Body{
+.upperDashboardSection .menu .items ul {
+  margin: 10px;
+}
+
+.upperDashboardSection .menu .items ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 5px 5px;
+  margin-left: 15px;
+}
+
+.upperDashboardSection .menu .items ul li a {
+  padding: 5px 5px 5px 5px;
+  border: 1px solid rgb(35, 71, 35);
+  color: white;
+  text-decoration: none;
+  transition: 0.4s;
+  transition-delay: 0.2s;
+  border-radius: 3px;
+}
+
+.upperDashboardSection .menu .items ul li a :hover {
+  background-color: 1px solid rgb(172, 228, 172);
+  color: black;
+}
+
+.upperDashboardSection .menu .items ul li a :active {
+  background-color: 1px solid rgb(172, 228, 172);
+  color: black;
+}
+
+.upperDashboardSection .menu .items ul .circle {
+  width: 10px;
+  height: 5px;
+  padding: 5px 10px;
+  border-radius: 45%;
+  color: rgb(37, 75, 37);
+  background: #a9f2ff;
+}
+
+
+/* Body{
     background-image: url("/img/pexels-cottonbro-3944405.jpg"); Photo by cottonbro from Pexels */
-    /* background-repeat: no-repeat;
+/* background-repeat: no-repeat;
     background-size: cover;
 } */
 
-  
-.container{
-    font-family: Calibri;
-    margin-top: -42%;
+
+.container {
+  font-family: Calibri;
+  margin-top: -42%;
 }
 
-.virtualCard{
-    float: left;
-    /*text-align: center;*/
-    width: 480px;
-    height: 320px;
-    border-radius: 0.80rem;
-    padding: 10px 10px 10px 10px;
-    background: rgb(38, 38, 38);
-    background-image: url("/img/virtual-card-background.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;	
-    font-size: 16px;			
-    font-weight: 600;
-    color: black;
-    box-shadow: 0 1px 5px rgba(0,0,0,0.9);
-    margin-top: 4%; 
-    margin-left:4%;
-    /*margin-bottom:10%;*/
-     -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.3));;
+.virtualCard {
+  float: left;
+  /*text-align: center;*/
+  width: 480px;
+  height: 320px;
+  border-radius: 0.80rem;
+  padding: 10px 10px 10px 10px;
+  background: rgb(38, 38, 38);
+  background-image: url("/img/virtual-card-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.9);
+  margin-top: 4%;
+  margin-left: 4%;
+  /*margin-bottom:10%;*/
+  -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.3));
+  ;
 }
 
-.virtualCardBalance{
-    /*margin-top: 10%;*/
-    float: right;
+.virtualCardBalance {
+  /*margin-top: 10%;*/
+  float: right;
 }
 
-.virtualCardField{
-    display: block;
-    margin-top: 2.5%;
-    margin-bottom: 2.5%
+.virtualCardField {
+  display: block;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%
 }
 
-.virtualCardLogo{
-    margin-top: 10%;
-    float: right;
-    height: "38px";
-    width: "34px"
-    
-}
-
-.virtualCardDisc{
-    margin-top: 14%;
-    float: left;
-    font-size: 12px;
+.virtualCardLogo {
+  margin-top: 10%;
+  float: right;
+  height: "38px";
+  width: "34px"
 
 }
 
-.topup{
-    float: right;
-    text-align: center;
-    width: 720px;
-    height: 490px;
-    border-radius:5px;
-    transition: 0.6s;
-    padding: 10px 10px 10px 10px;
-    background: whitesmoke;
-    background: rgb(38, 38, 38);
-    background-image: url("/img/pexels-pixabay-164637.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;	
-    box-shadow: 0 1px 5px rgba(0,0,0,0.9);
-    margin-right: 3%;
+.virtualCardDisc {
+  margin-top: 14%;
+  float: left;
+  font-size: 12px;
+
 }
 
-.topupLogo{
-    border-radius:50px;
-    margin-top: 1%;
-    margin-bottom: 5%;
-    float: center;
-    height: 56px;
-    width: 72px;
+.topup {
+  float: right;
+  text-align: center;
+  width: 720px;
+  height: 490px;
+  border-radius: 5px;
+  transition: 0.6s;
+  padding: 10px 10px 10px 10px;
+  background: whitesmoke;
+  background: rgb(38, 38, 38);
+  background-image: url("/img/pexels-pixabay-164637.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.9);
+  margin-right: 3%;
 }
 
-.topupForm{
-    display: block;
-    margin:auto;
-    padding: 10px 10px 10px 10px;
-    text-align: center;
-    width: 55%;
-    height: 70%;
-    background-color: white;
-    will-change: transform;
-    border-radius: 0.75rem;
-    transform: scale(1.1);
-    box-shadow:  0 22px 70px 4px rgba(134, 132, 132, 0.808), 0 0 0 1px rgba(0, 0, 0, 0.3);
-    border: none;
-    
+.topupLogo {
+  border-radius: 50px;
+  margin-top: 1%;
+  margin-bottom: 5%;
+  float: center;
+  height: 56px;
+  width: 72px;
+}
+
+.topupForm {
+  display: block;
+  margin: auto;
+  padding: 10px 10px 10px 10px;
+  text-align: center;
+  width: 55%;
+  height: 70%;
+  background-color: white;
+  will-change: transform;
+  border-radius: 0.75rem;
+  transform: scale(1.1);
+  box-shadow: 0 22px 70px 4px rgba(134, 132, 132, 0.808), 0 0 0 1px rgba(0, 0, 0, 0.3);
+  border: none;
+
 }
 
 /* .topupForm :hover{
@@ -174,8 +181,8 @@
     box-shadow:  0 32px 80px 14px rgba(0,0,0,0.36), 0 0 0 1px rgba(0, 0, 0, 0.3);
 } */
 
-.topup_amt{
-  display: flex; 
+.topup_amt {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -192,72 +199,73 @@
 }
 
 .checkmark {
-    margin-top: 5%;
-    height: 25px;
-    width: 25px;
-    background-color: green;
+  margin-top: 5%;
+  height: 25px;
+  width: 25px;
+  background-color: green;
 }
 
 /* On mouse-over, add a grey background color */
 
-.topup_amt_rem:hover input ~ .checkmark {
-        background-color: #ccc;
+.topup_amt_rem:hover input~.checkmark {
+  background-color: #ccc;
 }
 
 /* When the checkbox is checked, add a blue background */
 
-.topup_amt_rem input:checked ~ .checkmark {
-    background-color: rgb(13, 82, 64);
+.topup_amt_rem input:checked~.checkmark {
+  background-color: rgb(13, 82, 64);
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
 
 .checkmark:after {
-      content: "";
-      position: absolute;
-      display: none;
+  content: "";
+  position: absolute;
+  display: none;
 }
 
 /* Show the checkmark when checked */
-.check input:checked ~ .checkmark:after {
-    display: block;
+.check input:checked~.checkmark:after {
+  display: block;
 }
 
 /* Style the checkmark/indicator */
 .topup_amt_rem .checkmark:after {
-      left: 9px;
-      top: 5px;
-      width: 5px;
-      height: 10px;
-      border: solid white;
-      border-width: 0 3px 3px 0;
-      -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-      transform: rotate(45deg);
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
-.topupBtn{
-    padding: 15px 32px;
-    /* font-size: 16px; */
-    margin-top: 30px;
-    margin-bottom: 5px;
-    width: 200px;
-    height: 50px; 
-    border-radius: 10px;
-    background-color: rgb(204, 203, 203);
-    color: black;
-    border: 2px solid #1a1919;
-    color: black;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+.topupBtn {
+  padding: 15px 32px;
+  /* font-size: 16px; */
+  margin-top: 30px;
+  margin-bottom: 5px;
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: rgb(204, 203, 203);
+  color: black;
+  border: 2px solid #1a1919;
+  color: black;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }
 
-.topupBtn:hover{
-    background-color: rgb(41, 85, 41);
-    transition-duration: 0.5s;
-    opacity: 0.8;
-    color: white;
+.topupBtn:hover {
+  background-color: rgb(41, 85, 41);
+  transition-duration: 0.5s;
+  opacity: 0.8;
+  color: white;
 }
-  /*# sourceMappingURL=Cart.css.map */
+
+/*# sourceMappingURL=Cart.css.map */
