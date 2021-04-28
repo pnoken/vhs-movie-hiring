@@ -37,8 +37,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 70vh;
-    height: 64vh;
+    width: 110%;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 70px 100px rgba(88, 93, 88, 0.904);
@@ -52,8 +51,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 70vh;
-    height: 85vh;
+    width: 110%;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 70px 100px rgba(78, 83, 78, 0.9);
