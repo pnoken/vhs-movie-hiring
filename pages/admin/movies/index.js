@@ -13,16 +13,6 @@ export default function movies() {
   const [rating, setRating] = useState("");
   const [availability, setAvailability] = useState(true);
   const [updateId, setUpdateId] = useState();
-  //const [token, setToken] = useState("");
-
-  // useEffect(() => {
-  //   let lStorage = window.localStorage.getItem("auth");
-  //   if (lStorage) {
-  //     lStorage = JSON.parse(lStorage);
-  //     console.log("local", lStorage.id);
-  //     setToken(lStorage.token);
-  //   }
-  // }, []);
 
   const updateMov = async (id) => {
     try {
@@ -43,7 +33,7 @@ export default function movies() {
         body: raw,
       };
 
-      fetch(`http://localhost:3002/movies/${id}`, requestOptions)
+      fetch(`${process.env.API_URL}/movies/${id}`, requestOptions)
         .then((response) => response.json())
         .then((result) => {
           console.log(result), getData();
@@ -60,7 +50,7 @@ export default function movies() {
         method: "DELETE",
       };
 
-      await fetch(`http://localhost:3002/movies/${id}`, requestOptions)
+      await fetch(`${process.env.API_URL}/movies/${id}`, requestOptions)
         .then((response) => response.text())
         .then((result) => {
           if (result) {
@@ -80,7 +70,7 @@ export default function movies() {
       method: "GET",
     };
 
-    fetch("http://localhost:3002/movies", requestOptions)
+    fetch(`${process.env.API_URL}/movies`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         setMovies(result), console.log(result);

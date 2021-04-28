@@ -31,7 +31,7 @@ const MyWallet = () => {
   useEffect(() => {
     const TopupWallet = async () => {
       const response = await axios
-        .get("http://localhost:7000/users/wallet", {
+        .get(`${process.env.API_URL}/users/wallet`, {
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json"

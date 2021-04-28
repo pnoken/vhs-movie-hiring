@@ -24,7 +24,7 @@ function Add({ movies, setMovies }) {
   };
 
   const submit = async () => {
-    fetch("http://localhost:3002/movies", requestOptions)
+    fetch(`${process.env.API_URL}/movies`, requestOptions)
       .then((response) => response.json())
       .then((result) => setMovies([...movies, result]))
       .catch((error) => console.log("error", error));

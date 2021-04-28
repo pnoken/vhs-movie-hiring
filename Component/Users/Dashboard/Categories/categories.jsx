@@ -4,6 +4,8 @@ import HeaderElement from '../../header';
 import FooterElement from '../../footer'
 import axios from 'axios'
 import styles from "../../../../styles/users/categories.module.css";
+import NavElement from '../../nav';
+
 
 const MovieCategories = () => {
   const {
@@ -15,14 +17,14 @@ const MovieCategories = () => {
   //fetch Movies
   const [movies, setMovies] = useState([]);
 
-  const url = "http://localhost:7000/movies";
+  const url = `${process.env.API_URL}/movies`;
 
   //Fetch client list
 
   useEffect(() => {
     const fetchMovies = async () => {
       const response = await axios
-        .get("http://localhost:7000/movies", {
+        .get(`${process.env.API_URL}/movies`, {
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json"
@@ -114,7 +116,7 @@ const MovieCategories = () => {
 
       <div className={body}>
         <div className={upperDashboardSection}>
-          <HeaderElement quantity={ quantity} addToCart={ addToCart} />
+          <NavElement quantity={ quantity} addToCart={ addToCart} />
         </div>
       </div>
 

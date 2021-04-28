@@ -20,7 +20,7 @@ const LoginForm = () => {
   } = useForm();
 
     //Endpoint -- url for making signup calls
-  const loginurl = "http://localhost:7000/users";
+  const loginurl = `${process.env.API_URL}/users`;
 
   //function to submit login form data
   const onSubmit = (data = { username, password }) => {
