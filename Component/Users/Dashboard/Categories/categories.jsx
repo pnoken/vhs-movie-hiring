@@ -15,14 +15,14 @@ const MovieCategories = () => {
   //fetch Movies
   const [movies, setMovies] = useState([]);
 
-  const url = "http://localhost:7000/movies";
+  const url = `${process.env.API_URL}/movies`;
 
   //Fetch client list
 
   useEffect(() => {
     const fetchMovies = async () => {
       const response = await axios
-        .get("http://localhost:7000/movies", {
+        .get(`${process.env.API_URL}/movies`, {
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json"

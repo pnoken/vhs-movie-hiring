@@ -13,7 +13,7 @@ export default function MovieList() {
       method: "GET"
     };
 
-    fetch("http://localhost:7000/movies", requestOptions)
+    fetch(`${process.env.API_URL}/movies`, requestOptions)
       .then(response => response.json())
       .then(result => {
         setMovies(result), console.log(result);
@@ -66,7 +66,7 @@ export default function MovieList() {
                     onClick={() => setHired(true)}
                     className="btn btn-primary info"
                   >
-                    Hire =>
+                    Hire
                     <span className="extra-info">Available for hiring</span>
                   </button>
                 ) : movie.active && hired ? (
