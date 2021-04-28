@@ -82,3 +82,42 @@
 
 
 /*# sourceMappingURL=Cart.css.map */
+
+
+
+.nav {
+  color: #fff;
+  height: 50px;
+  background: rgb(194, 38, 38);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.logo {
+  height: 32px;
+  width: 50px;
+}
+
+.menus {
+  display: flex;
+  list-style: none;
+  margin-top: 15px;  
+
+}
+
+.menu_item {
+  margin-right: 10px;
+  color: #fff;
+  cursor: pointer;
+  padding:  2px 15px 4px;
+  border-radius: 15px;
+}
+
+.menu_item:hover {
+  background: rgb(85, 84, 84);
+}
+
+.menu_item:nth-child(5) {
+  margin-left: 120px;
+}
