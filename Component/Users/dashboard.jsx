@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
-
-import HeaderElement from "./header";
-import FooterElement from "./footer";
+import {FaCartPlus} from "react-icons/fa"
+import {RiLogoutCircleRLine} from "react-icons/ri"
+import {GiWallet} from "react-icons/gi" 
+import {MdFavorite} from "react-icons/md"
 import MovieSlideshow from "./slideshow";
-// import classNames from "classnames/bind";
 import axios from "axios";
 import styles from "../../styles/users/userdashboard.module.css";
 import MovieList from "./Dashboard/MovieList";
@@ -168,31 +168,33 @@ const UsersDashboard = () => {
                   <a href="/users/dashboard/categories#">Categories</a>
                 </li>
                 <li>
-                  <a href="/users/dashboard/favorites#">Favorites</a>
+                  <a href="/users/dashboard/favorites#"> <MdFavorite/> Favorites</a>
                 </li>
                 <li>
-                  <a href="/users/dashboard/mymovies#">My Movies (Events)</a>
+                  <a href="/users/dashboard/mymovies#"> My Movies (Events)</a>
                 </li>
               </ul>
               <ul>
                 <li>
                   <a href="/users/dashboard/cart#">
+                    <FaCartPlus/> 
                     Cart
-                    <span>&#128722;</span>
                     {addToCart == true ? Ccircle(quantity) : null}
                   </a>
                 </li>
                 <li>
                   <a href="/users/dashboard/wallet">
                     {" "}
-                    Wallet <span>&#128176;</span>
+                    <GiWallet/>
+                    Wallet
                   </a>
                 </li>
                 <li>
                   <a href="/">
                     {" "}
                     <strong>
-                      Logout <span>&#8618;</span>
+                    <RiLogoutCircleRLine/>
+                      Logout 
                     </strong>
                   </a>
                 </li>

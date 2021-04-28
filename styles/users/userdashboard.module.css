@@ -21,7 +21,7 @@
 .menu {
   width: 100%;
   height: 50px;
-  background: rgb(67, 138, 67);
+  background: rgb(194, 38, 38);
   position: absolute;
   top: 0%;
 }
@@ -45,20 +45,15 @@
 }
 
 .upperDashboardSection .menu .items ul li a {
-  padding: 6px 6px 6px 6px;
-  background-color: rgb(91, 158, 91);
-  border: 1px solid rgb(141, 185, 141);
-  color: rgb(5, 39, 5);
-  ;
-  text-decoration: none;
-  transition: 0.4s;
-  transition-delay: 0.2s;
-  border-radius: 3px;
+  /* margin-right: 10px; */
+  color: #fff;
+  cursor: pointer;
+  /* padding:  2px 15px 4px; */
+  border-radius: 15px;
 }
 
-.upperDashboardSection .menu .items ul li a :link :hover {
-  background-color: rgb(245, 248, 245);
-  color: black;
+.upperDashboardSection .menu .items ul li a :hover {
+  background: rgb(175, 165, 165);
   text-decoration: none;
 }
 
@@ -213,7 +208,7 @@
   padding-right: 2px;
   padding-left: 2px;
   padding-bottom: 5px;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 
 
 
@@ -232,7 +227,7 @@
   padding-right: 2px;
   padding-left: 2px;
   padding-bottom: 5px;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   margin-bottom: 2.5%;
 
 

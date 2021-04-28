@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 // import Body from 'next/body'
+import NavElement from '../../nav'
 import HeaderElement from "../../header";
 import FooterElement from "../../footer";
 import axios from "axios";
@@ -117,7 +118,7 @@ const MyWallet = () => {
 
       <div className={body}>
         <div className={upperDashboardSection}>
-          <HeaderElement quantity={quantity} addToCart={addToCart} />
+          <NavElement quantity={quantity} addToCart={addToCart} />
         </div>
 
         <body>
