@@ -1,1 +1,1 @@
-export const baseUrl = `${process.env.API_URL}`;
+export const baseUrl = `https://hiring-vhs.herokuapp.com`;

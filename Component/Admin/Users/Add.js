@@ -24,7 +24,7 @@ function Add({ users, setUsers }) {
   };
 
   const submit = async () => {
-    fetch(`${process.env.API_URL}/users`, requestOptions)
+    fetch(`https://hiring-vhs.herokuapp.com/users`, requestOptions)
       .then((response) => response.json())
       .then((result) => setUsers([...users, result]))
       .catch((error) => console.log("error", error));

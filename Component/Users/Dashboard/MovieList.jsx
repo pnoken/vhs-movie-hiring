@@ -13,7 +13,7 @@ export default function MovieList() {
       method: "GET"
     };
 
-    fetch(`${process.env.API_URL}/movies`, requestOptions)
+    fetch(`https://hiring-vhs.herokuapp.com/movies`, requestOptions)
       .then(response => response.json())
       .then(result => {
         setMovies(result), console.log(result);

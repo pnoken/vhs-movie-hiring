@@ -33,7 +33,7 @@ export default function movies() {
         body: raw,
       };
 
-      fetch(`${process.env.API_URL}/movies/${id}`, requestOptions)
+      fetch(`https://hiring-vhs.herokuapp.com/movies/${id}`, requestOptions)
         .then((response) => response.json())
         .then((result) => {
           console.log(result), getData();
@@ -50,7 +50,7 @@ export default function movies() {
         method: "DELETE",
       };
 
-      await fetch(`${process.env.API_URL}/movies/${id}`, requestOptions)
+      await fetch(`https://hiring-vhs.herokuapp.com/movies/${id}`, requestOptions)
         .then((response) => response.text())
         .then((result) => {
           if (result) {
@@ -70,7 +70,7 @@ export default function movies() {
       method: "GET",
     };
 
-    fetch(`${process.env.API_URL}/movies`, requestOptions)
+    fetch(`https://hiring-vhs.herokuapp.com/movies`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         setMovies(result), console.log(result);
