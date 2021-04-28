@@ -13,16 +13,6 @@ export default function movies() {
   const [rating, setRating] = useState("");
   const [availability, setAvailability] = useState(true);
   const [updateId, setUpdateId] = useState();
-  //const [token, setToken] = useState("");
-
-  // useEffect(() => {
-  //   let lStorage = window.localStorage.getItem("auth");
-  //   if (lStorage) {
-  //     lStorage = JSON.parse(lStorage);
-  //     console.log("local", lStorage.id);
-  //     setToken(lStorage.token);
-  //   }
-  // }, []);
 
   const updateMov = async (id) => {
     try {
