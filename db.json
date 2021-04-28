@@ -43,7 +43,7 @@
     },
     {
       "id": 4,
-      "name": "Spiderman: No way home",
+      "name": "Spiderman - No way home",
       "Category": "Action/Adventure",
       "price": 20,
       "release_year": 2021,
@@ -95,9 +95,26 @@
     {
       "movie_id": 1,
       "user_id": 1,
-      "status": "cancelled",
+      "name": "The Priest",
+      "status": "Cancelled",
       "date_hired": "20/04/2021",
       "date_returned": "22/04/2021"
+    },
+    {
+      "movie_id": 8,
+      "user_id": 1,
+      "name": "Outside The Wire",
+      "status": "Active",
+      "date_hired": "20/08/2021",
+      "date_returned": "22/09/2021"
+    },
+    {
+      "movie_id": 4,
+      "user_id": 1,
+      "name": "Spiderman - No way home",
+      "status": "Active",
+      "date_hired": "10/07/2020",
+      "date_returned": "2/04/2021"
     }
   ],
 
