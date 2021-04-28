@@ -165,12 +165,6 @@ const UsersDashboard = () => {
                   <a href="users#">Movies</a>
                 </li>
                 <li>
-                  <a href="/users/dashboard/categories#">Categories</a>
-                </li>
-                <li>
-                  <a href="/users/dashboard/favorites#"> <MdFavorite/> Favorites</a>
-                </li>
-                <li>
                   <a href="/users/dashboard/mymovies#"> My Movies (Events)</a>
                 </li>
               </ul>

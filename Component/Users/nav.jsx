@@ -34,16 +34,6 @@ const NavElement = ({ quantity, addToCart }) => {
                 <li className={menu_item}>All Movies</li>
               </Link>
 
-              <Link href="/users/dashboard/categories">
-                <li className={menu_item}>Categories</li>
-              </Link>
-
-              <Link href="/users/dashboard/favorites">
-                <li className={menu_item}>
-                  <MdFavorite/> Favorites
-                </li>
-              </Link>
-
               <Link href="/users/dashboard/mymovies">
                 <li className={menu_item}>My Movies</li>
               </Link>
