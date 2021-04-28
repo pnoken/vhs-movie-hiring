@@ -177,24 +177,21 @@ const UsersDashboard = () => {
               <ul>
                 <li>
                   <a href="/users/dashboard/cart#">
-                    <FaCartPlus/> 
-                    Cart
+                    <FaCartPlus/> Cart
                     {addToCart == true ? Ccircle(quantity) : null}
                   </a>
                 </li>
                 <li>
                   <a href="/users/dashboard/wallet">
                     {" "}
-                    <GiWallet/>
-                    Wallet
+                    <GiWallet/> Wallet
                   </a>
                 </li>
                 <li>
                   <a href="/">
                     {" "}
                     <strong>
-                    <RiLogoutCircleRLine/>
-                      Logout 
+                    <RiLogoutCircleRLine/> Logout 
                     </strong>
                   </a>
                 </li>
