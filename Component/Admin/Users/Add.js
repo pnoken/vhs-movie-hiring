@@ -24,7 +24,7 @@ function Add({ users, setUsers }) {
   };
 
   const submit = async () => {
-    fetch("http://localhost:3002/users", requestOptions)
+    fetch(`${process.env.API_URL}/users`, requestOptions)
       .then((response) => response.json())
       .then((result) => setUsers([...users, result]))
       .catch((error) => console.log("error", error));
