@@ -10,6 +10,17 @@
       "role": "Admin",
       "status": true,
       "id": 1
+    },
+    {
+      "email": "wixep22104@laraskey.com",
+      "password": "dolly1234",
+      "firstName": "clem",
+      "lastName": "sedem",
+      "contact": "0324334456",
+      "isAdmin": "false",
+      "role": "User",
+      "status": true,
+      "id": 2
     }
   ],
 
@@ -144,5 +155,11 @@
       "user_id": 1,
       "amount": 2000
     }
+  ],
+  "cartitems": [
+    {
+     
+    }
   ]
+
 }

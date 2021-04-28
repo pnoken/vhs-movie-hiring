@@ -20,7 +20,7 @@ const LoginForm = () => {
   } = useForm();
 
     //Endpoint -- url for making signup calls
-  const loginurl = `https://hiring-vhs.herokuapp.com/users`;
+  const loginurl = `http://localhost:7000/users`;
 
   //function to submit login form data
   const onSubmit = (data = { username, password }) => {
@@ -82,10 +82,10 @@ const LoginForm = () => {
               placeholder="Enter a valid email or username"
               name="username"
               id="username"
-              {...register("username",{
-                required: true,
-                minLength: 8
-              })}
+              // {...register("username",{
+              //   required: true,
+              //   minLength: 8
+              // })}
             />
             {errors.username && (
               <span className={styles.errors}>
@@ -99,16 +99,16 @@ const LoginForm = () => {
               placeholder="Enter a valid password"
               name="password"
               id="password"
-              {...register("password",{
-                required: true,
-                minLength: 8
-              })}
+              // {...register("password",{
+              //   required: true,
+              //   minLength: 8
+              // })}
             />
-            {errors.password && (
+            {/* {errors.password && (
               <span className={styles.errors}>
                 Kindly enter a valid password
               </span>
-            )}{" "}
+            )}{" "} */}
             <br />
             <center>
               <button type="submit" value="submit" className={styles.loginbtn}>

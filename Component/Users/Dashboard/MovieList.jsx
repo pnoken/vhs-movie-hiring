@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import styles from "../../../styles/users/generalmovielist.module.css";
 
 export default function MovieList() {
@@ -6,17 +7,40 @@ export default function MovieList() {
   const { movielist, movieGrid, movieCard, moviePoster } = styles;
 
   const [movies, setMovies] = useState([]);
-  const [hired, setHired] = useState(false);
+  const [hired, setHired] = useState([]);
+
+  function fillCart(movieId) {
+
+    setHired([...hired, movieId]);
+    console.log("here" , hired);
+    
+  }
 
   function getMovies() {
     var requestOptions = {
       method: "GET"
     };
 
-    fetch(`https://hiring-vhs.herokuapp.com/movies`, requestOptions)
+    fetch('http://localhost:7000/movies', requestOptions)
       .then(response => response.json())
       .then(result => {
         setMovies(result), console.log(result);
+      })
+      .catch(error => console.log("error", error));
+  }
+  
+  function setCartItems(movieId) {
+    const user =  window.localStorage.getItem('admin');
+    const user_id = user.id;
+    console.log(user)
+
+    axios.get('http://localhost:7000/cartitems', {
+      movie_id: movieId,
+      user_id: user_id
+     
+    })
+      .then(result => {
+             console.log(result.status);
       })
       .catch(error => console.log("error", error));
   }
@@ -61,24 +85,15 @@ export default function MovieList() {
                   ></i>
                 </p>
                 <h6 className="card-title">{movie.name}</h6>
-                {movie.active && !hired ? (
+                
                   <button
-                    onClick={() => setHired(true)}
+                    onClick={() => setCartItems(movie.id)}
                     className="btn btn-primary info"
                   >
-                    Hire
+                   
                     <span className="extra-info">Available for hiring</span>
                   </button>
-                ) : movie.active && hired ? (
-                  <button className="btn btn-success" disabled>
-                    Hired
-                  </button>
-                ) : (
-                  <button className="btn btn-secondary info" disabled>
-                    Hire
-                    <span className="extra-info">Unavailable for hiring</span>
-                  </button>
-                )}
+                
                 <p>
                   <span className="movie_info float-left">
                     {movie.release_year}

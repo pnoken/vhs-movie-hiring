@@ -23,7 +23,8 @@ const VHSCart = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       const response = await axios
-        .get(`https://hiring-vhs.herokuapp.com/movies`, {
+      //change url to either localhost or hosted one to fetch cart items
+        .get('http://localhost:7000/cartitems', {
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json"
