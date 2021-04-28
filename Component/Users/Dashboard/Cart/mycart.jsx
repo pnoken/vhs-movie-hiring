@@ -4,6 +4,7 @@ import HeaderElement from '../../header';
 import FooterElement from '../../footer'
 import axios from 'axios'
 import styles from "../../../../styles/users/cart.module.css";
+import NavElement from '../../nav';
 
 const VHSCart = () => {
   const {
@@ -114,7 +115,7 @@ const VHSCart = () => {
 
       <div className={body}>
         <div className={upperDashboardSection}>
-          <HeaderElement quantity={ quantity} addToCart={ addToCart} />
+          <NavElement quantity={ quantity} addToCart={ addToCart} />
         </div>
       </div>
 

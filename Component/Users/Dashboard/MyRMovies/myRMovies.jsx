@@ -1,28 +1,33 @@
-import React, { useEffect, useState } from 'react';
-import Head from "next/head";
-import HeaderElement from '../../header';
+import React, { useEffect, useState } from 'react'
+import Head from "next/head"
+import Link from "next/link"
+import HeaderElement from '../../header'
 import FooterElement from '../../footer'
 import axios from 'axios'
-import styles from "../../../../styles/users/mymovies.module.css";
+import styles from "../../../../styles/users/mymovies.module.css"
+import NavElement from '../../nav'
 
 const MyRecentMovies = () => {
   const {
     body,
-    upperDashboardSection,
-    circle
-  } = styles;
+    main_content,
+    container,
+    card,
 
-  //fetch Movies
-  const [movies, setMovies] = useState([]);
+  } = styles
 
-  const url = `${process.env.API_URL}/movies`;
+  // Endpoints and urls
+  const hired_movies_url = `${process.env.API_URL}/hired_movies`
 
-  //Fetch client list
+  // State objects
+  const [hiredMovies, setHiredMovies] = useState([]);
 
+  
+  //Fetch list of hired movies
   useEffect(() => {
     const fetchMovies = async () => {
       const response = await axios
-        .get(`${process.env.API_URL}/movies`, {
+        .get( hired_movies_url, {
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json"
@@ -34,8 +39,8 @@ const MyRecentMovies = () => {
               "Movies fetched from database successfully",
               response.data
             );
-            localStorage.setItem("All Movies", response.data);
-            setMovies(response.data);
+            localStorage.setItem("Hired Movies", response.data);
+            setHiredMovies(response.data);
           } else {
             console.log(response.data);
           }
@@ -47,64 +52,12 @@ const MyRecentMovies = () => {
     fetchMovies();
   }, []);
 
-  // MOVIE PRICE
-  let defaultMoviePrice = 20;
-  const [MoviePrice, setMoviePrice] = useState(defaultMoviePrice);
-
-  // QUANTITY
-  const [quantity, setQuantity] = useState(1);
-
-  // DISCOUNT
-  let dafaultDiscount = 5;
-  // let defaultCouponDiscount = quantity * dafaultDiscount ;
-  const [couponDiscount, setCouponDiscount] = useState(dafaultDiscount);
-  console.log(couponDiscount);
-
-  // TOTAL PRICE
-  // let defaultTotalPrice = MoviePrice * quantity - couponDiscount ;
-  // console.log(defaultTotalPrice);
-  const [totalPrice, setTotalPrice] = useState(MoviePrice);
-
-  const [addToCart, setAddToCart] = useState(false);
-  console.log(`Add to cart button click ? ${addToCart}`);
-
-  const Ccircle = quantity => {
-    return <span className={circle}>{quantity}</span>;
-  };
-
-  //incrementing and decrementing item number to be added to cart
-  function incrementQuentaty() {
-    setQuantity(prevQuantity => prevQuantity + 1);
-    setTotalPrice(prevPrice => prevPrice + MoviePrice);
-  }
-
-  function decrementQuantity() {
-    setQuantity(prevQuantity => prevQuantity - 1);
-    setTotalPrice(prevPrice => prevPrice - MoviePrice);
-  }
-
-  //coupon function --- may come in handy when we decide to go by
-  function usingCouponDiscount(e) {
-    e.preventDefault();
-    console.log(e.target.value);
-    if (e.target.value == 123) {
-      console.log("set total price and coupon discount");
-      setCouponDiscount(prevDiscount => prevDiscount);
-      setTotalPrice(prevPrice => prevPrice - couponDiscount * quantity);
-    }
-  }
-
-  function handleClick(e, id) {
-    e.preventDefault();
-    id
-    setAddToCart(prevAddToCart => (prevAddToCart = true));
-  }
 
   return (
     <div>
 
       <Head>
-        <title>VHS Movie Hiring | Favorites</title>
+        <title>VHS Movie Hiring | My Movies</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <script
           src="https://kit.fontawesome.com/a076d05399.js"
@@ -112,16 +65,38 @@ const MyRecentMovies = () => {
         ></script>
       </Head>
 
-      <div className={body}>
-        <div className={upperDashboardSection}>
-          <HeaderElement quantity={ quantity} addToCart={ addToCart} />
-        </div>
-      </div>
+      <body className={body}>
 
-<hr style={{marginBottom:"10px"}}/>
+        {/* Navigation Section */}
+        <NavElement/>
 
+        {/* Main Content Section */}
+        <section className={main_content}>
+          <h3>HIRED MOVIES</h3>
+          <div>
+            {hiredMovies.map((hiredMovies, user_id) => {
+              return (
+                <div key={hiredMovies.user_id}>
+                  <div className={container}>
+                    <div className={card}>
+                      <h5>Movie Title: {hiredMovies.name}</h5>
+                      <h5>Movie Status: {hiredMovies.status}</h5>
+                      <h5>Date Hired: {hiredMovies.date_hired}</h5>
+                      <h5>Date Returned: {hiredMovies.date_returned}</h5>
+                    </div>
+                  </div>
+
+                </div>
+              )
+            })}
+          </div>
+
+        </section>
+      </body>
+
+      
     </div>
-  );
-};
+  )
+}
 
-export default MyRecentMovies;
+export default MyRecentMovies
