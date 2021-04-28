@@ -89,7 +89,7 @@ const UsersDashboard = () => {
   console.log(couponDiscount);
 
   // TOTAL PRICE
-  // let defaultTotalPrice = MoviePrice * quantity - couponDiscount ;
+  let defaultTotalPrice = MoviePrice * quantity - couponDiscount ;
   // console.log(defaultTotalPrice);
   const [totalPrice, setTotalPrice] = useState(MoviePrice);
 
@@ -101,7 +101,7 @@ const UsersDashboard = () => {
   };
 
   //incrementing and decrementing item number to be added to cart
-  function incrementQuentaty() {
+  function incrementQuantity() {
     setQuantity(prevQuantity => prevQuantity + 1);
     setTotalPrice(prevPrice => prevPrice + MoviePrice);
   }
@@ -237,7 +237,7 @@ const UsersDashboard = () => {
                 <div className={(setquan, setbg)}>
                   <div className={sQuantity}>Duration (days) - {quantity}</div>
                   <div className={btns}>
-                    <button className={btn} onClick={incrementQuentaty}>
+                    <button className={btn} onClick={incrementQuantity}>
                       +
                     </button>
                     <button className={btn} onClick={decrementQuantity}>
@@ -277,7 +277,7 @@ const UsersDashboard = () => {
           <div className={(setquan, setbg)}>
             <div className={sQuantity}>Duration (days) - {quantity}</div>
             <div className={btns}>
-              <button className={btn} onClick={incrementQuentaty}>
+              <button className={btn} onClick={incrementQuantity}>
                 +
               </button>
               <button className={btn} onClick={decrementQuantity}>
@@ -317,7 +317,7 @@ const UsersDashboard = () => {
           <div className={(setquan, setbg)}>
             <div className={sQuantity}>Duration (days) - {quantity}</div>
             <div className={btns}>
-              <button className={btn} onClick={incrementQuentaty}>
+              <button className={btn} onClick={incrementQuantity}>
                 +
               </button>
               <button className={btn} onClick={decrementQuantity}>
