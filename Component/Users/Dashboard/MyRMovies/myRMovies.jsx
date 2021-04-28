@@ -17,7 +17,7 @@ const MyRecentMovies = () => {
   } = styles
 
   // Endpoints and urls
-  const hired_movies_url = `${process.env.API_URL}/hired_movies`
+  const hired_movies_url = `https://hiring-vhs.herokuapp.com/hired_movies`
 
   // State objects
   const [hiredMovies, setHiredMovies] = useState([]);

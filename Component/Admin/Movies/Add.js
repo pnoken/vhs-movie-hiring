@@ -24,7 +24,7 @@ function Add({ movies, setMovies }) {
   };
 
   const submit = async () => {
-    fetch(`${process.env.API_URL}/movies`, requestOptions)
+    fetch(`https://hiring-vhs.herokuapp.com/movies`, requestOptions)
       .then((response) => response.json())
       .then((result) => setMovies([...movies, result]))
       .catch((error) => console.log("error", error));

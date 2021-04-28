@@ -43,7 +43,7 @@ const UsersDashboard = () => {
   //fetch Movies
   const [movies, setMovies] = useState([]);
 
-  const url = `${process.env.API_URL}/movies`;
+  const url = `https://hiring-vhs.herokuapp.com/movies`;
 
   //Fetch client list
 

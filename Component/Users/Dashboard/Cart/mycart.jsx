@@ -16,14 +16,14 @@ const VHSCart = () => {
   //fetch Movies
   const [movies, setMovies] = useState([]);
 
-  const url = `${process.env.API_URL}/movies`;
+  const url = `https://hiring-vhs.herokuapp.com/movies`;
 
   //Fetch client list
 
   useEffect(() => {
     const fetchMovies = async () => {
       const response = await axios
-        .get(`${process.env.API_URL}/movies`, {
+        .get(`https://hiring-vhs.herokuapp.com/movies`, {
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json"
