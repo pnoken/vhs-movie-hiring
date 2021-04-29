@@ -66,8 +66,8 @@ export default function MovieList() {
                     onClick={() => setHired(true)}
                     className="btn btn-primary info"
                   >
-                    Hire
-                    <span className="extra-info">Available for hiring</span>
+                    Add to cart
+                    <span className="extra-info">{" "}</span>
                   </button>
                 ) : movie.active && hired ? (
                   <button className="btn btn-success" disabled>
@@ -75,8 +75,8 @@ export default function MovieList() {
                   </button>
                 ) : (
                   <button className="btn btn-secondary info" disabled>
-                    Hire
-                    <span className="extra-info">Unavailable for hiring</span>
+                    Add to cart
+                    <span className="extra-info">{" "}Movie is available</span>
                   </button>
                 )}
                 <p>
