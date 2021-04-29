@@ -89,6 +89,37 @@
         "currency": "GH₵",
         "balance": "200000"
       }
+    },
+    {
+      "id": 4,
+      "firstName": "username",
+      "lastName": "lastnameforud1",
+      "userName": "username",
+      "password": "thistestuser1",
+      "wallet": {
+        "wallet_id": "1",
+        "currency": "GH₵",
+        "balance": "200000"
+      }
+    },
+    {
+      "first_name": "jay",
+      "last_name": "jjay",
+      "userName": "jjnkton@g.com",
+      "password": "thispasswordisvalid",
+      "id": 5,
+      "wallet": {
+        "wallet_id": "",
+        "currency": "GH₵",
+        "balance": "200000"
+      }
+    },
+    {
+      "firstName": "newuser",
+      "lastName": "user1",
+      "userName": "new.user.com",
+      "password": "thispasswordis",
+      "id": 7
     }
   ],
   "movies": [

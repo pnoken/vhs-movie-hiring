@@ -81,11 +81,11 @@ const LoginForm = () => {
       <main className={styles.main}>
 
         <div className={styles.card}>
-          <i style={{ fontSize: "64px" , marginBottom: "10px"}}>
-            <FaUserCircle/>  
-          </i>
-            <br/>
-          <h3>Enter your credentials below to login</h3>
+          {/* <i style={{ fontSize: "64px" , marginBottom: "10px"}} class="fas">
+            &#xf406;
+          </i> */}
+          <FaUserSecret style={{ fontSize: "30px", marginBottom: "10px"}} />
+          <h3>USER LOGIN</h3>
          
           <form onSubmit={handleSubmit(onSubmit)}>
             <input
