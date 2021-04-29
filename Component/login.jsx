@@ -24,24 +24,30 @@ const LoginForm = () => {
     }
   };
 
-    //Endpoint -- url for making signup calls
-  const loginurl = 'http://localhost:7000/users';
-
+    
   //function to submit login form data
   const onSubmit = (data = { userName, password }) => {
+
+  //Endpoint -- url for making signup calls
+  const loginurl = `http://localhost:7000/user?userName=${data.userName}&password=${data.password}`;
+
     console.log("data is", data);
     axios
-      .get(loginurl, {
-        username: data.userName,
-        password: data.password
-      })
+      .get(loginurl)
       .then(resp => {
         //If user credentials are correct and login successful
-        if (resp.status == 200) {
-          window.location = "users";
-          alert("Login Successful");
+        if (resp.status == 200) {    
           console.log(resp.data);
-          localStorage.setItem("user-credentials", JSON.stringify(resp.data));
+          if(resp.data.length==0){
+            console.log("user not found");
+            alert("Login unsuccessful, kindly check your credentials and try again");
+          }
+          else {
+            console.log("user-found");
+            localStorage.setItem("user-credentials", JSON.stringify(resp.data));
+            alert("Login Successful");
+            window.location = "users";
+          }
         } else {
           //if user credentials are inccorect and login unsuccessful
           window.location.href = "#";
