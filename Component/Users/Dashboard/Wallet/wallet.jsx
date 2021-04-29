@@ -32,7 +32,7 @@ const MyWallet = () => {
   useEffect(() => {
     const TopupWallet = async () => {
       const response = await axios
-        .get(`https://hiring-vhs.herokuapp.com/users/wallet`, {
+        .get(`http://localhost:7000/users/wallet`, {
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json"

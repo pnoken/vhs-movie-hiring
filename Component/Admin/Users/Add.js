@@ -24,7 +24,7 @@ function Add({ users, setUsers }) {
   };
 
   const submit = async () => {
-    fetch(`https://hiring-vhs.herokuapp.com/users`, requestOptions)
+    fetch(`http://localhost:7000/users`, requestOptions)
       .then((response) => response.json())
       .then((result) => setUsers([...users, result]))
       .catch((error) => console.log("error", error));

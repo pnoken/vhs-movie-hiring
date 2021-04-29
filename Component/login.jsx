@@ -20,7 +20,7 @@ const LoginForm = () => {
   } = useForm();
 
     //Endpoint -- url for making signup calls
-  const loginurl = `https://hiring-vhs.herokuapp.com/users`;
+  const loginurl = `http://localhost:7000/users`;
 
   //function to submit login form data
   const onSubmit = (data = { username, password }) => {
