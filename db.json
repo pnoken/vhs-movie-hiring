@@ -1,10 +1,44 @@
 {
+  "user": [
+    {
+      "id": 1,
+      "firstName": "username",
+      "lastName": "lastnameforud1",
+      "userName": "username",
+      "password": "thistestuser1",
+      "wallet": {
+        "wallet_id": "1",
+        "currency": "GH₵",
+        "balance": "200000"
+      }
+    },
+    {
+      "first_name": "jay",
+      "last_name": "jjay",
+      "userName": "jjnkton@g.com",
+      "password": "thispasswordisvalid",
+      "id": 2,
+      "wallet": {
+        "wallet_id": "",
+        "currency": "GH₵",
+        "balance": "200000"
+      }
+    },
+    {
+      "firstName": "newuser",
+      "lastName": "user1",
+      "userName": "new.user.com",
+      "password": "thispasswordis",
+      "id": 3
+    }
+
+  ],
   "users": [
-    { 
+    {
       "id": 1,
       "firstName": "clem",
       "lastName": "sedem",
-      "contact": "0324334456",     
+      "contact": "0324334456",
       "username": "wixep22104@laraskey.com",
       "password": "$2a$10$uLeGULbhjrW3RkR8kPElguBVhHUFEy3hAHar0cEtk0u/9klQx/Lni",
       "isAdmin": "true",
@@ -25,7 +59,6 @@
         "currency": "GH₵",
         "balance": "200000"
       }
-
     },
     {
       "id": 3,
@@ -41,7 +74,6 @@
         "currency": "GH₵",
         "balance": "200000"
       }
-
     },
     {
       "id": 3,
@@ -57,10 +89,8 @@
         "currency": "GH₵",
         "balance": "200000"
       }
-
     }
   ],
-
   "movies": [
     {
       "id": 1,
@@ -98,7 +128,7 @@
       "rating": "9/10",
       "active": true
     },
-    { 
+    {
       "id": 5,
       "name": "Avengers: Endgame",
       "Category": "Action/Sci-Fi",
@@ -106,7 +136,6 @@
       "release_year": "2019",
       "rating": "10/10",
       "active": true
-      
     },
     {
       "id": 6,
@@ -115,7 +144,6 @@
       "release_year": "2020",
       "rating": "10/10",
       "active": true
-      
     },
     {
       "id": 7,
@@ -125,7 +153,6 @@
       "release_year": "2020",
       "rating": "10/10",
       "active": true
-      
     },
     {
       "id": 8,
@@ -135,10 +162,8 @@
       "release_year": "2014",
       "rating": "10/10",
       "active": true
-      
     }
   ],
-
   "hired_movies": [
     {
       "movie_id": 1,
@@ -165,7 +190,6 @@
       "date_returned": "2/04/2021"
     }
   ],
-
   "payments": [
     {
       "id": 1,
@@ -185,7 +209,6 @@
       "payment_method": "cash"
     }
   ],
-
   "wallet": [
     {
       "id": 1,
