@@ -2,6 +2,7 @@ import axios from "axios";
 import Head from "next/head";
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { FaUserAlt, FaUserSecret } from "react-icons/fa";
 import styles from "../styles/auth.module.css";
 // import isAlphanumeric from "validator/lib/isAlphanumeric";
 
@@ -71,12 +72,12 @@ const SignUpForm = () => {
       <main className={styles.main}>
 
         <div className={styles.signupcard}>
-            <i style={{ fontSize: "64px" , marginBottom: "10px"}} class="fa">
+            {/* <i style={{ fontSize: "64px" , marginBottom: "10px"}} class="fa">
                 &#xf0c0;
-            </i>
+            </i> */}
+            <FaUserSecret style={{ fontSize: "30px", marginBottom: "10px"}} />
 
-            <br/>
-            <h4>Enter your details below to sign up for an account.</h4>
+            <h4>USER SIGNUP</h4>
          
           <form onSubmit={handleSubmit(onSubmit)}>
             
@@ -151,17 +152,19 @@ const SignUpForm = () => {
             )}{" "}
             <br />
             <center>
-              <button type="submit" value="submit" className={styles.signuplnk}>
+              <button type="submit" value="submit" className={styles.loginbtn}>
                 Sign Up
               </button>
             </center>
           </form>
 
           <br></br>
+          <span style={{ color: "blue"}}>
             Already have an account?
-          <a href="/" className={styles.loginbtn}>
-            Login Here
-          </a>
+            <a href="/" className={styles.signuplnk}>
+              Login Here
+            </a>
+          </span>
         </div>
       </main>
 
