@@ -1,15 +1,63 @@
 {
   "users": [
-    {
-      "email": "wixep22104@laraskey.com",
-      "password": "$2a$10$uLeGULbhjrW3RkR8kPElguBVhHUFEy3hAHar0cEtk0u/9klQx/Lni",
+    { 
+      "id": 1,
       "firstName": "clem",
       "lastName": "sedem",
-      "contact": "0324334456",
+      "contact": "0324334456",     
+      "username": "wixep22104@laraskey.com",
+      "password": "$2a$10$uLeGULbhjrW3RkR8kPElguBVhHUFEy3hAHar0cEtk0u/9klQx/Lni",
       "isAdmin": "true",
       "role": "Admin",
-      "status": true,
-      "id": 1
+      "status": true
+    },
+    {
+      "id": 2,
+      "firstName": "userwithid1",
+      "lastName": "lastnameforud1",
+      "userName": "password",
+      "password": "@thistestuser1",
+      "isAdmin": false,
+      "role": "User",
+      "status": "Active",
+      "wallet": {
+        "wallet_id": "1",
+        "currency": "GH₵",
+        "balance": "200000"
+      }
+
+    },
+    {
+      "id": 3,
+      "firstName": "userwithid2",
+      "lastName": "lastnameforud2",
+      "userName": "password",
+      "password": "@thistestuser1",
+      "isAdmin": false,
+      "role": "User",
+      "status": "Active",
+      "wallet": {
+        "wallet_id": "2",
+        "currency": "GH₵",
+        "balance": "200000"
+      }
+
+    },
+    {
+      "id": 3,
+      "firstName": "username",
+      "lastName": "lastnameforud3",
+      "userName": "password",
+      "password": "@thistestuser1",
+      "isAdmin": false,
+      "role": "User",
+      "status": "Active",
+      "wallet": {
+        "wallet_id": "3",
+        "currency": "GH₵",
+        "balance": "200000"
+      }
+
     }
   ],
 
