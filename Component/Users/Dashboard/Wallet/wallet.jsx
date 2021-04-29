@@ -30,7 +30,7 @@ const MyWallet = () => {
   //function to top-up user wallet
     const TopupWallet = async (data={balance}) => {
       const response = await axios
-        .patch(`http://localhost:7000/users.wallet?${data.balance}`, {
+        .patch(`http://localhost:7000/users?wallet?${data.balance}`, {
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json"
