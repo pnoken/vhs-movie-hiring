@@ -16,80 +16,157 @@
   "movies": [
     {
       "id": 1,
-      "name": "The Priest",
-      "Category": "Mystery/Horror",
-      "price": 70,
-      "release_year": 2021,
-      "rating": "6.3/10",
-      "active": true
+      "name": "Batman",
+      "price": 10,
+      "release_year": 2016,
+      "image_url": "https://www.joblo.com/assets/images/joblo/posters/2019/02/captin-marvel-poster-international.jpg",
+      "active": false
     },
     {
       "id": 2,
-      "name": " Batman v Superman: Dawn of Justice",
-      "Category": "Action/Adventure",
-      "price": 69,
-      "release_year": 2019,
-      "rating": "9/10",
+      "name": "Superman",
+      "price": 14,
+      "release_year": 2016,
+      "image_url": "https://www.joblo.com/assets/images/joblo/posters/2019/02/captin-marvel-poster-international.jpg",
       "active": true
     },
     {
       "id": 3,
       "name": "Black Panther",
-      "Category": "Action/Adventure",
       "price": 19,
-      "release_year": 2018,
-      "rating": "9/10",
-      "active": true
+      "release_year": 2016,
+      "image_url": "https://www.joblo.com/assets/images/joblo/posters/2019/02/captin-marvel-poster-international.jpg",
+      "active": false
     },
     {
       "id": 4,
-      "name": "Spiderman - No way home",
-      "Category": "Action/Adventure",
+      "name": "Spiderman",
       "price": 20,
-      "release_year": 2021,
-      "rating": "9/10",
+      "release_year": 2016,
+      "image_url": "https://www.joblo.com/assets/images/joblo/posters/2019/02/captin-marvel-poster-international.jpg",
       "active": true
     },
-    { 
+    {
       "id": 5,
-      "name": "Avengers: Endgame",
-      "Category": "Action/Sci-Fi",
-      "price": "67",
-      "release_year": "2019",
-      "rating": "10/10",
-      "active": true
-      
+      "name": "Batman",
+      "price": 10,
+      "release_year": 2016,
+      "image_url": "https://www.joblo.com/assets/images/joblo/posters/2019/02/captin-marvel-poster-international.jpg",
+      "active": false
     },
     {
       "id": 6,
-      "name": "Army Of One",
-      "price": "35",
-      "release_year": "2020",
-      "rating": "10/10",
+      "name": "Superman",
+      "price": 14,
+      "release_year": 2016,
+      "image_url": "https://www.joblo.com/assets/images/joblo/posters/2019/02/captin-marvel-poster-international.jpg",
       "active": true
-      
     },
     {
       "id": 7,
-      "name": "Fantasy Island",
-      "Category": "Action/Sci-Fi",
-      "price": "45",
-      "release_year": "2020",
-      "rating": "10/10",
-      "active": true
-      
+      "name": "Black Panther",
+      "price": 19,
+      "release_year": 2016,
+      "image_url": "https://www.joblo.com/assets/images/joblo/posters/2019/02/captin-marvel-poster-international.jpg",
+      "active": false
     },
     {
       "id": 8,
-      "name": "Outside The Wire",
-      "Category": "Action/Blockbuster",
-      "price": "50",
-      "release_year": "2014",
-      "rating": "10/10",
+      "name": "Spiderman",
+      "price": 20,
+      "release_year": 2016,
+      "image_url": "https://www.joblo.com/assets/images/joblo/posters/2019/02/captin-marvel-poster-international.jpg",
       "active": true
-      
+    },
+    {
+      "id": 9,
+      "name": "Batman",
+      "price": 10,
+      "release_year": 2016,
+      "image_url": "https://www.joblo.com/assets/images/joblo/posters/2019/02/captin-marvel-poster-international.jpg",
+      "active": false
+    },
+    {
+      "id": 10,
+      "name": "Superman",
+      "price": 14,
+      "release_year": 2016,
+      "image_url": "https://www.joblo.com/assets/images/joblo/posters/2019/02/captin-marvel-poster-international.jpg",
+      "active": true
+    },
+    {
+      "id": 11,
+      "name": "Black Panther",
+      "price": 19,
+      "release_year": 2016,
+      "image_url": "https://www.joblo.com/assets/images/joblo/posters/2019/02/captin-marvel-poster-international.jpg",
+      "active": false
+    },
+    {
+      "id": 12,
+      "name": "Spiderman",
+      "price": 20,
+      "release_year": 2016,
+      "image_url": "https://www.joblo.com/assets/images/joblo/posters/2019/02/captin-marvel-poster-international.jpg",
+      "active": true
+    },
+    {
+      "id": 13,
+      "price": 19,
+      "active": true,
+      "name": "Batman",
+      "release_year": 1998,
+      "image_url": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTYwNjAyODIyMF5BMl5BanBnXkFtZTYwNDMwMDk2._V1_.jpg"
+    },
+    {
+      "id": 14,
+      "price": 19,
+      "active": true,
+      "name": "The Dark Knight",
+      "release_year": 2008,
+      "image_url": "https://ia.media-imdb.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_UX182_CR0,0,182,268_AL_.jpg"
+    },
+    {
+      "id": 15,
+      "active": true,
+      "price": 19,
+      "name": "Batman v Superman: Dawn of Justice",
+      "release_year": 2016,
+      "image_url": "https://ia.media-imdb.com/images/M/MV5BYThjYzcyYzItNTVjNy00NDk0LTgwMWQtYjMwNmNlNWJhMzMyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg"
+    },
+    {
+      "id": 16,
+      "active": true,
+      "price": 19,
+      "name": "The Dark Knight Rises",
+      "release_year": 2012,
+      "image_url": "https://ia.media-imdb.com/images/M/MV5BMTk4ODQzNDY3Ml5BMl5BanBnXkFtZTcwODA0NTM4Nw@@._V1_UX182_CR0,0,182,268_AL_.jpg"
+    },
+    {
+      "id": 17,
+      "price": 19,
+      "active": true,
+      "name": "Batman Begins",
+      "release_year": 2005,
+      "image_url": "https://ia.media-imdb.com/images/M/MV5BYThjYzcyYzItNTVjNy00NDk0LTgwMWQtYjMwNmNlNWJhMzMyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg"
+    },
+    {
+      "id": 18,
+      "price": 19,
+      "active": true,
+      "name": "The LEGO Batman Movie",
+      "release_year": 2017,
+      "image_url": "https://ia.media-imdb.com/images/M/MV5BMTcyNTEyOTY0M15BMl5BanBnXkFtZTgwOTAyNzU3MDI@._V1_UX182_CR0,0,182,268_AL_.jpg"
+    },
+    {
+      "id": 21,
+      "price": 19,
+      "active": true,
+      "name": "Batman Returns",
+      "release_year": 1992,
+      "image_url": "https://ia.media-imdb.com/images/M/MV5BOGZmYzVkMmItM2NiOS00MDI3LWI4ZWQtMTg0YWZkODRkMmViXkEyXkFqcGdeQXVyODY0NzcxNw@@._V1_UX182_CR0,0,182,268_AL_.jpg"
     }
-  ],
+],
 
   "hired_movies": [
     {

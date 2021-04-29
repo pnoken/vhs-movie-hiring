@@ -6,7 +6,7 @@ export default function MovieList() {
   const { movielist, movieGrid, movieCard, moviePoster } = styles;
 
   const [movies, setMovies] = useState([]);
-  const [hired, setHired] = useState(false);
+  // const [hired, setHired] = useState(false);
 
   function getMovies() {
     var requestOptions = {
@@ -47,7 +47,7 @@ export default function MovieList() {
               }}
             >
               <img
-                src="https://www.joblo.com/assets/images/joblo/posters/2019/02/captin-marvel-poster-international.jpg"
+                src={movie.image_url ? movie.image_url : "https://www.joblo.com/assets/images/joblo/posters/2019/02/captin-marvel-poster-international.jpg"}
                 style={{ width: "300px", height: "360px", borderRadius: "8px" }}
                 alt="..."
               />
@@ -61,22 +61,16 @@ export default function MovieList() {
                   ></i>
                 </p>
                 <h6 className="card-title">{movie.name}</h6>
-                {movie.active && !hired ? (
+                {movie.active ? (
                   <button
-                    onClick={() => setHired(true)}
+                    // onClick={() => setHired(true)}
                     className="btn btn-primary info"
                   >
                     Hire
-                    <span className="extra-info">Available for hiring</span>
                   </button>
-                ) : movie.active && hired ? (
-                  <button className="btn btn-success" disabled>
-                    Hired
-                  </button>
-                ) : (
+                )  : (
                   <button className="btn btn-secondary info" disabled>
                     Hire
-                    <span className="extra-info">Unavailable for hiring</span>
                   </button>
                 )}
                 <p>
@@ -85,8 +79,8 @@ export default function MovieList() {
                   </span>{" "}
                   <p>
                     <span className="movie_info float-right">
-                      <i className="fas fa-star"></i>
-                      {movie.rating}
+                      
+                      GHS {movie.price}
                     </span>
                   </p>
                 </p>

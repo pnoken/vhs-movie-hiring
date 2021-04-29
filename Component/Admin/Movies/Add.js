@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Add({ movies, setMovies }) {
+function AddMovie({ movies, setMovies }) {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [releaseYear, setReleaseYear] = useState("");
@@ -122,4 +122,4 @@ function Add({ movies, setMovies }) {
   );
 }
 
-export default Add;
+export default AddMovie;

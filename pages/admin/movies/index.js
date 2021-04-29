@@ -1,179 +1,259 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
-import axios from 'axios';
-import { Row, Col, Button, Table } from 'react-bootstrap';
-import { confirmAlert } from 'react-confirm-alert';
+import React, { useState, useEffect } from "react";
+import AddMovie from "../../../Component/Admin/Movies/Add";
 import NewAdminLayout from '../../../Component/Layout/NewAdminLayout';
-import { baseUrl } from '../../../utils/constants';
-import UserForm from '../../../Component/Forms/UserForm';
 
-export async function getServerSideProps() {
-	const res = await axios.get(
-		`${baseUrl}/movies?status=${true}&_sort=id&_order=desc`,
-	);
-	const userData = await res.data;
-
-	if (!userData) {
-		return {
-			notFound: true,
-		};
-	}
-
-	return {
-		props: {
-			users: userData,
-		},
-	};
-}
-
-export default function Users({ users }) {
-	const router = useRouter();
-
-	const [createNewUser, setCreateNewUser] = useState(false);
-	const [seletectedUSer, setSelectedUser] = useState({});
-
-	const newUser = () => {
-		setCreateNewUser(true);
-		setSelectedUser({});
-	};
-
-	const editUser = (user) => {
-		setCreateNewUser(true);
-		setSelectedUser(user);
-	};
-
-	const refreshData = () => {
-		router.replace(router.asPath);
-	};
-
-	// delete the user
-	const handleDelete = async (userId, onClose) => {
-		try {
-			const res = await axios.patch(`${baseUrl}/movies/${userId}`, {
-				status: false,
-			});
-			console.log(JSON.stringify(res));
-			if (res.status === 200 || res.status == 204) {
-				refreshData();
-			}
-		} catch (error) {
-			console.log(`error ${error}`);
-		}
-		onClose();
-		refreshData();
-	};
-
-	// confirm dialog
-	const deleteUser = (userId) => {
-		confirmAlert({
-			customUI: ({ onClose }) => {
-				return (
-					<div
-						className="modal-dialog modal-confirm"
-						style={{ marginTop: '-12%' }}
-					>
-						<div className="modal-content" style={{ marginTop: '-150%' }}>
-							<div className="modal-header flex-colum">
-								<h4 className="modal-title w-100 text-center">Are you sure?</h4>
-							</div>
-							<div className="modal-body">
-								<p className="text-center">
-									Do you really want to delete this record? This process cannot
-									be undone
-								</p>
-								<div className="modal-footer justify-content-center">
-									<button
-										className="btn btn-secondary btn-sm"
-										onClick={onClose}
-									>
-										No
-									</button>
-									<button
-										className="btn btn-danger btn-sm"
-										onClick={() => handleDelete(userId, onClose)}
-									>
-										Yes
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				);
-			},
+export default function movies() {
+	const [movies, setMovies] = useState([]);
+	const [editStu, setEditStu] = useState([]);
+	const [delId, setDelID] = useState(0);
+	const [name, setName] = useState("");
+	const [price, setPrice] = useState(0);
+	const [status, setStatus] = useState("");
+	const [updateId, setUpdateId] = useState();
+	const [token, setToken] = useState("");
+  
+	// useEffect(() => {
+	//   let lStorage = window.localStorage.getItem("auth");
+	//   if (lStorage) {
+	//     lStorage = JSON.parse(lStorage);
+	//     console.log("local", lStorage.id);
+	//     setToken(lStorage.token);
+	//   }
+	// }, []);
+  
+	const updateStu = async (id) => {
+	  try {
+		var myHeaders = new Headers();
+		myHeaders.append("Content-Type", "application/json");
+  
+		var raw = JSON.stringify({
+		  name: name,
+		  price: price,
+		  status: status,
 		});
+  
+		var requestOptions = {
+		  method: "PUT",
+		  headers: myHeaders,
+		  body: raw,
+		};
+  
+		fetch(`http://localhost:3002/movies/${id}`, requestOptions)
+		  .then((response) => response.json())
+		  .then((result) => console.log(result))
+		  .catch((error) => console.log("error", error));
+	  } catch (error) {
+		alert("Could not update");
+	  }
 	};
-
+  
+	const deleteUser = async (id) => {
+	  try {
+		var requestOptions = {
+		  method: "DELETE",
+		};
+  
+		await fetch(`http://localhost:3002/movies/${id}`, requestOptions)
+		  .then((response) => response.text())
+		  .then((result) => {
+			movies.splice(
+			  movies.findIndex((stu) => stu.id === id),
+			  1
+			);
+		  })
+		  .catch((error) => console.log("error", error));
+	  } catch (err) {
+		alert(err);
+	  }
+	};
+  
+	useEffect(() => {
+	  //var myHeaders = new Headers();
+	  // myHeaders.append("auth-token", token);
+	  async function getData() {
+		var requestOptions = {
+		  method: "GET",
+		};
+  
+		await fetch("http://localhost:7000/movies", requestOptions)
+		  .then((response) => response.json())
+		  .then((result) => {
+			setMovies(result), console.log(result);
+		  })
+		  .catch((error) => console.log("error", error));
+	  }
+	  getData();
+	}, []);
+  
+	const findMov = (id) => {
+	  const item = movies.find((stu) => stu.id === id);
+  
+	  setEditStu(item);
+	  console.log("editstu", editStu);
+	  setName(item.name);
+	  setPrice(item.price);
+	};
+  
 	return (
-		<>
-			{createNewUser && (
-				<UserForm
-					id="newUser"
-					onClose={() => setCreateNewUser(false)}
-					current={seletectedUSer}
-				/>
-			)}
-
-			<NewAdminLayout>
-				<Row>
-					<Col sm={12} md={{ span: 10, offset: 1 }}>
-						<br />
-						<Button size="sm" onClick={newUser}>
-							New
-						</Button>
-						<br />
-						<br />
-						<h4 className="text-center">Users</h4>
-						<Table striped bordered hover responsive size="sm">
-							<thead>
-								<tr className="bg-secondary">
-									<th>#</th>
-									<th>Name</th>
-									<th>Category</th>
-									<th>Price</th>
-									<th>Release Year</th>
-									<th>Rating</th>
-									<th colSpan={3}></th>
-								</tr>
-							</thead>
-							<tbody>
-								{users &&
-									users.map((user, index) => (
-										<tr key={index + 1}>
-											<td>{index + 1}</td>
-											<td>{user.name}</td>
-											<td>{user.Category}</td>
-											<td>GHS {user.price}</td>
-											<td>{user.release_year}</td>
-											<td>{user.rating}</td>
-											<td className="btnTD">
-												<Button
-													type="button"
-													variant="secondary"
-													size="sm"
-													className="myBtn"
-													onClick={() => editUser(user)}
-												>
-													Edit
-												</Button>
-											</td>
-											<td className="btnTD">
-												<Button
-													type="button"
-													variant="danger"
-													size="sm"
-													className="myBtn"
-													onClick={() => deleteUser(user.id)}
-												>
-													Delete
-												</Button>
-											</td>
-										</tr>
-									))}
-							</tbody>
-						</Table>
-					</Col>
-				</Row>
-			</NewAdminLayout>
-		</>
+	  <>
+		<NewAdminLayout title="movies">
+		  <span>
+			<h1>Movie List</h1>
+			<button
+			  className="btn btn-primary float-right"
+			  type="button"
+			  data-toggle="modal"
+			  data-target="#addstudent"
+			  data-uid="1"
+			>
+			  Add Movies
+			</button>
+		  </span>
+		  <AddMovie />
+		  <div className="row">
+			<div className="row">
+			  {movies.map((movie) => (
+				<div className="col">
+				  <div className="card movie_card">
+					<img
+					  src={movie.image_url}
+					  className="card-img-top"
+					  alt="..."
+					/>
+					<div className="card-body">
+					 
+						<span><button
+						  type="button"
+						  data-toggle="modal"
+						  data-target="#edit"
+						  data-uid="1"
+						  className="update btn btn-warning btn-sm"
+						  onClick={() => findMov(movie.id)}
+						>
+						  <img src="/open-iconic/svg/edit.svg" alt="update" />
+						</button></span>
+						<span>
+						<button
+						  type="button"
+						  data-toggle="modal"
+						  data-target="#delete"
+						  data-uid="1"
+						  className="delete btn btn-danger btn-sm"
+						//   onClick={() => setDelID(user.id)}
+						>
+						  <img src="/open-iconic/svg/delete.svg" alt="delete" />
+						</button></span>
+					 
+					  <h5 className="card-title">{movie.name}</h5>
+					  <span className="movie_info">{movie.release_year}</span>
+					  <span className="movie_info float-right">
+						<i className="fas fa-star"></i>
+						GHS {movie.price}
+					  </span>
+					</div>
+				  </div>
+				</div>
+			  ))}
+			</div>
+		  </div>
+  
+		  <div id="edit" className="modal fade" role="dialog">
+			<div className="modal-dialog">
+			  <div className="modal-content">
+				<div className="modal-header">
+				  <button type="button" className="close" data-dismiss="modal">
+					×
+				  </button>
+				</div>
+				<div className="modal-body">
+				  <input
+					id="ln"
+					type="text"
+					className="form-control"
+					name="id"
+					value={status}
+					placeholder="status"
+					readOnly
+				  />
+				  <input
+					id="fn"
+					type="text"
+					className="form-control"
+					name="fname"
+					value={name}
+					placeholder="First Name"
+					onChange={(e) => {
+					  setName(e.target.value);
+					}}
+				  />
+				  <input
+					id="mn"
+					type="text"
+					className="form-control"
+					name="lname"
+					value={price}
+					placeholder="Last Name"
+					onChange={(e) => {
+					  setPrice(e.target.value);
+					}}
+				  />
+				</div>
+				<div className="modal-footer">
+				  <button
+					type="button"
+					id="up"
+					className="btn btn-warning"
+					data-dismiss="modal"
+					onClick={() => updateStu(updateId)}
+				  >
+					Update
+				  </button>
+				  <button
+					type="button"
+					className="btn btn-default"
+					data-dismiss="modal"
+				  >
+					Close
+				  </button>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  <div id="delete" className="modal fade" role="dialog">
+			<div className="modal-dialog">
+			  <div className="modal-content">
+				<div className="modal-header">
+				  <button type="button" className="close" data-dismiss="modal">
+					×
+				  </button>
+				  <h4 className="modal-title">Delete Data</h4>
+				</div>
+				<div className="modal-body">
+				  <strong>Are you sure you want to delete this data?</strong>
+				</div>
+				<div className="modal-footer">
+				  <button
+					type="button"
+					id="del"
+					className="btn btn-danger"
+					data-dismiss="modal"
+					onClick={() => deletemovie(delId)}
+				  >
+					Delete
+				  </button>
+				  <button
+					type="button"
+					className="btn btn-default"
+					data-dismiss="modal"
+				  >
+					Close
+				  </button>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</NewAdminLayout>
+	  </>
 	);
-}
+  }
+  
