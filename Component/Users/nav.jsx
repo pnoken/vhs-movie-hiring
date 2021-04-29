@@ -1,5 +1,5 @@
-import React from "react";
-import Link from "next/link"
+import React, {useState, useEffect} from "react";
+import Link from "next/link";
 import {FaCartPlus} from "react-icons/fa"
 import {RiLogoutCircleRLine} from "react-icons/ri"
 import {GiWallet} from "react-icons/gi" 
@@ -11,6 +11,11 @@ const NavElement = ({ quantity, addToCart }) => {
   //defines styles for header
   const { body, upperDashboardSection, menus, items, circle, nav, logo, menu_item, } = styles;
 
+    const userLogout = () => {
+      localStorage.removeItem('user-credentials');
+      console.log("user-session ended");
+    }  
+  
   const Ccircle = quantity => {
     return <span className={circle}>{quantity}</span>;
   };
@@ -51,7 +56,7 @@ const NavElement = ({ quantity, addToCart }) => {
               </Link>
 
               <Link href="/">
-                <li className={menu_item}>
+                <li className={menu_item} onClick={userLogout}>
                   <RiLogoutCircleRLine/> Logout
                 </li>
               </Link>

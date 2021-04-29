@@ -128,6 +128,11 @@ const UsersDashboard = () => {
     setAddToCart(prevAddToCart => (prevAddToCart = true));
   }
 
+  const userLogout = ()=> {
+    localStorage.removeItem('user-credentials');
+    console.log("user-session ended");
+  }
+
   return (
     <div>
       <Head>
@@ -181,8 +186,8 @@ const UsersDashboard = () => {
                     <GiWallet/> Wallet
                   </a>
                 </li>
-                <li>
-                  <a href="/">
+                <li >
+                  <a href="/" onClick={userLogout}>
                     {" "}
                     <strong>
                     <RiLogoutCircleRLine/> Logout 
