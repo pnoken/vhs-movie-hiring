@@ -2,6 +2,7 @@ import axios from "axios";
 import Head from "next/head";
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import {FaUserFriends} from "react-icons/fa"
 import styles from "../styles/auth.module.css";
 // import isAlphanumeric from "validator/lib/isAlphanumeric";
 
@@ -42,6 +43,7 @@ const SignUpForm = () => {
         } else {
           //if user details are not submited
           window.location.href = "#";
+          alert("An error occured while signin up. Please try again")
           console.log(resp.data);
         }
       })
@@ -71,8 +73,8 @@ const SignUpForm = () => {
       <main className={styles.main}>
 
         <div className={styles.signupcard}>
-            <i style={{ fontSize: "64px" , marginBottom: "10px"}} class="fa">
-                &#xf0c0;
+            <i style={{ fontSize: "64px" , marginBottom: "10px"}} class="fas">
+              <FaUserFriends/>  
             </i>
 
             <br/>
