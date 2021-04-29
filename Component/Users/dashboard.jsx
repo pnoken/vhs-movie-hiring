@@ -133,6 +133,24 @@ const UsersDashboard = () => {
     console.log("user-session ended");
   }
 
+  const [firstName, setFirstname] = useState("");
+  const [lastName, setLastname] = useState("");
+
+  useEffect(()=>{
+    const userdata = localStorage.getItem('user-credentials');
+    
+    if(userdata) {
+        const foundUser = JSON.parse(userdata)
+        setFirstname(foundUser.firstName);
+        setLastname(foundUser.lastName);
+        // setWallet(usercredentials.wallet);
+        console.log('User is logged in')
+    } else {
+        window.location="/"
+    }
+
+  }, [])
+
   return (
     <div>
       <Head>
@@ -188,7 +206,7 @@ const UsersDashboard = () => {
                 </li>
                 <li >
                   <a href="/" onClick={userLogout}>
-                    {" "}
+                    {" "} {firstName} {" "} {lastName}
                     <strong>
                     <RiLogoutCircleRLine/> Logout 
                     </strong>
