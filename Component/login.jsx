@@ -3,24 +3,21 @@ import Head from "next/head";
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import styles from "../styles/auth.module.css";
+import {FaUserCircle} from "react-icons/fa"
 import isAlphanumeric from "validator/lib/isAlphanumeric";
 
 const LoginForm = () => {
 
   //Using react hook - form to handle form events
-  const {
-    register,
-    handleSubmit = async e => {
-      {
-        e.preventDefault;
-      }
-    },
-    watch,
-    formState: { errors }
-  } = useForm();
+  const { register, handleSubmit = async (e) => {
+    {
+      e.preventDefault;
+    }
+  }, watch, formState: { errors } } = useForm();
+
 
     //Endpoint -- url for making signup calls
-  const loginurl = `https://hiring-vhs.herokuapp.com/users`;
+  const loginurl = 'http://localhost:7000/users';
 
   //function to submit login form data
   const onSubmit = (data = { username, password }) => {
@@ -36,7 +33,7 @@ const LoginForm = () => {
           window.location = "users";
           alert("Login Successful");
           console.log(resp.data);
-          localStorage.setItem("admin", JSON.stringify(resp.data));
+          localStorage.setItem("user-credentials", JSON.stringify(resp.data));
         } else {
           //if user credentials are inccorect and login unsuccessful
           window.location.href = "login";
@@ -70,7 +67,7 @@ const LoginForm = () => {
 
         <div className={styles.card}>
           <i style={{ fontSize: "64px" , marginBottom: "10px"}} class="fas">
-            &#xf406;
+            <FaUserCircle/>  
           </i>
             <br/>
           <h3>Enter your credentials below to login</h3>
@@ -84,7 +81,7 @@ const LoginForm = () => {
               id="username"
               {...register("username",{
                 required: true,
-                minLength: 8
+                minLength: 2
               })}
             />
             {errors.username && (
