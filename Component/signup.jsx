@@ -85,8 +85,7 @@ const SignUpForm = () => {
               <FaUserFriends/>  
             </i>
 
-            <br/>
-            <h4>Enter your details below to sign up for an account.</h4>
+            <h4>USER SIGNUP</h4>
          
           <form onSubmit={handleSubmit(onSubmit)}>
 
@@ -199,17 +198,19 @@ const SignUpForm = () => {
             <br />
 
             <center>
-              <button type="submit" value="submit" className={styles.signuplnk}>
+              <button type="submit" value="submit" className={styles.loginbtn}>
                 Sign Up
               </button>
             </center>
           </form>
 
           <br></br>
+          <span style={{ color: "blue"}}>
             Already have an account?
-          <a href="/" className={styles.loginbtn}>
-            Login Here
-          </a>
+            <a href="/" className={styles.signuplnk}>
+              Login Here
+            </a>
+          </span>
         </div>
       </main>
 

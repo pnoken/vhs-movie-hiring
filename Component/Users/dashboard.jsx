@@ -43,7 +43,7 @@ const UsersDashboard = () => {
   //fetch Movies
   const [movies, setMovies] = useState([]);
 
-  const url = `https://hiring-vhs.herokuapp.com/movies`;
+  const url = `http://localhost:7000/movies`;
 
   //Fetch client list
 

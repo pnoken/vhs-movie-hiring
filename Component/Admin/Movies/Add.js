@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Add({ movies, setMovies }) {
+function AddMovie({ movies, setMovies }) {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [releaseYear, setReleaseYear] = useState("");
@@ -24,7 +24,7 @@ function Add({ movies, setMovies }) {
   };
 
   const submit = async () => {
-    fetch(`https://hiring-vhs.herokuapp.com/movies`, requestOptions)
+    fetch(`http://localhost:7000/movies`, requestOptions)
       .then((response) => response.json())
       .then((result) => setMovies([...movies, result]))
       .catch((error) => console.log("error", error));
@@ -122,4 +122,4 @@ function Add({ movies, setMovies }) {
   );
 }
 
-export default Add;
+export default AddMovie;

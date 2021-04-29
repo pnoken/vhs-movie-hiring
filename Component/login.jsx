@@ -2,6 +2,7 @@ import axios from "axios";
 import Head from "next/head";
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { FaUserAlt, FaUserSecret } from "react-icons/fa";
 import styles from "../styles/auth.module.css";
 import {FaEye} from "react-icons/fa";
 import {FaUserCircle} from "react-icons/fa"
@@ -140,10 +141,12 @@ const LoginForm = () => {
           </form>
 
           <br></br>
-            Don't Have an Account?
-          <a href="/signup" className={styles.signuplnk}>
-            Sign up
-          </a>
+          <span style={{ color: "blue"}}>
+            Don't Have an Account? 
+            <a href="/signup" className={styles.signuplnk}>
+              Sign Up Here
+            </a>
+          </span>
         </div>
       </main>
 
