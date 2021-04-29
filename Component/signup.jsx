@@ -31,22 +31,21 @@ const SignUpForm = () => {
   
 
   //Endpoint -- url for making signup calls
-  const signupurl = 'http://localhost:7000/users';
+  const signupurl = 'http://localhost:7000/user';
 
   //function to submit signup form data 
   const onSubmit = (data = {firstName, lastName, userName, password}) => {
     console.log("data is", data);
-    axios
-      .post(signupurl, {
-        first_name: data.firstName,
-        last_name: data.lastName,
-        username: data.userName,
+    axios.post(signupurl, {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        userName: data.userName,
         password: data.password
       })
       .then(resp => {
         //If user details are
         if (resp.status == 201) {
-          window.location = "login";
+          window.location = "/";
           alert("Sign up Successful");
           console.log(resp.data);
         } else {
@@ -160,10 +159,8 @@ const SignUpForm = () => {
               {...register("password",
               {
                 required: true,
-                minLength: 8,
-                message:" Password should be at least 8 characters long."
-                // validate: (input) => isAlphanumeric (input)
-              })}          
+                minLength: 8
+              })}         
             ></input>
             <center>
             <FaEye
