@@ -21,7 +21,7 @@ const SignUpForm = () => {
   } = useForm();
 
   //Endpoint -- url for making signup calls
-  const signupurl = `http://localhost:7000/users`;
+  const signupurl = `https://localhost:7000/users`;
 
   //function to submit signup form data 
   const onSubmit = (data = {first_name, last_name, username, password}) => {
@@ -101,7 +101,7 @@ const SignUpForm = () => {
         <input
               type="text"
               className={styles.InputField}
-              placeholder="Enter a valid email or username"
+              placeholder="Enter your last name"
               name="last_name"
               id="last_name"
               {...register("last_name",{
