@@ -31,22 +31,26 @@
   }
 
   .card {
-    margin-top: 30px;
-    padding: 5px 20px 20px 20px;
+    /* margin-top: 30px; */
+    padding: 40px 40px 40px 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 110%;
+    /* width: 110%; */
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 70px 100px rgba(88, 93, 88, 0.904);
 
   }
 
+  .card h3 {
+    margin-bottom: 20px;
+  }
+
   .signupcard {
     margin-top: 30px;
-    padding: 5px 20px 20px 20px;
+    padding: 40px 20px 20px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -62,16 +66,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2px 2px 2px 2px;
-    width: 500px;
+    padding: 0 10px;
+    width: 350px;
     height: 40px;
-    background-color: white;
+    background-color: rgb(255, 253, 253);
     color: black;
-    border: 2px solid #1a1919;
-    border-radius: 10px;
+    border: none;
+    border-bottom: 2px solid #807e7e;
     font-weight: 400;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 10px;
+    outline: none;
   }
 
   .errors {
@@ -91,11 +96,11 @@
     flex-direction: column;
     text-decoration: none;
     padding: 2px 2px 2px 2px;
-    width: 200px;
-    height: 50px;
+    width: 150px;
+    height: 40px;
     background-color: rgb(204, 203, 203);
     color: black;
-    border: 2px solid #1a1919;
+    border: 2px solid rgb(204, 203, 203);
     border-radius: 10px;
     cursor: pointer;
     color: black;
@@ -109,38 +114,26 @@
   }
 
   .loginbtn:hover {
-    background-color: rgb(41, 85, 41);
+    background-color: rgb(55, 65, 199);
     transition-duration: 0.5s;
     opacity: 1;
     color: white;
+    border: 2px solid rgb(55, 65, 199);
   }
 
 
   .signuplnk {
-    display: flex;
-    flex-direction: column;
-    padding: 2px 2px 2px 2px;
-    color: white;
-    padding: 14px 14px;
+    color: rgb(7, 7, 7);
     text-decoration: none;
     font-weight: 400;
-    width: 300px;
-    background-color: white;
-    color: rgb(56, 9, 9);
-    border: 2px solid rgb(56, 9, 9);
-    border-radius: 10px;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    align-self: center;
-    margin-top: 5px;
+    margin-left: 5px;    
   }
 
   .signuplnk:hover {
-    background-color: rgb(59, 1, 1);
     /* border-radius: 10px; */
-    color: white;
+    color: rgb(55, 65, 199);
     transition-duration: 0.5s;
+    text-decoration: none;
   }
 
   .adminlnk {

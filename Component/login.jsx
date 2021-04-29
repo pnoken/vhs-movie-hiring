@@ -2,6 +2,7 @@ import axios from "axios";
 import Head from "next/head";
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { FaUserAlt, FaUserSecret } from "react-icons/fa";
 import styles from "../styles/auth.module.css";
 import isAlphanumeric from "validator/lib/isAlphanumeric";
 
@@ -69,11 +70,11 @@ const LoginForm = () => {
       <main className={styles.main}>
 
         <div className={styles.card}>
-          <i style={{ fontSize: "64px" , marginBottom: "10px"}} class="fas">
+          {/* <i style={{ fontSize: "64px" , marginBottom: "10px"}} class="fas">
             &#xf406;
-          </i>
-            <br/>
-          <h3>Enter your credentials below to login</h3>
+          </i> */}
+          <FaUserSecret style={{ fontSize: "30px", marginBottom: "10px"}} />
+          <h3>USER LOGIN</h3>
          
           <form onSubmit={handleSubmit(onSubmit)}>
             <input
@@ -118,10 +119,12 @@ const LoginForm = () => {
           </form>
 
           <br></br>
-            Don't Have an Account?
-          <a href="/signup" className={styles.signuplnk}>
-            Sign up
-          </a>
+          <span style={{ color: "blue"}}>
+            Don't Have an Account? 
+            <a href="/signup" className={styles.signuplnk}>
+              Sign Up Here
+            </a>
+          </span>
         </div>
       </main>
 
