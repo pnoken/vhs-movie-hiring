@@ -1,8 +1,9 @@
 import axios from "axios";
 import Head from "next/head";
-import React, { useState, useEffect } from "react";
+import React, { useRef,useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import {FaUserFriends} from "react-icons/fa"
+import {FaEye} from "react-icons/fa";
+import {FaUserFriends} from "react-icons/fa";
 import styles from "../styles/auth.module.css";
 // import isAlphanumeric from "validator/lib/isAlphanumeric";
 
@@ -10,27 +11,36 @@ const SignUpForm = () => {
   //Using react hook - form to handle form events
 
   const {
-    register,
-    handleSubmit = async e => {
-      {
-        e.preventDefault;
-      }
-    },
-    watch,
-    formState: { errors }
-  } = useForm();
+    register, handleSubmit = async e => {
+      {e.preventDefault;}
+    }, watch, formState: { errors } } = useForm();
+
+  //Password visibility function
+  const passwordvisibility = () => {
+    var x = document.getElementById("password");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  };
+
+  //Match password validation function
+  const password = useRef({});
+  password.current = watch("password", "");
+  
 
   //Endpoint -- url for making signup calls
-  const signupurl = `https://hiring-vhs.herokuapp.com/users`;
+  const signupurl = 'http://localhost:7000/users';
 
   //function to submit signup form data 
-  const onSubmit = (data = {first_name, last_name, username, password}) => {
+  const onSubmit = (data = {firstName, lastName, userName, password}) => {
     console.log("data is", data);
     axios
       .post(signupurl, {
-        first_name: data.first_name,
-        last_name: data.last_name,
-        username: data.username,
+        first_name: data.firstName,
+        last_name: data.lastName,
+        username: data.userName,
         password: data.password
       })
       .then(resp => {
@@ -39,7 +49,6 @@ const SignUpForm = () => {
           window.location = "login";
           alert("Sign up Successful");
           console.log(resp.data);
-          localStorage.setItem("admin", JSON.stringify(resp.data));
         } else {
           //if user details are not submited
           window.location.href = "#";
@@ -55,8 +64,8 @@ const SignUpForm = () => {
   };
 
   //watch errors in form fields
-  console.log(watch("first_name", "last_name", "username", "password"));
-  console.log(errors.first_name, errors.last_name, errors.username, errors.password);
+  console.log(watch("firstName", "lastName", "userName", "password"));
+  console.log(errors.firstName, errors.lastName, errors.userName, errors.password);
 
   //return statement
   return (
@@ -73,7 +82,7 @@ const SignUpForm = () => {
       <main className={styles.main}>
 
         <div className={styles.signupcard}>
-            <i style={{ fontSize: "64px" , marginBottom: "10px"}} class="fas">
+            <i style={{ fontSize: "64px" , marginBottom: "10px"}}>
               <FaUserFriends/>  
             </i>
 
@@ -81,77 +90,117 @@ const SignUpForm = () => {
             <h4>Enter your details below to sign up for an account.</h4>
          
           <form onSubmit={handleSubmit(onSubmit)}>
-            
+
+            {/*User first name*/}
           <input
               type="text"
               className={styles.InputField}
               placeholder="Enter your first name"
-              name="first_name"
-              id="first_name"
-              {...register("first_name",{
+              name="firstName"
+              id="firstName"
+              {...register("firstName",
+              {
                 required: true,
                 minLength: 2
               })}
             />
-            {errors.first_name && (
+            {errors.firstName && (
               <span className={styles.errors}>
                 Firstname should be at least 2 characters
               </span>
             )}{" "}
 
+            {/*User last name*/}
         <input
               type="text"
               className={styles.InputField}
               placeholder="Enter a valid email or username"
-              name="last_name"
-              id="last_name"
-              {...register("last_name",{
+              name="lastName"
+              id="lastName"
+              {...register("lastName",
+              {
                 required: true,
                 minLength: 2
               })}
-            />
+            ></input>
             {errors.username && (
               <span className={styles.errors}>
                 Lastname should be at least 2 characters
               </span>
             )}{" "}
 
+            {/*User name/ email*/}
             <input
               type="text"
               className={styles.InputField}
               placeholder="Enter a valid email or username"
-              name="username"
+              name="userName"
               id="username"
-              {...register("username",{
+              {...register("userName",
+              {
                 required: true,
                 minLength: 8
                 // validate: (input) => isAlphanumeric (input)
               })}
-            />
-            {errors.username && (
+            ></input>
+            {errors.userName && (
               <span className={styles.errors}>
                 Kindly enter a valid username
               </span>
             )}{" "}
-            
+
+          {/* password */}
             <input
               type="password"
+              // style={{width: "450px"}}
               className={styles.InputField}
-              placeholder="Enter a valid password"
+              placeholder="Enter a valid password"  
               name="password"
               id="password"
-              {...register("password",{
+              {...register("password",
+              {
                 required: true,
-                minLength: 8
+                minLength: 8,
+                message:" Password should be at least 8 characters long."
                 // validate: (input) => isAlphanumeric (input)
-              })}
-            />
+              })}          
+            ></input>
+            <center>
+            <FaEye
+                style={{top: "10px", boxShadow: "1px 1px 1px 1px #e5e5e5", cursor:"pointer"}}
+                id="togglepassword"
+                onClick={passwordvisibility}
+            />{" "}Password visibility
+            </center>
             {errors.password && (
               <span className={styles.errors}>
                 Password should be at least 8 characters long.
               </span>
             )}{" "}
+
+            {/*Password confirmation / match*/}
+            {/* <input
+              type="password"
+              // style={{width: "450px"}}
+              className={styles.InputField}
+              placeholder="Repeat password"  
+              name="passoword_repeat"
+              id="password_repeat"
+              {...register("password",{
+                required: true,
+                minLength: 8,
+                validate: value =>
+                value === password.current
+              })}
+              
+            ></input>
+            {errors.password_repeat && (
+              <span className={styles.errors}>
+                The passwords do not match
+              </span>
+            )}{" "} */}
             <br />
+
             <center>
               <button type="submit" value="submit" className={styles.signuplnk}>
                 Sign Up
