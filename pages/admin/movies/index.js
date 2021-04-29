@@ -47,7 +47,7 @@ export default function movies() {
 	  }
 	};
   
-	const deleteUser = async (id) => {
+	const deletemovie = async (id) => {
 	  try {
 		var requestOptions = {
 		  method: "DELETE",
@@ -139,7 +139,7 @@ export default function movies() {
 						  data-target="#delete"
 						  data-uid="1"
 						  className="delete btn btn-danger btn-sm"
-						//   onClick={() => setDelID(user.id)}
+						  onClick={() => setDelID(movie.id)}
 						>
 						  <img src="/open-iconic/svg/delete.svg" alt="delete" />
 						</button></span>

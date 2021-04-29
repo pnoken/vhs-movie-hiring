@@ -5,14 +5,24 @@
       "password": "$2a$10$uLeGULbhjrW3RkR8kPElguBVhHUFEy3hAHar0cEtk0u/9klQx/Lni",
       "firstName": "clem",
       "lastName": "sedem",
-      "contact": "0324334456",
+      "contact": "03grg6",
       "isAdmin": "true",
       "role": "Admin",
       "status": true,
       "id": 1
+    },
+    {
+      "email": "samuel.mensah@mail.com",
+      "password": "$2a$10$ov2vTF1CeyTRNnXuyev9tOPDp6780yPJyG4rPtG8suzTDJt/9jdGS",
+      "firstName": "Samuel",
+      "lastName": "Mensah",
+      "contact": "0200453433",
+      "isAdmin": "true",
+      "role": "Admin",
+      "status": true,
+      "id": 2
     }
   ],
-
   "movies": [
     {
       "id": 1,
@@ -166,8 +176,7 @@
       "release_year": 1992,
       "image_url": "https://ia.media-imdb.com/images/M/MV5BOGZmYzVkMmItM2NiOS00MDI3LWI4ZWQtMTg0YWZkODRkMmViXkEyXkFqcGdeQXVyODY0NzcxNw@@._V1_UX182_CR0,0,182,268_AL_.jpg"
     }
-],
-
+  ],
   "hired_movies": [
     {
       "movie_id": 1,
@@ -194,7 +203,6 @@
       "date_returned": "2/04/2021"
     }
   ],
-
   "payments": [
     {
       "id": 1,
@@ -214,7 +222,6 @@
       "payment_method": "cash"
     }
   ],
-
   "wallet": [
     {
       "id": 1,
