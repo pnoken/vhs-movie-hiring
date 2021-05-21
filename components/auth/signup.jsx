@@ -28,12 +28,15 @@ const SignupForm = () => {
     }
   };
 
+  //set up user role
+  const [role, setRole] = useState ("member");
+  // setRole(role);
     
   //function to submit login form data
-  const onSubmit = (data = { firstname, lastname, email, dob, password }) => {
+  const onSubmit = (data = { firstname, lastname, email, dob, password, role }) => {
 
   //Endpoint -- url for making signup calls
-  const url = 'https://vhs-backend-v2.herokuapp.com/register';
+  const url = 'https://vhs-backend-v2.herokuapp.com/api/register';
 
     console.log("data is", data);
     axios
@@ -43,7 +46,8 @@ const SignupForm = () => {
         // username: data.username,
         email: data.email,
         dob: data.dob,
-        password: data.password
+        password: data.password,
+        role: data.role
       })
       .then(resp => {
         //If user credentials are correct and Signup successful
@@ -57,7 +61,7 @@ const SignupForm = () => {
           }
         }).catch(err => {
         //stay on page, if error occurs and ... 
-            console.log(resp.data);
+            // console.log(resp.data);
             window.location = "#";
             alert('We could not sign you up, kindly try again later.');
           });
@@ -170,7 +174,7 @@ const SignupForm = () => {
 
           {/*Input for email*/}
           <input
-                type="text"
+                type="email"
                 className={styles.InputField}
                 placeholder="Email Address"
                 name="email"
@@ -243,7 +247,7 @@ const SignupForm = () => {
               </span>
             </center>
               <br></br>
-              <a href="/signup" className={styles.signuplnk}>
+              <a href="login" className={styles.signuplnk}>
                   Login in Here
               </a>
           </div>

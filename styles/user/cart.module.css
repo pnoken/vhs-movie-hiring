@@ -7,7 +7,6 @@
 }
 
 .main {
-  width: 70%;
   margin: auto;
   padding: 100px;
   color: #fff;
@@ -15,7 +14,6 @@
 
 .cartItems {
   padding: 50px;
-  width: 50%;
   background: #3b444a;
   border-radius: 20px;
 }
@@ -26,16 +24,11 @@
   font-weight: bold;
   font-size: 24px;
   line-height: 31px;
-
   color: #ffffff;
 }
 
 .linebreak {
-  width: 90%;
-  height: 0px;
-  align-items: center;
-
-  border: 2px solid #222b31;
+  border: 1px solid #222b31;
 }
 
 .subtotal {
@@ -58,20 +51,14 @@
 }
 
 .checkout {
-  width: 500px;
+  width: 100%;
   height: 50px;
-  left: 465px;
-  top: 763px;
-
   background: #6475f9;
 }
 
 .login {
-  width: 500px;
+  width: 100%;
   height: 50px;
-  left: 465px;
-  top: 763px;
-
   background: red;
 }
 
@@ -85,9 +72,22 @@
 }
 
 .cartnum {
+  position: relative;
   color: #6475f9;
   font-family: DM Sans;
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
+  right: 16px;
+}
+
+.delCart {
+  position: relative;
+  right: -30%;
+  cursor: pointer;
+}
+
+.ellipse {
+  position: relative;
+  right: 6%;
 }

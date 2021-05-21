@@ -21,11 +21,11 @@ const CartItems = () => {
   // const removeCartItem = id => {
   //   // let cart = state.cart;
   //   let remove = cartItem.splice(
-  //     cartItem.findIndex(item => item.id === id),
+  //     cartItem.findIndex(item => item.id !== id),
   //     1,
   //   );
   //   if (remove) {
-  //     window.localStorage.removeItem('cart');
+  //     window.localStorage.setItem('cart', JSON.stringify(remove));
 
   //     setCartItem(cart);
   //   }
@@ -38,12 +38,15 @@ const CartItems = () => {
       alert('Balance is not enough for purchase');
     } else {
       var myHeaders = new Headers();
-      myHeaders.append('x-access-token', user.token);
+      myHeaders.append('x_access_token', user.token);
       myHeaders.append('Content-Type', 'application/json');
 
       var raw = JSON.stringify({
-        movieId: 1,
-        userId: 2,
+        movieId: cartItem.id,
+        userId: user.id,
+        title: cartItem.title,
+        cartId: cartItem.id,
+        amount: cartItem.price,
       });
 
       var requestOptions = {
@@ -52,7 +55,7 @@ const CartItems = () => {
         body: raw,
       };
       await fetch(
-        'https://vhs-backend-v2.herokuapp.com/api/insertmovies',
+        'https://vhs-backend-v2.herokuapp.com/api/insertorders',
         requestOptions,
       )
         .then(response => response.json())
@@ -78,7 +81,7 @@ const CartItems = () => {
         <div className={styles.main}>
           <div className={`${styles.cartItems} d-flex justify-content-center`}>
             <div className="">
-              <h4 className="">
+              <div>
                 <span>
                   <img src="/assets/images/cart.svg" />
                 </span>
@@ -89,23 +92,35 @@ const CartItems = () => {
                   </span>
                 </span>
                 <span>Cart</span>
-              </h4>
+              </div>
               <hr className={styles.linebreak} />
-              <ul className="">
+              <ul style={{ listStyle: 'none' }}>
                 {cartItem && cartItem.length > 0 ? (
                   cartItem.map(cartitem => (
-                    <li className="">
+                    <li>
                       <div>
-                        <img
-                          src={
-                            cartitem.image
-                              ? cartitem.image
-                              : '/assets/images/movieplaceholder.jpg'
-                          }
-                          alt="movie with no title"
-                          width="180px"
-                          height="130px"
-                        />
+                        <span>
+                          <img
+                            src={
+                              cartitem.image
+                                ? cartitem.image
+                                : '/assets/images/movieplaceholder.jpg'
+                            }
+                            alt="movie with no title"
+                            width="180px"
+                            height="130px"
+                          />
+                        </span>
+                        <span
+                          className={styles.delCart}
+                          //onClick={removeCartItem(cartitem.id)}
+                        >
+                          <img
+                            src="/assets/images/delete.svg"
+                            alt="delete"
+                            height="25px"
+                          />
+                        </span>
                       </div>
                       <span>
                         <div className={styles.movieTitle}>
@@ -114,23 +129,12 @@ const CartItems = () => {
                       </span>
 
                       <span className={styles.price}>GHS {cartitem.price}</span>
-                      <span
-                        style={{ cursor: 'pointer' }}
-                        className="float-right"
-                        //onClick={removeCartItem(cartitem.id)}
-                      >
-                        <img
-                          src="/assets/images/delete.svg"
-                          alt="delete"
-                          height="25px"
-                        />
-                      </span>
+                      <hr className={styles.linebreak} />
                     </li>
                   ))
                 ) : (
                   <div className="text-uppercase">Your cart is empty</div>
                 )}
-                <hr className={styles.linebreak} />
                 <span className={styles.subtotal}>SUBTOTAL: </span>
                 <span className={styles.price}>
                   GHC {totalPrice.toFixed(2)}
@@ -145,7 +149,7 @@ const CartItems = () => {
               ) : (
                 <button className={styles.login} type="submit">
                   <a className={styles.checkoutText} href="/login">
-                    PLEASE LOGIN TO PLACE AN ORDER
+                    LOGIN
                   </a>
                 </button>
               )}

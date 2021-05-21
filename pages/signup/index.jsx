@@ -1,12 +1,12 @@
-import React from 'react'
-import SignupForm from '../../components/auth/signup'
-
+import React from 'react';
+import SignupForm from '../../components/auth/signup';
+import Layout from '../../components/user/Layout';
 const SignupPage = () => {
-    return (
-        <div>
-            <SignupForm/>
-        </div>
-    )
-}
+  return (
+    <Layout>
+      <SignupForm />
+    </Layout>
+  );
+};
 
-export default SignupPage
+export default SignupPage;
