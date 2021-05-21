@@ -1,13 +1,13 @@
 import AdminLayout from '../../../components/admin/Layout';
 
-const User = () => {
+const Payment = () => {
 	return (
 		<>
 			<AdminLayout>
-				<h2 className="page-heading">Users</h2>
+				<h2 className="page-heading">Paymemts</h2>
 			</AdminLayout>
 		</>
 	);
 };
 
-export default User;
+export default Payment;

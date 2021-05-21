@@ -1,49 +1,34 @@
-# VHS Movie Hiring
-A movie hiring plaform
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-# Getting Started
+## Getting Started
 
-## First Clone the main branch
- ```git clone https://github.com/pnoken/vhs-movie-hiring.git```
+First, run the development server:
 
- ## Checkout
-Checkout to a new branch depending on your task on https://dev.azure.com/jamesasafuah/Project%20VHS%20Movie%20Hiring/_workitems. 
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-For example if you are handling task 8, 
-```git checkout -b "task-8```
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Install packages with npm or yarn
+You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-```npm install```
-or
-```yarn install```
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-## Install json-server globally
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-```npm install -g json-server```
+## Learn More
 
-or 
+To learn more about Next.js, take a look at the following resources:
 
-```yarn global add json-server```
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-more instructions can be found here: https://www.npmjs.com/package/json-server
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Start json-server (Default PORT 3002)
+## Deploy on Vercel
 
-```npm run json```
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-or
-
-```yarn json```
-
-or 
-
-```json-server --watch db.json -p 3002```
-
-## Run Package (Default PORT 3000)
-
-```npm run dev```
-
-or
-
-```yarn dev```
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.body {
+  background: #222b31;
+  display: flex;
+  font-family: DM Sans;
+}
+
+.main {
+  width: 70%;
+  margin: auto;
+  padding: 100px;
+  color: #fff;
+}
+
+.cartItems {
+  padding: 50px;
+  width: 50%;
+  background: #3b444a;
+  border-radius: 20px;
+}
+
+.movieTitle {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 31px;
+
+  color: #ffffff;
+}
+
+.linebreak {
+  width: 90%;
+  height: 0px;
+  align-items: center;
+
+  border: 2px solid #222b31;
+}
+
+.subtotal {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 31px;
+  color: #878686;
+}
+
+.price {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 31px;
+  text-align: right;
+  color: #6475f9;
+}
+
+.checkout {
+  width: 500px;
+  height: 50px;
+  left: 465px;
+  top: 763px;
+
+  background: #6475f9;
+}
+
+.login {
+  width: 500px;
+  height: 50px;
+  left: 465px;
+  top: 763px;
+
+  background: red;
+}
+
+.checkoutText {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 31px;
+  color: #ffffff;
+}
+
+.cartnum {
+  color: #6475f9;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+}

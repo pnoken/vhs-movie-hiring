@@ -1,10 +1,15 @@
 const admin = '/admin';
+const client = '/client';
 
-export const Routes = {
-	Admin: {
-		Users: `${admin}/users`,
-		Dashboard: `${admin}`,
-		Movies: `${admin}/movies`,
-		Hirings: `${admin}/hirings`,
-	},
+export const Admin = {
+  dashboard: `${admin}/dashboard`,
+  movies: `${admin}/movies`,
+  rentals: `${admin}/rentals`,
+  users: `${admin}/users`,
+  payments: `${admin}/payments`,
+};
+
+export const Client = {
+  movies: `${client}/movies`,
+  orders: `${client}/insertorders`,
 };

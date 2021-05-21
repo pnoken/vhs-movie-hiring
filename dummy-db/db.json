@@ -1,0 +1,15 @@
+{
+    "users": [
+        {"firstname": "",
+        "lastname": "",
+        "email": "",
+        "username": "",
+        "date_of_birth": ""},
+
+        {"firstname": "",
+            "lastname": "",
+            "email": "",
+            "username": "",
+            "date_of_birth": ""}
+        ]
+}
