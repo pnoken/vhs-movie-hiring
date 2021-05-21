@@ -20,13 +20,7 @@
     "react": "17.0.2",
     "react-bootstrap": "^1.6.0",
     "react-dom": "17.0.2",
-<<<<<<< HEAD
     "react-hook-form": "^7.5.2",
-=======
-    "react-hook-form": "7.3.5",
-    "react-hooks": "^1.0.1",
-    "react-hooks-form": "^2.0.1",
->>>>>>> 82f823b468b19be41d60876df991d632f2caee25
     "react-icons": "^4.2.0",
     "react-paginate": "^7.1.2",
     "validator": "^13.6.0"
