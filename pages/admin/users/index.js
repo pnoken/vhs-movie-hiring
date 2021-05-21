@@ -11,3 +11,4 @@ const User = () => {
 };
 
 export default User;
+baseUrl = "https://vhs-backend-v2.herokuapp.com"
