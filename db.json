@@ -1,0 +1,250 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "firstName": "username",
+      "lastName": "lastnameforud1",
+      "userName": "username",
+      "password": "thistestuser1",
+      "wallet": {
+        "wallet_id": "1",
+        "currency": "GH₵",
+        "balance": "200000"
+      }
+    },
+    {
+      "first_name": "jay",
+      "last_name": "jjay",
+      "userName": "jjnkton@g.com",
+      "password": "thispasswordisvalid",
+      "id": 2,
+      "wallet": {
+        "wallet_id": "",
+        "currency": "GH₵",
+        "balance": "200000"
+      }
+    },
+    {
+      "firstName": "newuser",
+      "lastName": "user1",
+      "userName": "new.user.com",
+      "password": "thispasswordis",
+      "id": 3
+    }
+
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "clem",
+      "lastName": "sedem",
+      "contact": "0324334456",
+      "username": "wixep22104@laraskey.com",
+      "password": "$2a$10$uLeGULbhjrW3RkR8kPElguBVhHUFEy3hAHar0cEtk0u/9klQx/Lni",
+      "isAdmin": "true",
+      "role": "Admin",
+      "status": true
+    },
+    {
+      "id": 2,
+      "firstName": "userwithid1",
+      "lastName": "lastnameforud1",
+      "userName": "password",
+      "password": "@thistestuser1",
+      "isAdmin": false,
+      "role": "User",
+      "status": "Active",
+      "wallet": {
+        "wallet_id": "1",
+        "currency": "GH₵",
+        "balance": "200000"
+      }
+    },
+    {
+      "id": 3,
+      "firstName": "userwithid2",
+      "lastName": "lastnameforud2",
+      "userName": "password",
+      "password": "@thistestuser1",
+      "isAdmin": false,
+      "role": "User",
+      "status": "Active",
+      "wallet": {
+        "wallet_id": "2",
+        "currency": "GH₵",
+        "balance": "200000"
+      }
+    },
+    {
+      "id": 3,
+      "firstName": "username",
+      "lastName": "lastnameforud3",
+      "userName": "password",
+      "password": "@thistestuser1",
+      "isAdmin": false,
+      "role": "User",
+      "status": "Active",
+      "wallet": {
+        "wallet_id": "3",
+        "currency": "GH₵",
+        "balance": "200000"
+      }
+    },
+    {
+      "id": 4,
+      "firstName": "username",
+      "lastName": "lastnameforud1",
+      "userName": "username",
+      "password": "thistestuser1",
+      "wallet": {
+        "wallet_id": "1",
+        "currency": "GH₵",
+        "balance": "200000"
+      }
+    },
+    {
+      "first_name": "jay",
+      "last_name": "jjay",
+      "userName": "jjnkton@g.com",
+      "password": "thispasswordisvalid",
+      "id": 5,
+      "wallet": {
+        "wallet_id": "",
+        "currency": "GH₵",
+        "balance": "200000"
+      }
+    },
+    {
+      "firstName": "newuser",
+      "lastName": "user1",
+      "userName": "new.user.com",
+      "password": "thispasswordis",
+      "id": 7
+    }
+  ],
+  "movies": [
+    {
+      "id": 1,
+      "name": "The Priest",
+      "Category": "Mystery/Horror",
+      "price": 70,
+      "release_year": 2021,
+      "rating": "6.3/10",
+      "active": true
+    },
+    {
+      "id": 2,
+      "name": " Batman v Superman: Dawn of Justice",
+      "Category": "Action/Adventure",
+      "price": 69,
+      "release_year": 2019,
+      "rating": "9/10",
+      "active": true
+    },
+    {
+      "id": 3,
+      "name": "Black Panther",
+      "Category": "Action/Adventure",
+      "price": 19,
+      "release_year": 2018,
+      "rating": "9/10",
+      "active": true
+    },
+    {
+      "id": 4,
+      "name": "Spiderman - No way home",
+      "Category": "Action/Adventure",
+      "price": 20,
+      "release_year": 2021,
+      "rating": "9/10",
+      "active": true
+    },
+    {
+      "id": 5,
+      "name": "Avengers: Endgame",
+      "Category": "Action/Sci-Fi",
+      "price": "67",
+      "release_year": "2019",
+      "rating": "10/10",
+      "active": true
+    },
+    {
+      "id": 6,
+      "name": "Army Of One",
+      "price": "35",
+      "release_year": "2020",
+      "rating": "10/10",
+      "active": true
+    },
+    {
+      "id": 7,
+      "name": "Fantasy Island",
+      "Category": "Action/Sci-Fi",
+      "price": "45",
+      "release_year": "2020",
+      "rating": "10/10",
+      "active": true
+    },
+    {
+      "id": 8,
+      "name": "Outside The Wire",
+      "Category": "Action/Blockbuster",
+      "price": "50",
+      "release_year": "2014",
+      "rating": "10/10",
+      "active": true
+    }
+  ],
+  "hired_movies": [
+    {
+      "movie_id": 1,
+      "user_id": 1,
+      "name": "The Priest",
+      "status": "Cancelled",
+      "date_hired": "20/04/2021",
+      "date_returned": "22/04/2021"
+    },
+    {
+      "movie_id": 8,
+      "user_id": 1,
+      "name": "Outside The Wire",
+      "status": "Active",
+      "date_hired": "20/08/2021",
+      "date_returned": "22/09/2021"
+    },
+    {
+      "movie_id": 4,
+      "user_id": 1,
+      "name": "Spiderman - No way home",
+      "status": "Active",
+      "date_hired": "10/07/2020",
+      "date_returned": "2/04/2021"
+    }
+  ],
+  "payments": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "movies": [
+        {
+          "movie_id": 1,
+          "price": 20
+        },
+        {
+          "movie_id": 2,
+          "price": 40
+        }
+      ],
+      "date_paid": "20/04/2021",
+      "amount": 200,
+      "payment_method": "cash"
+    }
+  ],
+  "wallet": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "amount": 2000
+    }
+  ]
+}
