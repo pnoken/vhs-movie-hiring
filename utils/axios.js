@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-import { baseUrl } from '../config/env';
+//import { baseUrl } from '../config/env';
 
 const axiosInstance = axios.create({
-  baseURL: baseUrl,
+  baseURL: process.env.baseURL,
   'Content-Type': 'application/json',
   Accept: 'application/json',
 });
