@@ -8,7 +8,7 @@ const EditButton = ({ action, dataObj }) => {
         style={{ color: '#3C83C1', cursor: 'pointer' }}
         data-bs-toggle="tooltip"
         data-bs-placement="top"
-        title="Tooltip on top"
+        title="Edit Record"
         onClick={() => action(dataObj)}
       />
     </>

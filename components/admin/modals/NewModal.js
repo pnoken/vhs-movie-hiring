@@ -5,6 +5,7 @@ import { ModalCtx } from '../../../contextStore/modalCtx';
 import CloseButton from '../buttons/CloseButton';
 import SubmitButton from '../buttons/SubmitButton';
 import MovieForm from '../movies/MovieForm';
+import _ from 'lodash';
 
 const NewModal = ({ src, selected, setSelected }) => {
   const modalValues = useContext(ModalCtx);
@@ -20,13 +21,19 @@ const NewModal = ({ src, selected, setSelected }) => {
   };
 
   let title = '';
+  if (_.isEmpty(selected)) {
+    title = 'Add New ';
+  } else {
+    title = 'Update ';
+  }
+
   let formRender = null;
   let formId = null;
 
   switch (src) {
     case 'movie':
-      title = 'Add New Movie';
-      formRender = <MovieForm selected={selected} />;
+      title = `${title}  Movie`;
+      formRender = <MovieForm selected={selected} closeModal={closeModal} />;
       formId = 'movieForm';
       break;
 

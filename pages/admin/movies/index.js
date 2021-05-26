@@ -7,14 +7,24 @@ import {
 } from '../../../components/admin/movies/functions';
 
 import NewButton from '../../../components/admin/buttons/NewButton';
-import { perPage, getPageCount } from '../../../utils/shared';
+import { perPage, getPageCount, STORETYPES } from '../../../utils/shared';
 import Pagination from '../../../components/admin/Pagination';
 import { ModalCtx } from '../../../contextStore/modalCtx';
 import NewModal from '../../../components/admin/modals/NewModal';
+import ConfirmModal from '../../../components/admin/modals/ConfirmModal';
+import { GET } from '../../../utils/request';
+import { Movies } from '../../../utils/apiEndpoint';
+import Loading from '../../../components/admin/Loading';
+import { Store } from '../../../contextStore';
 
 const Movie = () => {
   const modalValues = useContext(ModalCtx);
+  const { state: movieState, dispatch } = useContext(Store);
+
   const [selectedMovie, setSelectedMovie] = useState({});
+  const [noMovies, setNomovies] = useState('');
+  const [load, setLoading] = useState(true);
+
   const createNewMovie = () => {
     modalValues.setCreate(true);
   };
@@ -24,42 +34,50 @@ const Movie = () => {
     modalValues.setCreate(true);
   };
 
-  const [movies, setMovies] = useState([
-    {
-      id: 1,
-      title: 'Movie one',
-      genre: 'any',
-      cost: 20,
-      quantity: 20,
-      status: true,
-    },
-    {
-      id: 2,
-      title: 'Movie two',
-      genre: 'two',
-      cost: 10,
-      quantity: 50,
-      status: true,
-    },
-    {
-      id: 3,
-      title: 'Movie three',
-      genre: 'thre',
-      cost: 40,
-      quantity: 5.5,
-      status: true,
-    },
-  ]);
+  const deleteMovie = async movie => {
+    console.log('deleting....');
+
+    setSelectedMovie(movie);
+    modalValues.setConfirm(true);
+  };
+
+  useEffect(() => {
+    setLoading(true);
+
+    const getMovies = async () => {
+      const resp = await GET(Movies.adminMovies);
+      console.log('movies ', JSON.stringify(resp.data));
+      if (resp && resp.data) {
+        resp.data.length <= 0
+          ? setNomovies('No movies Available')
+          : dispatch({ type: STORETYPES.MOVIES, payload: resp.data }); //setMovies(resp.data);
+
+        setLoading(false);
+      }
+    };
+    getMovies();
+  }, []);
+
+  // useEffect(() => {
+  //   if (movieState.movies.length > 0) setNomovies('');
+  // }, [movieState.movies]);
 
   // ##################################Pagination#########################################
   const [currentMovies, setCurrentMovies] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const offset = currentPage * perPage;
-  const pageCount = getPageCount(movies);
+  const pageCount = getPageCount(movieState.movies);
 
   useEffect(() => {
-    setCurrentMovies(movies.slice(offset, offset + perPage));
-  }, [offset, movies]);
+    if (movieState.movies.length > 0) {
+      setNomovies('');
+      // setLoading(false);
+    } else {
+      setNomovies('No movies Available');
+      // setLoading(false);
+    }
+    setCurrentMovies(movieState.movies.slice(offset, offset + perPage));
+  }, [offset, movieState.movies]);
 
   const handlePageChange = ({ selected: selectedPage }) => {
     setCurrentPage(selectedPage);
@@ -70,6 +88,13 @@ const Movie = () => {
     <>
       {modalValues.create && (
         <NewModal
+          src="movie"
+          selected={selectedMovie}
+          setSelected={setSelectedMovie}
+        />
+      )}
+      {modalValues.confirm && (
+        <ConfirmModal
           src="movie"
           selected={selectedMovie}
           setSelected={setSelectedMovie}
@@ -87,16 +112,25 @@ const Movie = () => {
                   action={createNewMovie}
                 />
                 <br />
-                <table className="table table-striped table-hover table-sm mt-4">
-                  <thead>{movieColumns()}</thead>
-                  <tbody>{movieRows(currentMovies, editMovie)}</tbody>
-                </table>
-                <Pagination
-                  pageCount={pageCount}
-                  handlePageChange={handlePageChange}
-                  currentPage={setCurrentPage}
-                />
+
+                {noMovies && <h4 className="mt-5 text-center">{noMovies}</h4>}
+                {movieState.movies.length > 0 && (
+                  <>
+                    <table className="table table-striped table-hover table-sm mt-4 table-bordered">
+                      <thead>{movieColumns()}</thead>
+                      <tbody>
+                        {movieRows(currentMovies, editMovie, deleteMovie)}
+                      </tbody>
+                    </table>
+                    <Pagination
+                      pageCount={pageCount}
+                      handlePageChange={handlePageChange}
+                      currentPage={setCurrentPage}
+                    />
+                  </>
+                )}
               </div>
+              {load && <Loading />}
             </div>
           </div>
         </div>

@@ -24,7 +24,7 @@ const LoginForm = () => {
   //function to submit login form data
   const onSubmit = (data = { email, password }) => {
     //Endpoint -- url for making signup calls
-    const url = 'https://vhs-backend-v2.herokuapp.com/api/login';
+    const url = 'https://vhs-project-backend.herokuapp.com/auth/login';
 
     console.log('data is', data);
     axios

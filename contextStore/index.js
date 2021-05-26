@@ -1,6 +1,7 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer } from 'react';
+import { STORETYPES } from '../utils/shared';
 
-export const Store = createContext("");
+export const Store = createContext('');
 
 //Defining the initial states
 const initState = {
@@ -11,13 +12,13 @@ const initState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "SET_CART":
+    case STORETYPES.CART: //"SET_CART":
       return { ...state, cart: action.payload };
 
-    case "SET_MOVIE":
+    case STORETYPES.MOVIES: // 'SET_MOVIE':
       return { ...state, movies: action.payload };
 
-    case "SET_USER":
+    case STORETYPES.USER: // 'SET_USER':
       return { ...state, user: action.payload };
   }
 };
