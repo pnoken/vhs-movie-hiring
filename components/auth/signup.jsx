@@ -33,25 +33,26 @@ const SignupForm = () => {
   // setRole(role);
     
   //function to submit login form data
-  const onSubmit = (data = { firstname, lastname, email, dob, password, role }) => {
+  const onSubmit = (data = { first_name, last_name, username, email, password, age}) => {
 
   //Endpoint -- url for making signup calls
-  const url = 'https://vhs-backend-v2.herokuapp.com/api/register';
+  const url = 'https://vhs-project-backend.herokuapp.com/auth/signup';
 
     console.log("data is", data);
     axios
-      .post(url,{
-        firstname: data.firstname,
-        lastname: data.lastname,
-        // username: data.username,
+      .post(url,
+        {
+        first_name: data.first_name,
+        last_name: data.last_name,
+        username: data.username,
         email: data.email,
-        dob: data.dob,
         password: data.password,
-        role: data.role
+        age: data.age
+        
       })
       .then(resp => {
         //If user credentials are correct and Signup successful
-        if (resp.status == 201) {    
+        if (resp.status == 201||200) {    
           console.log(resp.data);
           window.location.href='user';
           alert('Signup successful');
@@ -69,8 +70,8 @@ const SignupForm = () => {
   };
 
   //watch errors in form fields
-  console.log(watch("firstname", "lastname",  "email", "dob", "password"));
-  console.log(errors.firstname, errors.lastname, errors.email, errors.dob, errors.password);
+  console.log(watch("firstname", "lastname", "username", "email", "age", "password"));
+  console.log(errors.firstname, errors.lastname, errors.username, errors.email, errors.age, errors.password);
 
   return (
     <div className={styles.body}>
@@ -106,9 +107,9 @@ const SignupForm = () => {
                 type="text"
                 className={styles.InputField}
                 placeholder="First Name"
-                name="firstname"
+                name="first_name"
                 id="firstname"
-                {...register("firstname",
+                {...register("first_name",
                 {
                   required: true,
                   minLength: 2,
@@ -118,7 +119,7 @@ const SignupForm = () => {
                 })}
               ></input>
           {/*Input Error messgae*/}
-              {errors.firstname && (
+              {errors.first_name && (
                 <span className={styles.errors}>
                   Kindly enter a valid firstname
                 </span>
@@ -129,9 +130,9 @@ const SignupForm = () => {
                 type="text"
                 className={styles.InputField}
                 placeholder="Last Name"
-                name="lastname"
+                name="last_name"
                 id="lastname"
-                {...register("lastname",
+                {...register("last_name",
                 {
                   required: true,
                   minLength: 2,
@@ -141,7 +142,7 @@ const SignupForm = () => {
                 })}
               ></input>
           {/*Input Error messgae*/}
-              {errors.lastname && (
+              {errors.last_name && (
                 <span className={styles.errors}>
                   Kindly enter a valid lastname
                 </span>
@@ -149,7 +150,7 @@ const SignupForm = () => {
 
 {/*--------------*/}
           {/*Input for username*/}
-              {/* <input
+              <input
                 type="text"
                 className={styles.InputField}
                 placeholder="Username"
@@ -163,14 +164,15 @@ const SignupForm = () => {
                     value: /^[aA-zZ0-9]+$/,
                   }
                 })}
-              ></input> */}
+              ></input>
           {/*Input Error messgae*/}
-              {/* {errors.username && (
+              {errors.username && (
                 <span className={styles.errors}>
                   Kindly enter a valid username
                 </span>
-              )}{" "} */}
+              )}{" "}
 {/*--------------*/}
+
 
           {/*Input for email*/}
           <input
@@ -195,23 +197,26 @@ const SignupForm = () => {
                 </span>
               )}{" "}
 
-          {/*Input for date of birth*/}
+          {/*Input for user age*/}
           <input
-                type="date"
+                type="text"
                 className={styles.InputField}
-                name="dob"
-                id="date-of-birth"
-                {...register("dob",
+                name="age"
+                id="age-of-user"
+                placeholder="Age"
+                {...register("age",
                 {
                   required: true,
-                  minLength: 2
-                  
+                  minLength: 1,
+                  pattern: {
+                    value: /^([0-9]|[1-9][0-9]|[1-9][0-9][0-9])$/i
+                  }                 
                 })}
               ></input>
           {/*Input Error messgae*/}
-              {errors.dob && (
+              {errors.age && (
                 <span className={styles.errors}>
-                  Kindly select your date of birth
+                  Kindly enter your age
                 </span>
               )}
               

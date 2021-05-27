@@ -28,7 +28,7 @@ const Navbar = () => {
 
   //check login status
   useEffect(() => {
-    const user_Logged_in = localStorage.getItem('user-data');
+    const user_Logged_in = window.localStorage.getItem('user-data');
 
     if (user_Logged_in) {
       const userFound = JSON.parse(user_Logged_in);

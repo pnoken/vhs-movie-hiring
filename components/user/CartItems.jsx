@@ -5,13 +5,13 @@ import React, { useState, useEffect, useContext } from 'react';
 const CartItems = () => {
   const [cartItem, setCartItem] = useState([]);
   const [user, setUser] = useState([]);
-  //const [cart, setCart] = useState(0);
+  //const [creditBalance, setCreditBalance] = useState(user.user.credit_balance);
   //const { state } = useContext(Store);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       let cartItem = window.localStorage.getItem('cart');
-      let userData = window.localStorage.getItem('cart');
+      let userData = window.localStorage.getItem('user-data');
       setCartItem(JSON.parse(cartItem));
       setUser(JSON.parse(userData));
     }
@@ -33,20 +33,17 @@ const CartItems = () => {
 
   const checkOut = async e => {
     e.preventDefault();
-    let creditBalance = 200;
+    let creditBalance = user.user.credit_balance;
     if (creditBalance < totalPrice) {
       alert('Balance is not enough for purchase');
     } else {
       var myHeaders = new Headers();
-      myHeaders.append('x_access_token', user.token);
+      myHeaders.append('auth-token', user.token);
       myHeaders.append('Content-Type', 'application/json');
 
       var raw = JSON.stringify({
-        movieId: cartItem.id,
-        userId: user.id,
-        title: cartItem.title,
-        cartId: cartItem.id,
-        amount: cartItem.price,
+        movies: [cartItem],
+        total_cost: totalPrice,
       });
 
       var requestOptions = {
@@ -55,12 +52,13 @@ const CartItems = () => {
         body: raw,
       };
       await fetch(
-        'https://vhs-backend-v2.herokuapp.com/api/insertorders',
+        'https://vhs-project-backend.herokuapp.com/user/order',
         requestOptions,
       )
         .then(response => response.json())
         .then(result => {
-          alert('Successfully placed order');
+          alert('Successfully placed order', result);
+          localStorage.removeItem('cart');
           //setSuccess(result);
         })
         .catch(error => console.log('error', error));
@@ -102,8 +100,8 @@ const CartItems = () => {
                         <span>
                           <img
                             src={
-                              cartitem.image
-                                ? cartitem.image
+                              cartitem.image_url
+                                ? cartitem.image_url
                                 : '/assets/images/movieplaceholder.jpg'
                             }
                             alt="movie with no title"

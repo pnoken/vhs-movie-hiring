@@ -6,8 +6,9 @@ const Homepage = () => {
     return (
         <div>
             <ProjectHead/>
-            <Navbar/>
             <MovieList/>
+            <Navbar/>
+            
         </div>
     )
 }

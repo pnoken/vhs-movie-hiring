@@ -1,5 +1,6 @@
 //Modules and other imports
 import axios from 'axios';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
@@ -9,6 +10,7 @@ import ProjectHead from '../projectHead';
 // import isAlphanumeric from 'validator/lib/isAlphanumeric';
 
 const LoginForm = () => {
+  const router = useRouter();
   //Using react hook - form to handle form events
   const {
     register,
@@ -35,10 +37,16 @@ const LoginForm = () => {
       .then(resp => {
         //If user credentials are correct and login successful
         if (resp.status == 200) {
-          console.log(resp.data);
-          window.location.href = 'user';
+          console.log('data', resp.data.user);
+
+          // window.location.href='user';
           window.localStorage.setItem('user-data', JSON.stringify(resp.data));
           alert('Login successful');
+          if (resp.data.user.role == 'admin') {
+            router.push('/admin/dashboard');
+          } else {
+            router.push('/');
+          }
         } else {
           console.log(resp.data);
         }
@@ -47,10 +55,14 @@ const LoginForm = () => {
         //stay on index, login page if user credentials are incorrect and show alert
         // console.log(resp.data);
         window.location = '#';
-        alert('Login unsuccessful');
+        alert('Login unsuccessful', err);
       });
     console.log(data);
   };
+
+  // useEffect(() => {
+  //   if ()
+  // })
 
   //watch errors in form fields
   console.log(watch('email', 'password'));
@@ -78,49 +90,53 @@ const LoginForm = () => {
           {/*Login form*/}
           <div className={styles.form}>
             <h3>SIGN IN</h3>
-            {/*Input for username/email*/}
-            <input
-              type="email"
-              className={styles.InputField}
-              placeholder="Email Address"
-              name="email"
-              id="email"
-              {...register('email', {
-                required: true,
-                minLength: 2,
-                pattern: {
-                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                },
-              })}
-            ></input>
-            {/*Input Error messgae*/}
-            {errors.username && (
-              <span className={styles.errors}>
-                Kindly enter a valid email or username
-              </span>
-            )}{' '}
-            {/*Input for password*/}
-            <input
-              type="password"
-              className={styles.InputField}
-              placeholder="Password"
-              name="password"
-              id="password"
-              {...register('password', {
-                required: true,
-                minLength: 8,
-              })}
-            ></input>
-            {/*Input Error messgae*/}
-            {errors.password && (
-              <span className={styles.errors}>
-                Kindly enter a valid password
-              </span>
-            )}{' '}
-            <br />
-            <button type="submit" value="submit" className={styles.loginbtn}>
-              CONTINUE
-            </button>
+
+            <form onSubmit={handleSubmit(onSubmit)}>
+              {/*Input for username/email*/}
+              <input
+                type="email"
+                className={styles.InputField}
+                placeholder="Email Address"
+                name="email"
+                id="email"
+                {...register('email', {
+                  required: true,
+                  minLength: 2,
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  },
+                })}
+              ></input>
+              {/*Input Error messgae*/}
+              {errors.username && (
+                <span className={styles.errors}>
+                  Kindly enter a valid email or username
+                </span>
+              )}{' '}
+              {/*Input for password*/}
+              <input
+                type="password"
+                className={styles.InputField}
+                placeholder="Password"
+                name="password"
+                id="password"
+                {...register('password', {
+                  required: true,
+                  minLength: 8,
+                })}
+              ></input>
+              {/*Input Error messgae*/}
+              {errors.password && (
+                <span className={styles.errors}>
+                  Kindly enter a valid password
+                </span>
+              )}{' '}
+              <br />
+              <button type="submit" value="submit" className={styles.loginbtn}>
+                CONTINUE
+              </button>
+            </form>
+
             <br></br>
             <center>
               <span>Don't Have an Account?</span>

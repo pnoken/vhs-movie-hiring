@@ -41,7 +41,7 @@
 
 .navigationlinks a:active {
     background-color: #222B31;
-    border-bottom-color: 2px solid white;
+    border-bottom: 2px solid white;
 }
 
 .navigationlinks a:focus {

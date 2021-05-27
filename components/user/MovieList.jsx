@@ -34,6 +34,7 @@ const MovieList = () => {
   // Add movies to cart
   const AddItemToCart = () => {
     window.localStorage.setItem('cart', JSON.stringify(movies));
+    alert('Item added to cart successfully');
 
     dispatch({
       type: 'SET_CART',
@@ -52,10 +53,7 @@ const MovieList = () => {
               return (
                 <div className={styles.movieTile} key={movies.id}>
                   <div className={styles.moviePoster}>
-                    <img
-                      src="/img/sample-movie-poster-joker.jpg"
-                      alt="Movie Poster"
-                    />
+                    <img src={movies.image_url} alt="Movie Poster" />
                   </div>
 
                   <div className={styles.movieInfo}>
@@ -64,7 +62,7 @@ const MovieList = () => {
                   </div>
                   <br />
                   <div className={styles.moviesubInfo}>
-                    <div>{movies.rating}</div>
+                    <div>Rating: {movies.rating}/10</div>
                     <div>GH₵{movies.price}.00</div>
                     <div>Quantity: {movies.available}</div>
                   </div>
