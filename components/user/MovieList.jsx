@@ -3,35 +3,32 @@ import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import styles from '../../styles/user/movielist.module.css';
 import { Store } from '../../contextStore';
+import { GET } from '../../utils/request';
+import { Admin } from '../../utils/apiEndpoint';
 // import  {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
 const MovieList = () => {
   const { dispatch } = useContext(Store);
   const [movies, setMovies] = useState([]);
+  const [noMovies, setNomovies] = useState('');
+  const [load, setLoading] = useState(true);
 
   //Fetch movies from server
   useEffect(() => {
-    const fetchMovies = async () => {
-      const response = await axios
-        .get('https://vhs-backend-v2.herokuapp.com/api/getmovies', {
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-          },
-        })
-        .then(response => {
-          if (response.status == 200) {
-            console.log('Movies Fetched successfully from server', response);
-            setMovies(response.data);
-          } else {
-            console.log(response.data);
-          }
-        })
-        .catch(err => {
-          console.log('There seems to be an issue contacting the server', err);
-        });
+    setLoading(true);
+
+    const getMovies = async () => {
+      const resp = await GET(Admin.adminMovies);
+      console.log('movies ', JSON.stringify(resp.data));
+      if (resp && resp.data) {
+        resp.data.length <= 0
+          ? setNomovies('No movies Available')
+          : setMovies(resp.data);
+
+        setLoading(false);
+      }
     };
-    fetchMovies();
+    getMovies();
   }, []);
 
   // Add movies to cart
@@ -62,14 +59,14 @@ const MovieList = () => {
                   </div>
 
                   <div className={styles.movieInfo}>
-                    <h5>{movies.title}</h5>
+                    <h5>{movies.name}</h5>
                     <button onClick={AddItemToCart}>+</button>
                   </div>
                   <br />
                   <div className={styles.moviesubInfo}>
                     <div>{movies.rating}</div>
                     <div>GH₵{movies.price}.00</div>
-                    <div>Quantity: {movies.availabilty}</div>
+                    <div>Quantity: {movies.available}</div>
                   </div>
                 </div>
               );

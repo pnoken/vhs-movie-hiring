@@ -2,7 +2,7 @@ import AdminLayout from '../../../components/admin/Layout';
 
 const Dashboard = () => {
   return (
-    <AdminLayout>
+    <AdminLayout title="VHS Movies | Dashboard">
       <h2 className="page-heading mb-5">Dashboard</h2>
       {/* Dashboard grid */}
       <div className="container">

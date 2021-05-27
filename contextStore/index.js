@@ -7,7 +7,8 @@ export const Store = createContext('');
 const initState = {
   cart: [],
   movies: [],
-  user: [],
+  users: [],
+  topups: [],
 };
 
 const reducer = (state, action) => {
@@ -18,8 +19,14 @@ const reducer = (state, action) => {
     case STORETYPES.MOVIES: // 'SET_MOVIE':
       return { ...state, movies: action.payload };
 
-    case STORETYPES.USER: // 'SET_USER':
-      return { ...state, user: action.payload };
+    case STORETYPES.USERS: // 'SET_USER':
+      return { ...state, users: action.payload };
+
+    case STORETYPES.TOPUPS: // 'SET_TOPUP':
+      return { ...state, topups: action.payload };
+
+    default:
+      break;
   }
 };
 

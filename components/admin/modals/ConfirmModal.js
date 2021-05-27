@@ -3,7 +3,7 @@ import { Modal, Button } from 'react-bootstrap';
 import _ from 'lodash';
 
 import { ModalCtx } from '../../../contextStore/modalCtx';
-import { Movies } from '../../../utils/apiEndpoint';
+import { Admin } from '../../../utils/apiEndpoint';
 import { DELETE } from '../../../utils/request';
 import notify from '../../../utils/toast';
 import { Store } from '../../../contextStore';
@@ -27,7 +27,10 @@ const ConfirmModal = ({ src, selected, setSelected }) => {
     let url;
     switch (src) {
       case 'movie':
-        url = Movies.adminMovies;
+        url = Admin.adminMovies;
+        break;
+      case 'user':
+        url = Admin.adminUsers;
         break;
       default:
         break;

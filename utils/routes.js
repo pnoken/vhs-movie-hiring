@@ -7,6 +7,7 @@ export const Admin = {
   rentals: `${admin}/rentals`,
   users: `${admin}/users`,
   payments: `${admin}/payments`,
+  topupHistory: `${admin}/topup-history`,
 };
 
 export const Client = {

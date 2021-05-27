@@ -19,4 +19,5 @@ export const STORETYPES = {
   MOVIES: 'SET_MOVIE',
   USERS: 'SET_USER',
   CART: 'SET_CART',
+  TOPUPS: 'SET_TOPUP',
 };

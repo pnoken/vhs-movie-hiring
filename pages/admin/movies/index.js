@@ -13,7 +13,7 @@ import { ModalCtx } from '../../../contextStore/modalCtx';
 import NewModal from '../../../components/admin/modals/NewModal';
 import ConfirmModal from '../../../components/admin/modals/ConfirmModal';
 import { GET } from '../../../utils/request';
-import { Movies } from '../../../utils/apiEndpoint';
+import { Admin } from '../../../utils/apiEndpoint';
 import Loading from '../../../components/admin/Loading';
 import { Store } from '../../../contextStore';
 
@@ -23,7 +23,7 @@ const Movie = () => {
 
   const [selectedMovie, setSelectedMovie] = useState({});
   const [noMovies, setNomovies] = useState('');
-  const [load, setLoading] = useState(true);
+  const [load, setLoading] = useState(false);
 
   const createNewMovie = () => {
     modalValues.setCreate(true);
@@ -45,7 +45,7 @@ const Movie = () => {
     setLoading(true);
 
     const getMovies = async () => {
-      const resp = await GET(Movies.adminMovies);
+      const resp = await GET(Admin.adminMovies);
       console.log('movies ', JSON.stringify(resp.data));
       if (resp && resp.data) {
         resp.data.length <= 0
@@ -100,7 +100,7 @@ const Movie = () => {
           setSelected={setSelectedMovie}
         />
       )}
-      <AdminLayout>
+      <AdminLayout title="VHS Movies | Movies List">
         <h2 className="page-heading">All Movies</h2>
         <div className="container">
           <div className="row justify-content-md-center">

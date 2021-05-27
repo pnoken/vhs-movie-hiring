@@ -6,6 +6,7 @@ import CloseButton from '../buttons/CloseButton';
 import SubmitButton from '../buttons/SubmitButton';
 import MovieForm from '../movies/MovieForm';
 import _ from 'lodash';
+import UserForm from '../users/UserForm';
 
 const NewModal = ({ src, selected, setSelected }) => {
   const modalValues = useContext(ModalCtx);
@@ -35,6 +36,11 @@ const NewModal = ({ src, selected, setSelected }) => {
       title = `${title}  Movie`;
       formRender = <MovieForm selected={selected} closeModal={closeModal} />;
       formId = 'movieForm';
+      break;
+    case 'user':
+      title = `${title}  User`;
+      formRender = <UserForm selected={selected} closeModal={closeModal} />;
+      formId = 'userForm';
       break;
 
     default:

@@ -4,6 +4,8 @@ export const User = {
   edit: '/',
 };
 
-export const Movies = {
+export const Admin = {
   adminMovies: '/movies',
+  adminUsers: '/users',
+  adminTopupHistory: '/topup',
 };

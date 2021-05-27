@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 import _ from 'lodash';
 
-import { Movies } from '../../../utils/apiEndpoint';
+import { Admin } from '../../../utils/apiEndpoint';
 import { PUT, POST } from '../../../utils/request';
 import notify from '../../../utils/toast';
 import { Store } from '../../../contextStore';
@@ -54,9 +54,9 @@ const MovieForm = ({ selected, closeModal }) => {
     let resp = null;
     try {
       if (_.isEmpty(selected)) {
-        resp = await POST(Movies.adminMovies, data);
+        resp = await POST(Admin.adminMovies, data);
       } else {
-        resp = await PUT(`${Movies.adminMovies}/${selected._id}`, data);
+        resp = await PUT(`${Admin.adminMovies}/${selected._id}`, data);
       }
       if ((resp && resp.status === 200) || resp.status === 201) {
         console.log('resp here!!!! ' + JSON.stringify(resp));
