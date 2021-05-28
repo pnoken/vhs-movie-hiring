@@ -14,7 +14,9 @@ const initState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case STORETYPES.CART: //"SET_CART":
-      return { ...state, cart: action.payload };
+      const cart_items = JSON.parse(JSON.stringify(state.cart));
+      cart_items.push(action.payload);
+      return { ...state, cart: cart_items };
 
     case STORETYPES.MOVIES: // 'SET_MOVIE':
       return { ...state, movies: action.payload };

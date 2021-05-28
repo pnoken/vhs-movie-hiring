@@ -37,23 +37,18 @@ const LoginForm = () => {
       .then(resp => {
         //If user credentials are correct and login successful
         if (resp.status == 200) {
-          console.log('data', resp.data.user);
-
-          // window.location.href='user';
           window.localStorage.setItem('user-data', JSON.stringify(resp.data));
           alert('Login successful');
-          if (resp.data.user.role == 'admin') {
+          if (resp.data.user.role === 'admin') {
             router.push('/admin/dashboard');
-          } else {
+          } else if (resp.data.user.role === 'user') {
             router.push('/');
           }
-        } else {
-          console.log(resp.data);
+        } else if (resp.status == 400) {
+          alert('Invalid Credentials');
         }
       })
       .catch(err => {
-        //stay on index, login page if user credentials are incorrect and show alert
-        // console.log(resp.data);
         window.location = '#';
         alert('Login unsuccessful', err);
       });

@@ -1,8 +1,11 @@
 import styles from '../../styles/user/cart.module.css';
 import React, { useState, useEffect, useContext } from 'react';
-//import { Store } from '../../contextStore';
+import { Store } from '../../contextStore';
+import { useRouter } from 'next/router';
 
 const CartItems = () => {
+  const router = useRouter();
+  const { state, dispatch } = useContext(Store);
   const [cartItem, setCartItem] = useState([]);
   const [user, setUser] = useState([]);
   //const [creditBalance, setCreditBalance] = useState(user.user.credit_balance);
@@ -15,21 +18,17 @@ const CartItems = () => {
       setCartItem(JSON.parse(cartItem));
       setUser(JSON.parse(userData));
     }
-    //console.log(state.cart);
-  });
+    console.log('cart state', cartItem);
+  }, []);
 
-  // const removeCartItem = id => {
-  //   // let cart = state.cart;
-  //   let remove = cartItem.splice(
-  //     cartItem.findIndex(item => item.id !== id),
-  //     1,
-  //   );
-  //   if (remove) {
-  //     window.localStorage.setItem('cart', JSON.stringify(remove));
-
-  //     setCartItem(cart);
-  //   }
-  // };
+  const removeCartItem = id => {
+    //let cart = state.cart;
+    let remove = cartItem.filter(item => item._id !== id);
+    if (remove) {
+      window.localStorage.setItem('cart', JSON.stringify([...remove]));
+      setCartItem([...remove]);
+    }
+  };
 
   const checkOut = async e => {
     e.preventDefault();
@@ -42,7 +41,7 @@ const CartItems = () => {
       myHeaders.append('Content-Type', 'application/json');
 
       var raw = JSON.stringify({
-        movies: [cartItem],
+        movies: cartItem,
         total_cost: totalPrice,
       });
 
@@ -58,8 +57,8 @@ const CartItems = () => {
         .then(response => response.json())
         .then(result => {
           alert('Successfully placed order', result);
-          localStorage.removeItem('cart');
-          //setSuccess(result);
+          window.localStorage.removeItem('cart');
+          router.push('/');
         })
         .catch(error => console.log('error', error));
     }
@@ -111,7 +110,7 @@ const CartItems = () => {
                         </span>
                         <span
                           className={styles.delCart}
-                          //onClick={removeCartItem(cartitem.id)}
+                          onClick={() => removeCartItem(cartitem._id)}
                         >
                           <img
                             src="/assets/images/delete.svg"
@@ -121,9 +120,7 @@ const CartItems = () => {
                         </span>
                       </div>
                       <span>
-                        <div className={styles.movieTitle}>
-                          {cartitem.title}
-                        </div>
+                        <div className={styles.movieTitle}>{cartitem.name}</div>
                       </span>
 
                       <span className={styles.price}>GHS {cartitem.price}</span>
@@ -133,23 +130,31 @@ const CartItems = () => {
                 ) : (
                   <div className="text-uppercase">Your cart is empty</div>
                 )}
-                <span className={styles.subtotal}>SUBTOTAL: </span>
-                <span className={styles.price}>
-                  GHC {totalPrice.toFixed(2)}
-                </span>
               </ul>
-              {user.token && cartItem ? (
-                <button className={styles.checkout} type="submit">
-                  <p className={styles.checkoutText}>CHECKOUT</p>
-                </button>
-              ) : (user.token && !cartItem) || (!user.token && !cartItem) ? (
-                ''
+              {user.token && cartItem.length > 0 ? (
+                <div>
+                  <span className={styles.subtotal}>SUBTOTAL: </span>
+                  <span className={styles.price}>
+                    GHC {totalPrice.toFixed(2)}
+                  </span>
+                  <button className={styles.checkout} type="submit">
+                    <p className={styles.checkoutText}>CHECKOUT</p>
+                  </button>
+                </div>
+              ) : !user.token && cartItem.length > 0 ? (
+                <div>
+                  <span className={styles.subtotal}>SUBTOTAL: </span>
+                  <span className={styles.price}>
+                    GHC {totalPrice.toFixed(2)}
+                  </span>
+                  <button className={styles.login} type="submit">
+                    <a className={styles.checkoutText} href="/login">
+                      LOGIN
+                    </a>
+                  </button>
+                </div>
               ) : (
-                <button className={styles.login} type="submit">
-                  <a className={styles.checkoutText} href="/login">
-                    LOGIN
-                  </a>
-                </button>
+                ''
               )}
 
               <br />
