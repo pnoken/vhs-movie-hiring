@@ -131,7 +131,7 @@ const CartItems = () => {
                   <div className="text-uppercase">Your cart is empty</div>
                 )}
               </ul>
-              {user && cartItem ? (
+              {user && cartItem.length > 0 ? (
                 <div>
                   <span className={styles.subtotal}>SUBTOTAL: </span>
                   <span className={styles.price}>
@@ -141,7 +141,7 @@ const CartItems = () => {
                     <p className={styles.checkoutText}>CHECKOUT</p>
                   </button>
                 </div>
-              ) : !user && cartItem ? (
+              ) : !user && cartItem.length > 0 ? (
                 <div>
                   <span className={styles.subtotal}>SUBTOTAL: </span>
                   <span className={styles.price}>
