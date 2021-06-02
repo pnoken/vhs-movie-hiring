@@ -23,7 +23,7 @@ const MovieList = () => {
 
     const getMovies = async () => {
       const resp = await GET(User.movies);
-      console.log('movies ', JSON.stringify(resp.data));
+      // console.log('movies ', JSON.stringify(resp.data));
       if (resp && resp.data) {
         resp.data.length <= 0
           ? setNomovies('No movies Available')
@@ -53,6 +53,7 @@ const MovieList = () => {
             name: result[0].name,
             price: result[0].price,
             image_url: result[0].image_url,
+            quantity: result[0].quantity,
           },
         });
         notify().success('Item added to cart successfully');

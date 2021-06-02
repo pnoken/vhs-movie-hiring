@@ -64,9 +64,10 @@ const CartItems = () => {
         .then(result => {
           notify().success('Successfully placed order');
           window.localStorage.removeItem('cart');
-          router.push('/');
+          //window.localStorage.setItem('cart', JSON.stringify([]));
+          // router.push('/success');
         })
-        .catch(error => console.log('error', error));
+        .catch(error => notify().error('Sorry, an error occurred!'));
     }
   };
 

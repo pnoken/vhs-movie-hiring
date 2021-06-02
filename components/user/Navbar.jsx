@@ -1,92 +1,57 @@
 // Modules and other imports
 import { useEffect, useState } from 'react';
-import styles from '../../styles/user/navbar.module.css';
-import Link from 'next/link';
+import UserNavbar from './UserNavigationBar';
+import GuestNavbar from './GuestNavigationBar';
 
 const Navbar = () => {
-  const [loggedInNavBar, setLoggedInNavBar] = useState({});
-  const [NavigationBar, setNavigationBar] = useState({});
+  //navigation bar for when user is logged in
+  // const LoggedInNavigation = ()=>{
+  //   return <UserNavbar/>
+  // }
+  //navigation bar for when user is not logged in
+  //   const Loggedoutnavigation = ()=>{
+  //     return <GuestNavbar/>
+  // }
 
-  //Quantity of items in cart
-  const cartItems = () => {
-    window.localStorage.getItem('cart').length;
-    if (typeof window == 'undefined') {
-      console.log('No items in cart');
-    }
-  };
+  //State objects for all navigation bars
+  const [renderLoggedInNavbar, setrenderLoggedInNavbar] = useState(false);
+  // const [renderGuestNavbar, setrenderGuestNavbar] = useState(true);
 
-  const cartCircle = () => {
-    return <span className={styles.cartCirc}>{cartItems}</span>;
-  };
+  // const showLoggedInNavbar = async () => {
+  //   const userLoggedIn = window.localStorage.getItem('user-data');
+  //   if (userLoggedIn) {
+  //     setrenderLoggedInNavbar(true);
+  //   }
+  // };
 
-  //Sign Out functionalty
-  const SignOutUser = () =>
-    useEffect(() => {
-      localStorage.clear('user-data');
-      console.log('User is logged out');
-    }, []);
+  // const showGuestNavbar = () => {
+  //   const userLoggedOut = window.localStorage.getItem("user-data" == undefined);
+  //   if (userLoggedOut){
+  //     setrenderGuestNavbar(true);
+  //     setrenderLoggedInNavbar(false);
+  //   } else{
+  //       setrenderLoggedInNavbar(true)
+  //   }
 
-  //check login status
+  // }
+
   useEffect(() => {
-    const user_Logged_in = window.localStorage.getItem('user-data');
-
-    if (user_Logged_in) {
-      const userFound = JSON.parse(user_Logged_in);
-      console.log('user is logged in');
-
-      {
-        /*Return statement for navigationbar when user is logged in*/
+    if (typeof window !== 'undefined') {
+      const userLoggedIn = window.localStorage.getItem('user-data');
+      if (userLoggedIn) {
+        setrenderLoggedInNavbar(true);
       }
-      return (
-        <div>
-          {/* navigationbar elements */}
-          <div className={styles.navigationbar}>
-            <div className={styles.logo}>
-              <img src="img/logo.png" alt="logo" />
-            </div>
-            <div className={styles.navigationlinks}>
-              <Link href="/">
-                <a> Home</a>
-              </Link>
-              <Link href="cart">
-                <a>Cart</a>
-              </Link>
-              <Link href="/" onclick={SignOutUser}>
-                <a>Sign out</a>
-              </Link>
-            </div>
-          </div>
-        </div>
-      );
-    } else console.log('User session expired. Kindly do login');
-  }, []);
+    }
+  });
 
-  {
-    /*Return statement for navigationbar when user is logged in*/
-  }
   return (
     <div>
-      {/* navigationbar elements */}
-      <div className={styles.navigationbar}>
-        <Link href="/">
-          <div className={styles.logo} style={{ cursor: 'pointer' }}>
-            <a>
-              <img src="img/logo.png" alt="home logo" />
-            </a>
-          </div>
-        </Link>
-        <div className={styles.navigationlinks}>
-          <Link href="cart">
-            <a>Cart {cartCircle}</a>
-          </Link>
-          <Link href="login">
-            <a>Sign in</a>
-          </Link>
-          <Link href="signup">
-            <a>Sign up</a>
-          </Link>
-        </div>
-      </div>
+      {renderLoggedInNavbar ? (
+        <UserNavbar setIsLoggedIn={setrenderLoggedInNavbar} />
+      ) : (
+        <GuestNavbar />
+      )}
+      {/* {renderGuestNavbar } */}
     </div>
   );
 };
