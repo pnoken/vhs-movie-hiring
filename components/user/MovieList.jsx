@@ -4,8 +4,9 @@ import axios from 'axios';
 import styles from '../../styles/user/movielist.module.css';
 import { Store } from '../../contextStore';
 import { GET } from '../../utils/request';
-import { Admin } from '../../utils/apiEndpoint';
+import { User } from '../../utils/apiEndpoint';
 import Loading from './Loading';
+import notify from '../../utils/toast';
 import { perPage, getPageCount, STORETYPES } from '../../utils/shared';
 // import  {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
@@ -21,7 +22,7 @@ const MovieList = () => {
     setLoading(true);
 
     const getMovies = async () => {
-      const resp = await GET(Admin.adminMovies);
+      const resp = await GET(User.movies);
       console.log('movies ', JSON.stringify(resp.data));
       if (resp && resp.data) {
         resp.data.length <= 0
@@ -38,7 +39,7 @@ const MovieList = () => {
   const addItemToCart = async id => {
     const found = state.cart.find(movie => movie._id === id);
     if (found) {
-      alert('item already in cart');
+      notify().error('item already in cart');
       return;
     }
     try {
@@ -54,10 +55,10 @@ const MovieList = () => {
             image_url: result[0].image_url,
           },
         });
-        alert('Item added to cart successfully');
+        notify().success('Item added to cart successfully');
       }
     } catch (error) {
-      alert('failed to add to cart', error);
+      notify().error('failed to add item to cart');
     }
   };
 

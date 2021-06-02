@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import styles from '../../styles/auth.module.css';
 import ProjectHead from '../projectHead';
+import notify from '../../utils/toast';
 // import isEmail from 'validator/lib/isEmail';
 // import isAlphanumeric from 'validator/lib/isAlphanumeric';
 
@@ -38,7 +39,7 @@ const LoginForm = () => {
         //If user credentials are correct and login successful
         if (resp.status == 200) {
           window.localStorage.setItem('user-data', JSON.stringify(resp.data));
-          // alert('Login successful');
+          notify().success('Login Successful');
           if (resp.data.user.role === 'admin') {
             router.push('/admin/dashboard');
           } else if (resp.data.user.role === 'user') {
@@ -48,7 +49,7 @@ const LoginForm = () => {
       })
       .catch(err => {
         window.location = '#';
-        alert('Login unsuccessful', err);
+        notify().error('An error occurred');
       });
     console.log(data);
   };

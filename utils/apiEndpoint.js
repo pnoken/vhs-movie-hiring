@@ -1,11 +1,12 @@
 export const User = {
   create: '/createUser',
   delete: '/delete',
-  edit: '/',
+  movies: 'user/movies',
+  order: '/user/order',
 };
 
 export const Admin = {
-  adminMovies: '/movies',
-  adminUsers: '/users',
-  adminTopupHistory: '/topup',
+  adminMovies: '/admin/movies',
+  adminUsers: '/admin/users',
+  adminTopupHistory: '/admin/topup',
 };

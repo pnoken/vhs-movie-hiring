@@ -68,13 +68,14 @@ const Navbar = () => {
     <div>
       {/* navigationbar elements */}
       <div className={styles.navigationbar}>
-        <div className={styles.logo}>
-          <img src="img/logo.png" alt="logo" />
-        </div>
+        <Link href="/">
+          <div className={styles.logo} style={{ cursor: 'pointer' }}>
+            <a>
+              <img src="img/logo.png" alt="home logo" />
+            </a>
+          </div>
+        </Link>
         <div className={styles.navigationlinks}>
-          <Link href="/">
-            <a> Home</a>
-          </Link>
           <Link href="cart">
             <a>Cart {cartCircle}</a>
           </Link>

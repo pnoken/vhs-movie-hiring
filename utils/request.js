@@ -6,7 +6,7 @@ const GET = url => {
     if (error.response) {
       return error.response.data;
     } else if (error.request) {
-      console.log(`Eroor from Request ${error.request}`);
+      console.log(`Error from Request ${error.request}`);
     } else {
       console.log(`General Error ${error.message}`);
     }
@@ -18,7 +18,7 @@ const POST = (url, params = {}) => {
     if (error.response) {
       return error.response.data;
     } else if (error.request) {
-      console.log(`Eroor from Request ${error.request}`);
+      console.log(`Error from Request ${error.request}`);
     } else {
       console.log(`General Error ${error.message}`);
     }
@@ -30,7 +30,7 @@ const PATCH = (url, params = {}) => {
     if (error.response) {
       return error.response.data;
     } else if (error.request) {
-      console.log(`Eroor from Request ${error.request}`);
+      console.log(`Error from Request ${error.request}`);
     } else {
       console.log(`General Error ${error.message}`);
     }
@@ -42,7 +42,7 @@ const PUT = (url, params = {}) => {
     if (error.response) {
       return error.response.data;
     } else if (error.request) {
-      console.log(`Eroor from Request ${error.request}`);
+      console.log(`Error from Request ${error.request}`);
     } else {
       console.log(`General Error ${error.message}`);
     }
@@ -54,7 +54,7 @@ const DELETE = url => {
     if (error.response) {
       return error.response.data;
     } else if (error.request) {
-      console.log(`Eroor from Request ${error.request}`);
+      console.log(`Error from Request ${error.request}`);
     } else {
       console.log(`General Error ${error.message}`);
     }

@@ -12,5 +12,5 @@ export const Admin = {
 
 export const Client = {
   movies: `${client}/movies`,
-  orders: `${client}/insertorders`,
+  orders: `${client}/orders`,
 };
