@@ -38,14 +38,12 @@ const LoginForm = () => {
         //If user credentials are correct and login successful
         if (resp.status == 200) {
           window.localStorage.setItem('user-data', JSON.stringify(resp.data));
-          alert('Login successful');
+          // alert('Login successful');
           if (resp.data.user.role === 'admin') {
             router.push('/admin/dashboard');
           } else if (resp.data.user.role === 'user') {
             router.push('/');
           }
-        } else if (resp.status == 400) {
-          alert('Invalid Credentials');
         }
       })
       .catch(err => {
@@ -54,10 +52,6 @@ const LoginForm = () => {
       });
     console.log(data);
   };
-
-  // useEffect(() => {
-  //   if ()
-  // })
 
   //watch errors in form fields
   console.log(watch('email', 'password'));

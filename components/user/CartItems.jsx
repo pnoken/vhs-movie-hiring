@@ -2,21 +2,25 @@ import styles from '../../styles/user/cart.module.css';
 import React, { useState, useEffect, useContext } from 'react';
 import { Store } from '../../contextStore';
 import { useRouter } from 'next/router';
+import Loading from './Loading';
 
 const CartItems = () => {
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
   const [cartItem, setCartItem] = useState([]);
   const [user, setUser] = useState([]);
+  const [load, setLoading] = useState(false);
   //const [creditBalance, setCreditBalance] = useState(user.user.credit_balance);
   //const { state } = useContext(Store);
 
   useEffect(() => {
+    setLoading(true);
     if (typeof window !== 'undefined') {
       let cartItem = window.localStorage.getItem('cart');
       let userData = window.localStorage.getItem('user-data');
       setCartItem(JSON.parse(cartItem));
       setUser(JSON.parse(userData));
+      setLoading(false);
     }
     console.log('cart state', cartItem);
   }, []);
@@ -164,6 +168,7 @@ const CartItems = () => {
               </div>
             </div>
           </div>
+          {load && <Loading />}
         </div>
       </div>
     </form>
