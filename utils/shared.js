@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export const perPage = 15;
 
 export const handlePageChange = ({ selected: selectedPage }) => {
@@ -20,4 +22,9 @@ export const STORETYPES = {
   USERS: 'SET_USER',
   CART: 'SET_CART',
   TOPUPS: 'SET_TOPUP',
+  RENTALS: 'SET_RENTALS',
+};
+
+export const formatDateTime = date => {
+  return moment(date).format('YYYY-MM-DD HH:mm A');
 };

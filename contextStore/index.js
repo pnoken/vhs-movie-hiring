@@ -9,6 +9,7 @@ const initState = {
   movies: [],
   users: [],
   topups: [],
+  rentals: [],
 };
 
 const reducer = (state, action) => {
@@ -26,6 +27,9 @@ const reducer = (state, action) => {
 
     case STORETYPES.TOPUPS: // 'SET_TOPUP':
       return { ...state, topups: action.payload };
+
+    case STORETYPES.RENTALS: // 'SET_RENTALS':
+      return { ...state, rentals: action.payload };
 
     default:
       break;

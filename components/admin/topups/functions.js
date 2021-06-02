@@ -1,4 +1,4 @@
-import { formatCurrency } from '../../../utils/shared';
+import { formatCurrency, formatDateTime } from '../../../utils/shared';
 
 const topupColumns = () => {
   return (
@@ -23,7 +23,7 @@ const historyRows = histories => {
     return (
       <tr key={index}>
         <td style={{ width: '7px' }}>{index + 1}</td>
-        <td>{new Date().toISOString().split('T')[0]}</td>
+        <td>{formatDateTime(history.createdAt)}</td>
         <td>{history.user.username}</td>
         <td>{history.payment_method}</td>
         <td>{formatCurrency(history.amount)} </td>

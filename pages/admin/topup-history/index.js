@@ -24,7 +24,7 @@ const TopupHistory = () => {
       console.log('user ' + JSON.stringify(resp.data));
       if (resp && resp.data) {
         resp.data.length <= 0
-          ? setNoUsers('No history Available')
+          ? setNoHistory('No history Available')
           : dispatch({ type: STORETYPES.TOPUPS, payload: resp.data });
         setLoading(false);
       }

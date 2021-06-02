@@ -6,6 +6,7 @@ export const ModalCtxProvider = ({ children }) => {
   const [showModal, setShowModal] = useState(false);
   const [create, setCreate] = useState(false);
   const [confirm, setConfirm] = useState(false);
+  const [details, setDetails] = useState(false);
 
   const closeModal = () => {
     setShowModal(false);
@@ -19,6 +20,8 @@ export const ModalCtxProvider = ({ children }) => {
     setCreate: setCreate,
     confirm: confirm,
     setConfirm: setConfirm,
+    details: details,
+    setDetails: setDetails,
   };
 
   return <ModalCtx.Provider value={modalValues}>{children}</ModalCtx.Provider>;

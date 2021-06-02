@@ -1,4 +1,4 @@
-import { formatCurrency } from '../../../utils/shared';
+import { formatCurrency, formatDateTime } from '../../../utils/shared';
 import DeleteButton from '../buttons/DeleteButton';
 import EditButton from '../buttons/EditButton';
 
@@ -10,6 +10,7 @@ const movieColumns = () => {
     >
       <th scope="col">No.</th>
       <th>Thumbnail</th>
+      <td>Date</td>
       <th>Title</th>
       <th>Year</th>
       <th>Price</th>
@@ -33,6 +34,7 @@ const movieRows = (movies, editAction, deleteAction) => {
             height={45}
           />
         </td>
+        <td>{formatDateTime(movie.createdAt)}</td>
         <td>{movie.name}</td>
         <td>{movie.release_year}</td>
         <td> {formatCurrency(movie.price)}</td>
