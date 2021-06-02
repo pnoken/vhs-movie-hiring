@@ -4,6 +4,7 @@ import { Store } from '../../contextStore';
 import { useRouter } from 'next/router';
 import Loading from './Loading';
 import notify from '../../utils/toast';
+import Link from 'next/link';
 
 const CartItems = () => {
   const router = useRouter();
@@ -81,7 +82,7 @@ const CartItems = () => {
 
   return (
     <>
-      <form className="needs-validation" novalidate="" onSubmit={checkOut}>
+      <form onSubmit={checkOut}>
         <div className={styles.body}>
           <div className={styles.main}>
             <div
@@ -162,9 +163,9 @@ const CartItems = () => {
                       GHC {totalPrice.toFixed(2)}
                     </span>
                     <button className={styles.login} type="submit">
-                      <a className={styles.checkoutText} href="/login">
-                        LOGIN
-                      </a>
+                      <Link href="/login">
+                        <a className={styles.checkoutText}>LOGIN</a>
+                      </Link>
                     </button>
                   </div>
                 ) : (

@@ -46,14 +46,15 @@ const MovieList = () => {
       const result = movies.filter(movie => movie._id === id);
       console.log('result', result[0].price);
       if (result) {
+        console.log('res', result);
         dispatch({
           type: STORETYPES.CART,
           payload: {
-            _id: result[0]._id,
+            movie_id: result[0]._id,
             name: result[0].name,
             price: result[0].price,
             image_url: result[0].image_url,
-            quantity: result[0].quantity,
+            quantity: result[0].available,
           },
         });
         notify().success('Item added to cart successfully');
