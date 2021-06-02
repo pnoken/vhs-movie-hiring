@@ -29,7 +29,7 @@ const CartItems = () => {
 
   const removeCartItem = id => {
     //let cart = state.cart;
-    let remove = cartItem.filter(item => item._id !== id);
+    let remove = cartItem.filter(item => item.movie_id !== id);
     if (remove) {
       window.localStorage.setItem('cart', JSON.stringify([...remove]));
       setCartItem([...remove]);
@@ -121,7 +121,7 @@ const CartItems = () => {
                           </span>
                           <span
                             className={styles.delCart}
-                            onClick={() => removeCartItem(cartitem._id)}
+                            onClick={() => removeCartItem(cartitem.movie_id)}
                           >
                             <img
                               src="/assets/images/delete.svg"

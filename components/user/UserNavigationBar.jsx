@@ -1,41 +1,27 @@
 // Modules and other imports
-import { useEffect, useState } from 'react';
+import { useState, useContext } from 'react';
 import styles from '../../styles/user/navbar.module.css';
 import Link from 'next/link';
+import { Store } from '../../contextStore';
 
 const UserNavbar = ({ setIsLoggedIn }) => {
-  //   useEffect(() => {
-  //     const userLoggedIn = window.localStorage.getItem("user-data");
-
-  //     if (userLoggedIn){
-  //       let ParsedLoggedIn = JSON.parse(userLoggedIn);
-  //       console.log("Parsed Login", ParsedLoggedIn);
-  //       setUserprofile(ParsedLoggedIn);
-  //       setLoggedInuser(true);
-  //     }
-
-  //   }, [userLoggedIn])
-
+  const { state } = useContext(Store);
+  const [user, setUser] = useState([]);
+  //const [cartItem, setCartItem] = useState([]);
   //Quantity of items in cart
   const cartItems = () => {
-    window.localStorage.getItem('cart').length;
     if (typeof window == 'undefined') {
+      //let cartItem = window.localStorage.getItem('cart');
+      let userData = window.localStorage.getItem('user-data');
+      //setCartItem(JSON.parse(cartItem));
+      setUser(JSON.parse(userData));
       console.log('No items in cart');
     }
   };
 
-  const cartCircle = () => {
-    return <span className={styles.cartCirc}>{cartItems}</span>;
-  };
-
-  //Sign Out functionalty
-  const SignOutUser = async () => {
-    localStorage.removeItem('user-data');
-  };
-  // useEffect(() => {
-  //   localStorage.clear('user-data');
-  //   console.log('User is logged out');
-  // }, []);
+  // const cartCircle = () => {
+  //   return <span className={styles.cartCirc}>{cartItem.length}</span>;
+  // };
 
   {
     /*Return statement for navigationbar when user is logged in*/
@@ -53,9 +39,16 @@ const UserNavbar = ({ setIsLoggedIn }) => {
           </Link>
           <div className={styles.navigationlinks}>
             <Link href="cart">
-              <a>Cart</a>
+              <a>Cart {state.cart.length}</a>
             </Link>
-            <Link href="#logout">
+            {user.role === 'admin' ? (
+              <Link href="/admin/dashboard">
+                <a>Admin Dashboard</a>
+              </Link>
+            ) : (
+              ''
+            )}
+            <Link href="#signout">
               <a
                 onClick={() => {
                   window.localStorage.removeItem('user-data');
