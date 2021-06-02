@@ -37,7 +37,7 @@ const MovieList = () => {
 
   // Add movies to cart
   const addItemToCart = async id => {
-    const found = state.cart.find(movie => movie._id === id);
+    const found = state.cart.find(movie => movie.movie_id === id);
     if (found) {
       notify().error('item already in cart');
       return;
