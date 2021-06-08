@@ -1,19 +1,20 @@
 import styles from '../../styles/user/cart.module.css';
 import React, { useState, useEffect, useContext } from 'react';
 import { Store } from '../../contextStore';
-import { useRouter } from 'next/router';
+//import { useRouter } from 'next/router';
+import { perPage, getPageCount, STORETYPES } from '../../utils/shared';
 import Loading from './Loading';
 import notify from '../../utils/toast';
 import Link from 'next/link';
 
 const CartItems = () => {
-  const router = useRouter();
-  //const { state, dispatch } = useContext(Store);
+  //const router = useRouter();
+  const { dispatch } = useContext(Store);
   const [cartItem, setCartItem] = useState([]);
   const [user, setUser] = useState([]);
   const [load, setLoading] = useState(false);
   //const [creditBalance, setCreditBalance] = useState(user.user.credit_balance);
-  //const { state } = useContext(Store);
+  const { state } = useContext(Store);
 
   useEffect(() => {
     setLoading(true);
@@ -33,6 +34,10 @@ const CartItems = () => {
     if (remove) {
       window.localStorage.setItem('cart', JSON.stringify([...remove]));
       setCartItem([...remove]);
+      dispatch({
+        type: STORETYPES.CART,
+        payload: [...remove],
+      });
       notify().success('Successfully removed item from cart');
     }
   };
@@ -62,11 +67,9 @@ const CartItems = () => {
         requestOptions,
       )
         .then(response => response.json())
-        .then(result => {
+        .then(() => {
           notify().success('Successfully placed order');
           window.localStorage.removeItem('cart');
-          //window.localStorage.setItem('cart', JSON.stringify([]));
-          // router.push('/success');
         })
         .catch(error => notify().error('Sorry, an error occurred!'));
     }
@@ -76,14 +79,10 @@ const CartItems = () => {
     return acc + item.price;
   }, 0);
 
-  // const loginInfo = () => {
-
-  // }
-
   return (
     <>
       <form onSubmit={checkOut}>
-        <div className={styles.body}>
+        <div className={styles.body} style={{ height: '100vh' }}>
           <div className={styles.main}>
             <div
               className={`${styles.cartItems} d-flex justify-content-center`}

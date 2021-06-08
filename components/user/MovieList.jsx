@@ -54,7 +54,7 @@ const MovieList = () => {
             name: result[0].name,
             price: result[0].price,
             image_url: result[0].image_url,
-            quantity: result[0].available,
+            available: result[0].available,
           },
         });
         notify().success('Item added to cart successfully');
