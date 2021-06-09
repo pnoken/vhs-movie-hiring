@@ -9,7 +9,6 @@ import Link from 'next/link';
 
 const CartItems = () => {
   //const router = useRouter();
-  const { dispatch } = useContext(Store);
   const [cartItem, setCartItem] = useState([]);
   const [user, setUser] = useState([]);
   const [load, setLoading] = useState(false);
@@ -34,10 +33,10 @@ const CartItems = () => {
     if (remove) {
       window.localStorage.setItem('cart', JSON.stringify([...remove]));
       setCartItem([...remove]);
-      dispatch({
-        type: STORETYPES.CART,
-        payload: [...remove],
-      });
+      // dispatch({
+      //   type: STORETYPES.CART,
+      //   payload: [...remove],
+      // });
       notify().success('Successfully removed item from cart');
     }
   };
@@ -47,6 +46,7 @@ const CartItems = () => {
     let creditBalance = user.user.credit_balance;
     if (creditBalance < totalPrice) {
       notify().error('Balance is not enough for purchase');
+      return;
     } else {
       var myHeaders = new Headers();
       myHeaders.append('auth-token', user.token);
@@ -82,7 +82,7 @@ const CartItems = () => {
   return (
     <>
       <form onSubmit={checkOut}>
-        <div className={styles.body} style={{ height: '100vh' }}>
+        <div className={styles.body}>
           <div className={styles.main}>
             <div
               className={`${styles.cartItems} d-flex justify-content-center`}
@@ -95,14 +95,14 @@ const CartItems = () => {
                   <span className={styles.ellipse}>
                     <img src="/assets/images/ellipse.svg" />
                     <span className={styles.cartnum}>
-                      {cartItem ? cartItem.length : 0}
+                      {cartItem ? cartItem?.length : 0}
                     </span>
                   </span>
                   <span>Cart</span>
                 </div>
                 <hr className={styles.linebreak} />
                 <ul style={{ listStyle: 'none' }}>
-                  {cartItem && cartItem.length > 0 ? (
+                  {cartItem && cartItem?.length > 0 ? (
                     cartItem.map(cartitem => (
                       <li>
                         <div>
@@ -145,7 +145,7 @@ const CartItems = () => {
                     <div className="text-uppercase">Your cart is empty</div>
                   )}
                 </ul>
-                {user && cartItem.length > 0 ? (
+                {user && cartItem?.length > 0 ? (
                   <div>
                     <span className={styles.subtotal}>SUBTOTAL: </span>
                     <span className={styles.price}>
@@ -155,7 +155,7 @@ const CartItems = () => {
                       <p className={styles.checkoutText}>CHECKOUT</p>
                     </button>
                   </div>
-                ) : !user && cartItem.length > 0 ? (
+                ) : !user && cartItem?.length > 0 ? (
                   <div>
                     <span className={styles.subtotal}>SUBTOTAL: </span>
                     <span className={styles.price}>

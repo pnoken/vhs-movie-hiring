@@ -82,9 +82,9 @@ const MovieList = () => {
                 <div className={styles.moviePoster}>
                   <img
                     src={
-                      movie.image_url
+                      movie.image_url && movie.available
                         ? movie.image_url
-                        : '/assets/images/movieplaceholder.jpg'
+                        : 'https://st2.depositphotos.com/1186248/6498/i/600/depositphotos_64982201-stock-photo-out-of-stock.jpg'
                     }
                     alt="Movie Poster"
                   />
@@ -92,13 +92,23 @@ const MovieList = () => {
 
                 <div className={styles.movieInfo}>
                   <h5>{movie.name}</h5>
-                  <button onClick={() => addItemToCart(movie._id)}>+</button>
+                  {movie.available ? (
+                    <button onClick={() => addItemToCart(movie._id)}>+</button>
+                  ) : (
+                    <button onClick={() => addItemToCart(movie._id)} disabled>
+                      +
+                    </button>
+                  )}
                 </div>
                 <br />
                 <div className={styles.moviesubInfo}>
                   <div>Rating: {movie.rating}/10</div>
                   <div>GH₵{movie.price}.00</div>
-                  <div>Quantity: {movie.available}</div>
+                  {movie.available ? (
+                    <div>Quantity: {movie.available}</div>
+                  ) : (
+                    <div>Out of Stock</div>
+                  )}
                 </div>
               </div>
             );

@@ -24,6 +24,14 @@ const Authenticated = Component => {
         Router.replace(Home);
         return null;
       }
+      console.log(accessToken.user.role);
+      if (accessToken.user.role !== 'admin') {
+        console.log('not an admin');
+        notify().error('Prohibited from accessing this page');
+        Router.replace(Home);
+        return null;
+      }
+
       // If this is an accessToken we just render the component that was passed with all its props
 
       return <Component {...props} />;

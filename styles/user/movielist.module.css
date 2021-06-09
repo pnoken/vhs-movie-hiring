@@ -3,13 +3,12 @@
   /* position: absolute; */
   /* width: 2000px; */
   background: #222b31;
-  /* max-height: 100%;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; */
+  align-items: center;
   font-family: DM Sans;
-  height: 100vh;
 }
 
 .main {
@@ -23,10 +22,11 @@
 
 .main h3 {
   top: 18%;
-  left: 4%;
-  display: flex;
-  /* position: absolute; */
+  left: 5%;
+  position: absolute;
   color: #ffffff;
+  font-family: DM Sans;
+  font-size: 40px;
 }
 
 .movieContainer {

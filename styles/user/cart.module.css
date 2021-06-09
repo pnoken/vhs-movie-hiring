@@ -4,6 +4,7 @@
   background: #222b31;
   display: flex;
   font-family: DM Sans;
+  height: fit-content;
 }
 
 .main {

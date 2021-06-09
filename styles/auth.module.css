@@ -1,252 +1,257 @@
-  .body {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position-x: 0;
-    background-position-y: 0;
-    background-image: url(/img/login-background.jpg);
-    /* background: linear-gradient(270deg, #0F25E6 20%, #6525B9 45.19%, #A931CE 98.6%); */
-    max-height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: DM Sans;
-  }
+.body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: 0;
+  background-position-y: 0;
+  background-image: url(/img/login-background.jpg);
+  /* background: linear-gradient(270deg, #0F25E6 20%, #6525B9 45.19%, #A931CE 98.6%); */
+  /* max-height: 100%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: DM Sans;
+  height: 100vh;
+}
 
+.main {
+  padding: 5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  .main {
-    padding: 5rem ;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+.loginCard {
+  background-image: url(/img/signin-rectangle.png);
+  width: 100%;
+  height: 558px;
+  left: 322px;
+  top: 213px;
+  border-radius: 20px;
+  border: none;
+}
 
-  .loginCard{
-    background-image: url(/img/signin-rectangle.png);
+.cardInfo {
+  display: flex;
+  float: left;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 40%;
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+
+.welcome {
+  width: fit-content;
+  margin-top: 100px;
+  margin-bottom: 5%;
+  margin-left: 45px;
+  height: 47px;
+  font-family: DM Sans;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 47px;
+  letter-spacing: 0.305em;
+  color: #ffffff;
+}
+
+.form {
+  width: 50%;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 0px 20px 20px 0px;
+  border: none;
+  padding: 15px 60px 70px 60px;
+  display: flex;
+  float: right;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  background-color: white;
+  box-shadow: 0 70px 100px rgba(76, 69, 143, 0.904);
+}
+
+.form h3 {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 31px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.signupcard {
+  margin-top: 30px;
+  padding: 40px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 70px 100px rgba(78, 83, 78, 0.9);
+}
+
+.InputField {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  width: 100%;
+  height: 30px;
+  background-color: rgb(255, 253, 253);
+  color: black;
+  border: none;
+  border-bottom: 2px solid #a931ce;
+  font-weight: 400;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  outline: none;
+}
+
+.errors {
+  display: flex;
+  font-size: 12px;
+  flex-direction: column;
+  color: darkred;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+}
+
+.loginbtn {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  padding: 2px 2px 2px 2px;
+  width: 357px;
+  height: 30px;
+  /* background-color: linear-gradient(270deg, rgb(163, 21, 151) 0%, rgb(219, 71, 182) 45.19%, rgb(195, 39, 122) 98.6%); */
+  background: linear-gradient(
+    270deg,
+    #0f25e6 0%,
+    #6525b9 45.19%,
+    #a931ce 98.6%
+  );
+  border: none;
+  cursor: pointer;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.17em;
+  color: #ffffff;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+  margin-top: 5px;
+  margin-bottom: 40px;
+}
+
+.loginbtn:hover {
+  background: linear-gradient(
+    270deg,
+    rgb(52, 71, 240) 0%,
+    rgb(126, 73, 195) 45.19%,
+    rgb(117, 14, 148) 98.6%
+  );
+  transition-duration: 0.5s;
+  opacity: 1;
+  color: white;
+  border: 2px solid rgb(55, 65, 199);
+}
+
+.signuplnk {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  padding: 2px 2px 2px 2px;
+  width: 357px;
+  height: 30px;
+  background: #6c72fa;
+  border: none;
+  cursor: pointer;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.17em;
+  color: #ffffff;
+  font-weight: normal;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.signuplnk:hover {
+  /* border-radius: 10px; */
+  color: rgb(65, 68, 131);
+  transition-duration: 0.5s;
+  opacity: 1;
+  color: white;
+  text-decoration: none;
+  border: 2px solid rgb(55, 65, 199);
+}
+
+.adminlnk {
+  color: rgb(248, 1, 50);
+  padding: 14px 14px;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.adminlnk:hover {
+  background-color: crimson;
+  border-radius: 10px;
+  color: white;
+  transition-duration: 0.5s;
+}
+
+.homelnk {
+  color: chocolate;
+  padding: 14px 14px;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.homelnk:hover {
+  background-color: brown;
+  border-radius: 10px;
+  color: white;
+  transition-duration: 0.5s;
+}
+
+.footer {
+  color: white;
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid #eaeaea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  background-color: black;
+  opacity: 0.5;
+}
+
+@media (max-width: 600px) {
+  .grid {
     width: 100%;
-    height: 558px;
-    left: 322px;
-    top: 213px;
-    border-radius: 20px;
-    border: none;
-  }
-
-  .cardInfo{
-    display: flex;
-    float: left;
     flex-direction: column;
-    align-items: center;
   }
-
-  .logo{
-    margin-right: 40%;
-    margin-top: 40px;
-    margin-bottom: 15px;
-  }
-
-  .welcome{
-    width: fit-content; 
-    margin-top: 100px;
-    margin-bottom: 5%;
-    margin-left: 45px;
-    height: 47px;
-    font-family: DM Sans;
-    font-style: italic;
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 47px;
-    letter-spacing: 0.305em;
-    color: #FFFFFF;
-      }
-
-  .form {
-    width: 500px;
-    height: 558px;
-    background: #FFFFFF;
-    border-radius: 0px 20px 20px 0px;
-    border: none;
-    padding: 15px 60px 70px 60px;
-    display: flex;
-    float: right;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-    background-color: white;
-    box-shadow: 0 70px 100px rgba(76, 69, 143, 0.904);
-
-  }
-
-  .form h3 {
-    font-family: DM Sans;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 31px;
-    color: #000000;
-    margin-bottom: 20px;
-  }
-
-  .signupcard {
-    margin-top: 30px;
-    padding: 40px 20px 20px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 110%;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 70px 100px rgba(78, 83, 78, 0.9);
-  }
-
-  .InputField {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0 10px;
-    width: 357px;
-    height: 30px;
-    background-color: rgb(255, 253, 253);
-    color: black;
-    border: none;
-    border-bottom: 2px solid #A931CE;
-    font-weight: 400;
-    margin-top: 6px;
-    margin-bottom: 6px;
-    outline: none;
-  }
-
-  .errors {
-    display: flex;
-    font-size: 12px;
-    flex-direction: column;
-    color: darkred;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    align-self: center;
-
-  }
-
-  .loginbtn {
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    padding: 2px 2px 2px 2px;
-    width: 357px;
-    height: 30px;
-    /* background-color: linear-gradient(270deg, rgb(163, 21, 151) 0%, rgb(219, 71, 182) 45.19%, rgb(195, 39, 122) 98.6%); */
-    background: linear-gradient(270deg, #0F25E6 0%, #6525B9 45.19%, #A931CE 98.6%);
-    border: none;
-    cursor: pointer;
-    font-family: DM Sans;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 18px;
-    letter-spacing: 0.17em;
-    color: #FFFFFF;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    align-self: center;
-    margin-top: 5px;
-    margin-bottom: 40px;
-  }
-
-  .loginbtn:hover {
-    background: linear-gradient(270deg, rgb(52, 71, 240) 0%, rgb(126, 73, 195) 45.19%, rgb(117, 14, 148) 98.6%);
-    transition-duration: 0.5s;
-    opacity: 1;
-    color: white;
-    border: 2px solid rgb(55, 65, 199);
-  }
-
-
-  .signuplnk {
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    padding: 2px 2px 2px 2px;
-    width: 357px;
-    height: 30px;
-    background: #6C72FA;
-    border: none;
-    cursor: pointer;
-    font-family: DM Sans;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 18px;
-    letter-spacing: 0.17em;
-    color: #FFFFFF;    font-weight: normal;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    margin-top: 20px;
-    margin-bottom: 5px;
-  }
-
-  .signuplnk:hover {
-    /* border-radius: 10px; */
-    color: rgb(65, 68, 131);
-    transition-duration: 0.5s;
-    opacity: 1;
-    color: white;
-    text-decoration: none;
-    border: 2px solid rgb(55, 65, 199);
-
-  }
-
-  .adminlnk {
-    color: rgb(248, 1, 50);
-    padding: 14px 14px;
-    text-decoration: none;
-    font-weight: 400;
-
-  }
-
-  .adminlnk:hover {
-    background-color: crimson;
-    border-radius: 10px;
-    color: white;
-    transition-duration: 0.5s;
-  }
-
-  .homelnk {
-    color: chocolate;
-    padding: 14px 14px;
-    text-decoration: none;
-    font-weight: 400;
-  }
-
-  .homelnk:hover {
-    background-color: brown;
-    border-radius: 10px;
-    color: white;
-    transition-duration: 0.5s;
-  }
-
-
-  .footer {
-    color: white;
-    width: 100%;
-    height: 50px;
-    border-top: 1px solid #eaeaea;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 400;
-    background-color: black;
-    opacity: 0.5;
-  }
-
-  @media (max-width: 600px) {
-    .grid {
-      width: 100%;
-      flex-direction: column;
-    }
-  }
+}
