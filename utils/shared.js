@@ -23,8 +23,24 @@ export const STORETYPES = {
   CART: 'SET_CART',
   TOPUPS: 'SET_TOPUP',
   RENTALS: 'SET_RENTALS',
+  AUTHUSER: 'AUTH_USER',
 };
 
 export const formatDateTime = date => {
   return moment(date).format('YYYY-MM-DD HH:mm A');
+};
+
+export const formateDateOnly = date => {
+  return moment(date).format('YYYY-MM-DD');
+};
+
+export const getCurrentDate = () => {
+  let today = moment();
+  return today.format('YYYY-MM-DD');
+};
+
+export const localStorageToJson = () => {
+  const data = window.localStorage.getItem('user-data');
+
+  return JSON.parse(data);
 };

@@ -71,41 +71,41 @@ const MovieList = () => {
   return (
     <div>
       <div className={styles.body}>
-        <div className={styles.main}>
-          <h3>NEW RELEASES</h3>
-          {noMovies && <h4 className="mt-5 text-center">{noMovies}</h4>}
-          {/*movies container*/}
-          <div className={styles.movieContainer}>
-            {movies.map(movie => {
-              return (
-                <div className={styles.movieTile} key={movie._id}>
-                  <div className={styles.moviePoster}>
-                    <img
-                      src={
-                        movie.image_url
-                          ? movie.image_url
-                          : '/assets/images/movieplaceholder.jpg'
-                      }
-                      alt="Movie Poster"
-                    />
-                  </div>
-
-                  <div className={styles.movieInfo}>
-                    <h5>{movie.name}</h5>
-                    <button onClick={() => addItemToCart(movie._id)}>+</button>
-                  </div>
-                  <br />
-                  <div className={styles.movieubInfo}>
-                    <div>Rating: {movie.rating}/10</div>
-                    <div>GH₵{movie.price}.00</div>
-                    <div>Quantity: {movie.available}</div>
-                  </div>
+        {/* <div className={styles.main}> */}
+        <h3>NEW RELEASES</h3>
+        {noMovies && <h4 className="mt-5 text-center">{noMovies}</h4>}
+        {/*movies container*/}
+        <div className={styles.movieContainer}>
+          {movies.map(movie => {
+            return (
+              <div className={styles.movieTile} key={movie._id}>
+                <div className={styles.moviePoster}>
+                  <img
+                    src={
+                      movie.image_url
+                        ? movie.image_url
+                        : '/assets/images/movieplaceholder.jpg'
+                    }
+                    alt="Movie Poster"
+                  />
                 </div>
-              );
-            })}
-          </div>
-          {load && <Loading />}
+
+                <div className={styles.movieInfo}>
+                  <h5>{movie.name}</h5>
+                  <button onClick={() => addItemToCart(movie._id)}>+</button>
+                </div>
+                <br />
+                <div className={styles.moviesubInfo}>
+                  <div>Rating: {movie.rating}/10</div>
+                  <div>GH₵{movie.price}.00</div>
+                  <div>Quantity: {movie.available}</div>
+                </div>
+              </div>
+            );
+          })}
         </div>
+        {load && <Loading />}
+        {/* </div> */}
       </div>
     </div>
   );

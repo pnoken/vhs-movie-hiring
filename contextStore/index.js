@@ -10,6 +10,7 @@ const initState = {
   users: [],
   topups: [],
   rentals: [],
+  authenticatedUser: {},
 };
 
 const reducer = (state, action) => {
@@ -30,6 +31,8 @@ const reducer = (state, action) => {
 
     case STORETYPES.RENTALS: // 'SET_RENTALS':
       return { ...state, rentals: action.payload };
+    case STORETYPES.AUTHUSER:
+      return { ...state, authenticatedUser: action.payload };
 
     default:
       break;

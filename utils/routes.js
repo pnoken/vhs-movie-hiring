@@ -14,3 +14,5 @@ export const Client = {
   movies: `${client}/movies`,
   orders: `${client}/orders`,
 };
+
+export const Home = '/';

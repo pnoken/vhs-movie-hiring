@@ -21,7 +21,7 @@ const UserForm = ({ selected, closeModal }) => {
   const [age, setAge] = useState('');
 
   useEffect(() => {
-    console.log('here ' + JSON.stringify(selected));
+    // console.log('here ' + JSON.stringify(selected));
     if (!_.isEmpty(selected)) {
       setFirstName(selected.first_name);
       setLastName(selected.last_name);

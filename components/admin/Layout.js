@@ -1,8 +1,9 @@
 import ProjectHead from '../projectHead';
 import AdminTopNav from './TopNav';
 import AdminSideNav from './SideNav';
+import Authenticated from '../auth/Authenticated';
 
-export default function AdminLayout({ children, title }) {
+const AdminLayout = ({ children, title }) => {
   return (
     <>
       {/* import head section */}
@@ -24,4 +25,6 @@ export default function AdminLayout({ children, title }) {
       </div>
     </>
   );
-}
+};
+
+export default Authenticated(AdminLayout);

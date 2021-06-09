@@ -174,9 +174,13 @@ p.error::before{
          color: #6475F9
 } */
 
+/* react calendar */ 
+.react-calendar {
+    width: auto !important;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Raleway&display=swap');
 @import 'react-toastify/dist/ReactToastify.css'
-
 
 
 
