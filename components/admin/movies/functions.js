@@ -10,7 +10,7 @@ const movieColumns = () => {
     >
       <th scope="col">No.</th>
       <th>Thumbnail</th>
-      <td>Date</td>
+      <th>Date</th>
       <th>Title</th>
       <th>Year</th>
       <th>Price</th>

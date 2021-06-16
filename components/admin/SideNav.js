@@ -2,6 +2,7 @@ import { MdDashboard, MdLocalMovies, MdPayment } from 'react-icons/md';
 import { RiMovieLine } from 'react-icons/ri';
 import { FiUsers } from 'react-icons/fi';
 import { FaGoogleWallet } from 'react-icons/fa';
+import { BsFillBarChartFill } from 'react-icons/bs';
 
 import ActiveLink from '../ActiveLink';
 import { Admin } from '../../utils/routes';
@@ -50,6 +51,13 @@ const AdminSideNav = () => {
             <ActiveLink activeClassName="active" href={Admin.topupHistory}>
               <a>
                 <FaGoogleWallet /> Topup History
+              </a>
+            </ActiveLink>
+          </li>
+          <li>
+            <ActiveLink activeClassName="active" href={Admin.reports}>
+              <a>
+                <BsFillBarChartFill /> Reporting
               </a>
             </ActiveLink>
           </li>

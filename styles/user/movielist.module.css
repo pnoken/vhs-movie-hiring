@@ -21,29 +21,29 @@
 }
 
 .main h3 {
-  top: 18%;
+  top: 10%;
   left: 5%;
-  position: absolute;
   color: #ffffff;
   font-family: DM Sans;
   font-size: 40px;
 }
 
 .movieContainer {
+  width: fit-content;
   color: #ffffff;
   display: flex;
   /* width: 100%; */
-  margin-top: 5%;
+  margin-top: 10%;
   background-color: none;
   flex-wrap: wrap;
 }
 
 .movieTile {
-  flex: 1 0 24%;
-  margin: 10px;
-  height: 30%;
+  /* flex: 1 0 320px; */
+  /* margin: 10px; */
+  /* height: 30%; */
   background-color: rgb(93, 95, 97);
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 .moviePoster {
@@ -52,11 +52,14 @@
 }
 
 .moviePoster img {
-  height: 60%;
-  width: 125%;
+  /* size: 72px; */
+  height: 240px;
+  width: 405px;
 }
 .movieInfo {
-  margin: 10px 0px 0px 18px;
+  position: absolute;
+  top: 85%;
+  margin: 0px 0px 0px 18px;
   width: 90%;
   /* position: absolute; */
 }
@@ -80,7 +83,7 @@
 }
 
 .moviesubInfo {
-  margin: 10px 0px 0px 18px;
+  margin: 40px 0px 0px 18px;
   width: 100%;
 }
 

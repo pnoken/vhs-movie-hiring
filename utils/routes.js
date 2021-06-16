@@ -8,6 +8,7 @@ export const Admin = {
   users: `${admin}/users`,
   payments: `${admin}/payments`,
   topupHistory: `${admin}/topup-history`,
+  reports: `${admin}/reports`,
 };
 
 export const Client = {

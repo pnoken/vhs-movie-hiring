@@ -7,7 +7,7 @@ export default function AdminLayout({ children }) {
       {/* import head section */}
       <ProjectHead title="VHS Movies" />
       {/* render top navbar component */}
-      <Navbar />
+      {/* <Navbar /> */}
       {/* render top navbar component */}
 
       <div>{children}</div>

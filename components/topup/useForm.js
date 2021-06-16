@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import validateInfo from './ValidateInfo';
+import { POST } from '../../utils/request';
+import { User } from '../../utils/apiEndpoint';
 
 const useForm = () => {
   const [values, setValues] = useState({
@@ -10,6 +12,7 @@ const useForm = () => {
     cardSecurityCode: '',
     cardPostalCode: '',
     focus: '',
+    amount: 0,
   });
 
   const [errors, setErrors] = useState({});
@@ -29,9 +32,22 @@ const useForm = () => {
     });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     setErrors(validateInfo(values));
+
+    console.log('Values from card', values);
+    // now make our api call
+    const resp = await POST(User.userTopUp, {
+      amount: values.amount,
+      payment_method: values.cardType,
+    });
+
+    if (resp && resp.data) {
+      console.log('Data coming from the backend after ', resp.data);
+    } else {
+      console.log('Error', resp);
+    }
   };
 
   return { handleChange, handleFocus, handleSubmit, values, errors };

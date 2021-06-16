@@ -43,13 +43,13 @@ const CartItems = () => {
 
   const checkOut = async e => {
     e.preventDefault();
-    let creditBalance = user.user.credit_balance;
+    let creditBalance = user?.user.credit_balance;
     if (creditBalance < totalPrice) {
-      notify().error('Balance is not enough for purchase');
+      notify().warn('Balance is not enough for purchase');
       return;
     } else {
       var myHeaders = new Headers();
-      myHeaders.append('auth-token', user.token);
+      myHeaders.append('auth-token', user?.token);
       myHeaders.append('Content-Type', 'application/json');
 
       var raw = JSON.stringify({
@@ -71,7 +71,7 @@ const CartItems = () => {
           notify().success('Successfully placed order');
           window.localStorage.removeItem('cart');
         })
-        .catch(error => notify().error('Sorry, an error occurred!'));
+        .catch(() => notify().error('Sorry, an error occurred!'));
     }
   };
 

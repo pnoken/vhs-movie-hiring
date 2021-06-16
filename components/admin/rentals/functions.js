@@ -1,4 +1,4 @@
-import { formatDateTime } from '../../../utils/shared';
+import { formatCurrency, formatDateTime } from '../../../utils/shared';
 import DetailsButton from '../buttons/DetailsButton';
 
 const rentalsColumns = () => {
@@ -11,6 +11,8 @@ const rentalsColumns = () => {
       <th>Date</th>
       <th>Username</th>
       <th>N0. of Movies</th>
+      <th>Date Returned</th>
+      <th>Total Cost</th>
       <th></th>
     </tr>
   );
@@ -24,6 +26,8 @@ const rentalsRows = (rentals, action) => {
         <td>{formatDateTime(rental.createdAt)}</td>
         <td>{rental.user.username}</td>
         <td style={{ width: '30px' }}>{rental.movies.length}</td>
+        <td></td>
+        <td>{formatCurrency(rental.total_cost)}</td>
         <td style={{ width: '100px', textAlign: 'center' }}>
           <DetailsButton action={action} dataObj={rental} />
         </td>

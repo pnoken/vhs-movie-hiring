@@ -1,16 +1,16 @@
 //Modules and other imports
 import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
-import styles from '../../styles/user/movielist.module.css';
-import { Store } from '../../contextStore';
-import { GET } from '../../utils/request';
-import { User } from '../../utils/apiEndpoint';
-import Loading from './Loading';
-import notify from '../../utils/toast';
-import { perPage, getPageCount, STORETYPES } from '../../utils/shared';
+import styles from '../../../styles/user/movielist.module.css';
+import { Store } from '../../../contextStore';
+import { GET } from '../../../utils/request';
+import { User } from '../../../utils/apiEndpoint';
+import Loading from '.././Loading';
+import notify from '../../../utils/toast';
+import { perPage, getPageCount, STORETYPES } from '../../../utils/shared';
 // import  {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
-const MovieList = () => {
+const Rentals = () => {
   const { state, dispatch } = useContext(Store);
   const [movies, setMovies] = useState([]);
   const [noMovies, setNomovies] = useState('');
@@ -21,8 +21,8 @@ const MovieList = () => {
   useEffect(() => {
     setLoading(true);
 
-    const getMovies = async () => {
-      const resp = await GET(User.movies);
+    const getRentals = async () => {
+      const resp = await GET(User.order);
       // console.log('movies ', JSON.stringify(resp.data));
       if (resp && resp.data) {
         resp.data.length <= 0
@@ -32,7 +32,7 @@ const MovieList = () => {
         setLoading(false);
       }
     };
-    getMovies();
+    getRentals();
   }, []);
 
   // Add movies to cart
@@ -132,4 +132,4 @@ const MovieList = () => {
   );
 };
 
-export default MovieList;
+export default Rentals;

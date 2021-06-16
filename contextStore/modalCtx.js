@@ -7,6 +7,7 @@ export const ModalCtxProvider = ({ children }) => {
   const [create, setCreate] = useState(false);
   const [confirm, setConfirm] = useState(false);
   const [details, setDetails] = useState(false);
+  // const [rent, setDetails] = useState(false);
 
   const closeModal = () => {
     setShowModal(false);

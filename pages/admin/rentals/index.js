@@ -13,6 +13,7 @@ import { ModalCtx } from '../../../contextStore/modalCtx';
 import { Admin } from '../../../utils/apiEndpoint';
 import { GET } from '../../../utils/request';
 import { getPageCount, perPage, STORETYPES } from '../../../utils/shared';
+import NewModal from '../../../components/admin/modals/NewModal';
 
 const Rental = () => {
   const [load, setLoading] = useState(false);
@@ -26,7 +27,7 @@ const Rental = () => {
     setLoading(true);
     const fetchRentals = async () => {
       const resp = await GET(Admin.adminRentals);
-      // console.log('user ' + JSON.stringify(resp.data));
+      console.log('rentals ' + JSON.stringify(resp.data));
       if (resp && resp.data) {
         resp.data.length <= 0
           ? setNoRental('No rentals Available')
@@ -59,7 +60,10 @@ const Rental = () => {
   };
   // ##################################Pagination#########################################
 
-  const rentMovieOut = () => {};
+  const rentMovieOut = () => {
+    modalValues.setCreate(true);
+    console.log('clicked');
+  };
 
   const getDetails = selected => {
     setSelectedRental(selected);
@@ -68,6 +72,8 @@ const Rental = () => {
 
   return (
     <>
+      {modalValues.create && <NewModal src="rental" />}
+
       {modalValues.details && (
         <RentalDetails
           selected={selectedRental}
@@ -79,7 +85,7 @@ const Rental = () => {
         <h2 className="page-heading">Rentals</h2>
         <div className="container">
           <div className="row justify-content-md-center">
-            <div className="col-md-6 col-sm-12">
+            <div className="col-md-8 col-sm-12">
               <div className="table-responsive ">
                 <NewButton
                   text="Rent out Movie"

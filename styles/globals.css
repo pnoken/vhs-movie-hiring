@@ -179,6 +179,86 @@ p.error::before{
     width: auto !important;
 }
 
+
+/*User profile drop-down*/
+:root {
+    --bg: #242526;
+    --bg-accent: #484a4d;
+    --text-color: #dadce1;
+    --nav-size: 60px;
+    border: 1px solid #474a4d;
+    border-radius: 8px;
+    --speed: 500ms;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration:  none;
+}
+
+.nav-item{
+    display: inline;
+    width: calc(var(--nav-size) *0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-icon{
+    width: calc(var(--nav-size) * 0.5);
+    width: var(--button-size);
+    height: var(--button-size);
+    background-color: #484a4d;
+    border-radius: 50%;
+    padding: 5px;
+    margin: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: filter 300ms;
+}
+
+.icon-button:hover{
+    filter: brightness(1.2)
+}
+
+.dropdown{
+    position: absolute;
+    top: 58px;
+    width: 300px;
+    transform: translateX(-45%);
+    background-color: var(--bg);
+    border: var(--border);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    overflow: hidden;
+}
+
+.dropdown a:hover{
+    background-color: none;
+}
+
+.menu-item {
+    float: left;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    transition: background var(--speed);
+    padding: 0.5rem;
+}
+
+.menu-item:hover{
+    background-color: #525357;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Raleway&display=swap');
 @import 'react-toastify/dist/ReactToastify.css'
 

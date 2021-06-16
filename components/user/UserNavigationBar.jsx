@@ -3,12 +3,15 @@ import { useState, useContext, useEffect } from 'react';
 import styles from '../../styles/user/navbar.module.css';
 import Link from 'next/link';
 import { Store } from '../../contextStore';
-import { FaUserCircle } from 'react-icons/fa';
+import { FaUserCircle, FaUserEdit, FaHistory } from 'react-icons/fa';
+
 
 
 const UserNavbar = ({ setIsLoggedIn }) => {
+
   const { state } = useContext(Store);
   const [user, setUser] = useState({});
+  const [show, setShow] = useState(false);
   
   //Quantity of items in cart
   const cartItems = () => {
@@ -34,6 +37,45 @@ const UserNavbar = ({ setIsLoggedIn }) => {
         }
     }, [])
 
+    //Dropdown navigation items
+
+    function Dropdownnav(props){
+      return(
+        <nav className="navbar">
+          <ul className="navbar-nav">{props.children}</ul>
+        </nav>
+      )
+    }
+
+    function NavItem(props) {
+      return(
+        <li className="nav-item">
+          <a href="#" className="icon-button" onClick={()=>setShow(!show)}>
+            {props.icon}
+          </a>
+          {show && props.children}
+        </li>
+
+      )
+    }
+
+    function DropdownMenu (){
+      function DropdownItem(props){
+        return(
+          <a href="#" className="menu-item">
+            <span className="icon-button">{props.leftIcon}</span>
+            {props.children}
+            <span className="icon-right">{props.rightIcon}</span>
+          </a>
+        )
+      }
+      return(
+        <div className="dropwdown">
+          <DropdownItem leftIcon={<FaUserEdit/>}><a href="/user/profile">My Profile</a></DropdownItem>
+          <DropdownItem leftIcon={<FaHistory/>}><a href="/user/rentalhistory">Rentals</a></DropdownItem>
+        </div>
+      )
+    }
   {
     /*Return statement for navigationbar when user is logged in*/
   }
@@ -48,8 +90,10 @@ const UserNavbar = ({ setIsLoggedIn }) => {
               <img src="img/logo.png" alt="home logo" />
             </a>
           </Link>
+
           <div className={styles.navigationlinks}>
-            <Link href="cart">
+
+            <Link href="/cart">
               <a>Cart {" "}
                   <span style={{backgroundColor: "white", color: "rgb(93, 95, 97)", borderRadius: "50px", width: "15px", padding: "0px 5px 0px 5px"}}>
                     {state.cart.length}
@@ -57,7 +101,7 @@ const UserNavbar = ({ setIsLoggedIn }) => {
                 </a>
             </Link>
             
-            <Link href="#signout">
+            <Link href="/">
               <a
                 onClick={() => {
                   window.localStorage.removeItem('user-data');
@@ -67,22 +111,35 @@ const UserNavbar = ({ setIsLoggedIn }) => {
                 Sign out
               </a>
             </Link>
-            <Link href="topup">
+            <Link href="/topup">
               <a>Balance {" "}
                   <span style={{backgroundColor: "white", color: "rgb(93, 95, 97)", borderRadius: "50px", width: "15px", padding: "0px 5px 0px 5px"}}>
                     {credit_balance}
                   </span>
                 </a>
             </Link>
+
             <div className={styles.userDropdown}>
-                <div className={styles.dropdown}>
+
+                {/* <div className={styles.dropdown}>
 									<FaUserCircle size={20} />
 								</div>
                 <div className={styles.dropdownItems}>
                   <a href="#">Profile</a>
                   <a href="">Activity History</a>
-                </div>
+                </div> */}
+
+              <div>
+                
+
+                <NavItem icon={<FaUserCircle size={20} />}>
+                  <DropdownMenu/>
+                </NavItem>
+
+              </div>
+
             </div>
+
           </div>
         </div>
       </div>

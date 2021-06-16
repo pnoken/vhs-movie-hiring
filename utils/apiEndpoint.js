@@ -3,6 +3,7 @@ export const User = {
   delete: '/delete',
   movies: 'user/movies',
   order: '/user/order',
+  userTopUp: '/user/topup',
 };
 
 export const Admin = {
@@ -10,4 +11,5 @@ export const Admin = {
   adminUsers: '/admin/users',
   adminTopupHistory: '/admin/topup',
   adminRentals: '/admin/order',
+  adminPayments: '/admin/payment-history',
 };

@@ -5,6 +5,7 @@ import { ModalCtx } from '../../../contextStore/modalCtx';
 import CloseButton from '../buttons/CloseButton';
 import SubmitButton from '../buttons/SubmitButton';
 import MovieForm from '../movies/MovieForm';
+import RentalForm from '../rentals/RentalForm';
 import _ from 'lodash';
 import UserForm from '../users/UserForm';
 
@@ -18,12 +19,13 @@ const NewModal = ({ src, selected, setSelected }) => {
   const closeModal = () => {
     modalValues.setShowModal(false);
     modalValues.setCreate(false);
-    setSelected({});
+    if (setSelected) setSelected({});
   };
 
   let title = '';
   if (_.isEmpty(selected)) {
     title = 'Add New ';
+    if (src === 'rental') title = 'Rent a movie out';
   } else {
     title = 'Update ';
   }
@@ -41,6 +43,11 @@ const NewModal = ({ src, selected, setSelected }) => {
       title = `${title}  User`;
       formRender = <UserForm selected={selected} closeModal={closeModal} />;
       formId = 'userForm';
+      break;
+    case 'rental':
+      title = `${title}`;
+      formRender = <RentalForm closeModal={closeModal} />;
+      formId = 'rentalForm';
       break;
 
     default:

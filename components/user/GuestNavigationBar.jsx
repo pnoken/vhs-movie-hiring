@@ -1,20 +1,15 @@
 // Modules and other imports
-import { useEffect, useState } from 'react';
+import { Store } from '../../contextStore';
+import { useState, useContext, useEffect } from 'react';
+
 import styles from '../../styles/user/navbar.module.css';
 import Link from 'next/link';
 
 const GuestNavbar = () => {
-  //   useEffect(() => {
-  //     const userLoggedIn = window.localStorage.getItem("user-data");
 
-  //     if (userLoggedIn){
-  //       let ParsedLoggedIn = JSON.parse(userLoggedIn);
-  //       console.log("Parsed Login", ParsedLoggedIn);
-  //       setUserprofile(ParsedLoggedIn);
-  //       setLoggedInuser(true);
-  //     }
+  //state objects
+  const { state } = useContext(Store);
 
-  //   }, [userLoggedIn])
 
   //Quantity of items in cart
   const cartItems = () => {
@@ -40,13 +35,17 @@ const GuestNavbar = () => {
             </a>
           </Link>
           <div className={styles.navigationlinks}>
-            <Link href="cart">
-              <a>Cart {cartCircle}</a>
+          <Link href="/cart">
+              <a>Cart {" "}
+                  <span style={{backgroundColor: "white", color: "rgb(93, 95, 97)", borderRadius: "50px", width: "15px", padding: "0px 5px 0px 5px"}}>
+                    {state.cart.length}
+                  </span>
+                </a>
             </Link>
-            <Link href="login">
+            <Link href="/login">
               <a>Sign in</a>
             </Link>
-            <Link href="signup">
+            <Link href="/signup">
               <a>Sign up</a>
             </Link>
           </div>

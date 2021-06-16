@@ -24,6 +24,7 @@ export const STORETYPES = {
   TOPUPS: 'SET_TOPUP',
   RENTALS: 'SET_RENTALS',
   AUTHUSER: 'AUTH_USER',
+  PAYMENTS: 'PAYMENTS',
 };
 
 export const formatDateTime = date => {
